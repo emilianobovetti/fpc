@@ -16,7 +16,11 @@
 }(this, function () {
   'use strict';
 
-  var fpc = {};
+  function fpc (val) {
+    return typeof val === 'function'
+      ? fpc.compose.apply(null, arguments)
+      : fpc.pipe.apply(null, arguments);
+  }
 
   fpc.compose = function (fn) {
     fpc.expect.fun(fn);
