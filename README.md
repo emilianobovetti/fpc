@@ -116,36 +116,56 @@ fpc.pipe('hello, ')
 
     Throws an error but as expression, unlike `throw`.
 
-    `arguments.length > 0 || fpc.failWith(new Error('No args'));`
+    ```javascript
+    arguments.length > 0 || fpc.failWith(new Error('No args'));
+    ```
 
 - `fpc.prop`
 
     Get a property from an object, or undefined.
 
-    `fpc.prop({ p: 'val' }, 'p') === 'val';`
-    `fpc.prop(null, 'p') === undefined;`
+    ```javascript
+    fpc.prop({ p: 'val' }, 'p') === 'val';
+    fpc.prop(null, 'p') === undefined;
+    ```
 
 - `fpc.slice`
 
-    E.g. take second and third arguments:
-
-    `fpc.slice(arguments, 1, 3);`
+    ```javascript
+    fpc.slice([ 1, 2, 3 ], 1, 3); // [ 2, 3 ]
+    ```
 
 - `fpc.reverse`
 
-    `fpc.reverse([ 1, 2, 3 ]); // [ 3, 2, 1 ]`
+    ```javascript
+    fpc.reverse([ 1, 2, 3 ]); // [ 3, 2, 1 ]
+    ```
 
 - `fpc.reduce`
 
     Portable implementation of `Array.prototype.reduce()`.
 
+    ```javascript
+    var str = fpc.pipe([ 1, 2, 3 ])
+      .into(fpc.reduce, function (acc, val) { return acc + ', ' + val; })
+      .end;
+
+    str === '1, 2, 3';
+    ```
+
 - `fpc.map`
 
     Portable implementation of `Array.prototype.map()`.
 
+    ```javascript
+    fpc.pipe([ 1, 2, 3 ])
+      .into(fpc.map, function (val) { return val * 2; })
+      .end; // [ 2, 4, 6 ]
+    ```
+
 - `fpc.pair`
 
-    Creates a two element array.
+    Creates a two elements array.
 
 - `fpc.first`
 
@@ -159,22 +179,31 @@ fpc.pipe('hello, ')
 
     Takes the last element of an array.
 
-- `fpc.flip`
-
-    Given a function `fn`, returns a version of that function that takes its arguments in reverse order.
-
 - `fpc.sum`
 
     Summation:
 
-    `fpc.sum(1, 2, 3) === 6;`
-    `fpc.sum([ 1, 2, 3 ]) === 6;`
+    ```javascript
+    fpc.sum(1, 2, 3) === 6;
+    fpc.sum([ 1, 2, 3 ]) === 6;
+    ```
 
 - `fpc.cat`
 
     Like `fpc.sum` but casts its arguments to string.
 
-    `fpc.cat(1, 2, 3) === '123';`
+    ```javascript
+    fpc.cat(1, 2, 3) === '123';
+    ```
+
+- `fpc.flip`
+
+    Given a function `fn`, returns a version of that function that takes its arguments in reverse order.
+
+    ```javascript
+    var invCat = fpc.flip(fpc.cat);
+    invCat(1, 2, 3) === fpc.cat(3, 2, 1);
+    ```
 
 - `fpc.bound`
 
@@ -186,13 +215,15 @@ fpc.pipe('hello, ')
 
 - `fpc.is`
 
-    `fpc.is.num(v)  // fpc.typeOf(v) === 'number'`
-    `fpc.is.str(v)  // fpc.typeOf(v) === 'string'`
-    `fpc.is.sym(v)  // fpc.typeOf(v) === 'symbol'`
-    `fpc.is.obj(v)  // fpc.typeOf(v) === 'object'`
-    `fpc.is.fun(v)  // fpc.typeOf(v) === 'function'`
-    `fpc.is.bool(v) // fpc.typeOf(v) === 'boolean'`
-    `fpc.is.reduceable(v) // true if v can be reduced by fpc.reduce`
+    ```javascript
+    fpc.is.num(v)  // fpc.typeOf(v) === 'number'
+    fpc.is.str(v)  // fpc.typeOf(v) === 'string'
+    fpc.is.sym(v)  // fpc.typeOf(v) === 'symbol'
+    fpc.is.obj(v)  // fpc.typeOf(v) === 'object'
+    fpc.is.fun(v)  // fpc.typeOf(v) === 'function'
+    fpc.is.bool(v) // fpc.typeOf(v) === 'boolean'
+    fpc.is.reduceable(v) // true if v can be reduced by fpc.reduce
+    ```
 
 - `fpc.expect`
 
@@ -200,17 +231,27 @@ fpc.pipe('hello, ')
 
 - `fpc.call`
 
-    `fpc.call('1,2,3', 'split', ','); // '1,2,3'.split(',')`
+    ```javascript
+    fpc.call('1,2,3', 'split', ','); // '1,2,3'.split(',')
+    ```
 
 - `fpc.pass`
 
-    `fpc.pipe([ 1 ]).into(fpc.pass, fpc.call, 'push', 2).end; // [ 1, 2 ]`
+    ```javascript
+    fpc.pipe([ 1 ])
+      .into(fpc.pass, fpc.call, 'push', 2)
+      .end; // [ 1, 2 ]`
+    ```
 
 - `fpc.log`
 
     The following logs `hello, world` and returns `'hello, world'`:
 
-    `fpc.pipe('hello, world').into(fpc.log).end;`
+    ```javascript
+    fpc.pipe('hello, world')
+      .into(fpc.log)
+      .end;
+    ```
 
 ## Installation
 
