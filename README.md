@@ -92,10 +92,6 @@ var newScore = scoreUpdater(user.score); // 57
 
 `fpc.log()` will help to keep track of the value inside a pipe:
 
-### Short Form
-
-`fpc(fn)` where `typeof fn === 'function'` is a shortcut for `fpc.compose(fn)`, while `fpc(val)` is an alternate form for `fpc.pipe(val)` if `val` is not a function.
-
 ```javascript
 var user = { name: 'Bob', score: 25 };
 
@@ -109,6 +105,10 @@ fpc.pipe('hello, ')
   .then(fpc.log, 'Final value:') // Final value: Hello, Bob! Your score is: 25
   .end;
 ```
+
+### Short Form
+
+`fpc(fn)` where `typeof fn === 'function'` is a shortcut for `fpc.compose(fn)`, while `fpc(val)` is an alternate form for `fpc.pipe(val)` if `val` is not a function.
 
 ## Built in Functions
 
