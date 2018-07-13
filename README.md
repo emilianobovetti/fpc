@@ -2,7 +2,7 @@
 
 JavaScript developers with functional programming background would appreciate the [pipeline operator](https://github.com/tc39/proposal-pipeline-operator)<sup>[citation needed]</sup>.
 
-I made this implementation focused on portability that supports piping and function composition with fluent syntax. This allows to apply more than one argument to non-curried functions.
+I made this implementation focused on [portability](https://github.com/emilianobovetti/fpc-ie6-test-env) that supports piping and function composition with fluent syntax. This allows to apply more than one argument to non-curried functions.
 
 ## Examples
 
@@ -183,8 +183,8 @@ fpc.pipe('hello, ')
 
     fpc.reduce('hello', (acc, c) => acc + shiftChar(c), ''); // 'ifmmp'
 
-    function isNumeric (str) {
-      return fpc.reduce(str, (acc, x) => acc && x >= 0 && x <= 9, true);
+    function isNumeric (val) {
+      return fpc.reduce(val, (acc, x) => acc && x >= 0 && x <= 9, true);
     }
 
     isNumeric('0123456789'); // true
@@ -201,7 +201,7 @@ fpc.pipe('hello, ')
 
     ```javascript
     fpc.pipe([ 1, 2, 3 ])
-      .into(fpc.map, val => val * 2)
+      .into(fpc.map, x => x * 2)
       .end; // [ 2, 4, 6 ]
     ```
 
