@@ -12,7 +12,7 @@ uglifyjs := $(node_bin)/uglifyjs
 
 all : yarn-check test
 	@mkdir -p $(build_dir)
-	@$(uglifyjs) $(js_source) --compress --mangle > $(min_target)
+	@$(uglifyjs) $(js_source) -c properties=false -m > $(min_target)
 
 .PHONY: test
 test : yarn-check
