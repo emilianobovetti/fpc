@@ -70,7 +70,11 @@
   };
 
   fpc.prop = function (val, prop) {
-    return val == null ? undefined : val[prop];
+    return val == null
+      ? undefined
+      : fpc.is.str(val) && fpc.is.num(prop)
+      ? val.charAt(prop)
+      : val[prop];
   };
 
   fpc.slice = function (val, begin, end) {
@@ -78,6 +82,7 @@
 
     if (arguments.length < 3) end = val.length;
     if (arguments.length < 2) begin = 0;
+    if (fpc.is.str(val)) val = val.split('');
 
     return [].slice.call(val, begin, end);
   };
@@ -107,11 +112,11 @@
     }
 
     var acc = arguments.length < 3
-      ? val[0]
-      : fn(init, val[0]);
+      ? fpc.prop(val, 0)
+      : fn(init, fpc.prop(val, 0));
 
     for (var len = val.length, index = 1; index < len; index++) {
-      acc = fn(acc, val[index]);
+      acc = fn(acc, fpc.prop(val, index));
     }
 
     return acc;
