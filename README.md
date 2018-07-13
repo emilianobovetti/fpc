@@ -32,6 +32,9 @@ var result = fpc.pipe('hello')
   .then(capitalize)
   .then(exclaim)
   .end; // 'Hello, hello!'
+
+// Note that if you miss the trailing `.end`, then `result`
+// won't contain the correct result
 ```
 
 ### Multiple Arguments
@@ -59,7 +62,7 @@ var newScore = fpc.pipe(person.score)
   .end; // 57
 ```
 
-Note that fpc comes with a collection of pure functions:
+`fpc` comes with a collection of pure functions:
 
 ```javascript
 var newScore = fpc.pipe(person.score)
@@ -90,25 +93,21 @@ var newScore = scoreUpdater(user.score); // 57
 
 ### Logging
 
-`fpc.log()` will help to keep track of the value inside a pipe:
+`fpc.show()` will help to keep track of the value inside a pipe:
 
 ```javascript
 var user = { name: 'Bob', score: 25 };
 
-// Note that `fpc.log()` will log the first argument as last
+// Note that `fpc.show()` will log the first argument as last
 fpc.pipe('hello, ')
   .into(fpc.cat, user.name, '!')
-  .then(fpc.log, 'Before adding score:') // Before adding score: hello, Bob!
+  .then(fpc.show, 'Before adding score:') // Before adding score: hello, Bob!
   .then(fpc.cat, ' Your score is: ', user.score)
-  .then(fpc.log, 'Before capitalize:') // Before capitalize: hello, Bob! Your score is: 25
+  .then(fpc.show, 'Before capitalize:') // Before capitalize: hello, Bob! Your score is: 25
   .then(capitalize)
-  .then(fpc.log, 'Final value:') // Final value: Hello, Bob! Your score is: 25
+  .then(fpc.show, 'Final value:') // Final value: Hello, Bob! Your score is: 25
   .end;
 ```
-
-### Short Form
-
-`fpc(fn)` where `typeof fn === 'function'` is a shortcut for `fpc.compose(fn)`, while `fpc(val)` is an alternate form for `fpc.pipe(val)` if `val` is not a function.
 
 ## Built in Functions
 
@@ -135,14 +134,29 @@ fpc.pipe('hello, ')
 
 - `fpc.slice`
 
+    Works like `Array.prototype.slice()`, but accepts array-like objects like `arguments` and also strings.
+
     ```javascript
     fpc.slice([ 1, 2, 3 ], 1, 3); // [ 2, 3 ]
+    fpc.slice('str'); // [ 's', 't', 'r' ]
+    ```
+
+- `fpc.unshift`
+
+  Like `Array.prototype.unshift()`, but doesn't modify the given array.
+
+    ```javascript
+    fpc.unshift([ 1, 2 ], 0); // [ 0, 1, 2 ]
+    fpc.unshift(2, 1); // [ 1, 2 ]
     ```
 
 - `fpc.reverse`
 
+    Accepts a string, an array or an array-like object and returns a copy of that object reversed. Doesn't modify the given array.
+
     ```javascript
     fpc.reverse([ 1, 2, 3 ]); // [ 3, 2, 1 ]
+    fpc.reverse('nice'); // 'ecin'
     ```
 
 - `fpc.reduce`
@@ -151,10 +165,31 @@ fpc.pipe('hello, ')
 
     ```javascript
     var str = fpc.pipe([ 1, 2, 3 ])
-      .into(fpc.reduce, function (acc, val) { return acc + ', ' + val; })
+      .into(fpc.reduce, (acc, val) => acc + ', ' + val)
       .end;
 
     str === '1, 2, 3';
+    ```
+
+    Works on strings too:
+
+    ```javascript
+    function shiftChar (char) {
+      return String.fromCharCode(char.charCodeAt(0) + 1);
+    }
+
+    fpc.reduce('hello', (acc, c) => acc + shiftChar(c), ''); // 'ifmmp'
+
+    function isNumeric (str) {
+      return fpc.reduce(str, (acc, x) => acc && x >= 0 && x <= 9, true);
+    }
+
+    isNumeric('0123456789'); // true
+    isNumeric('0123x45678'); // false
+
+    isNumeric([ 0, '1', 2 ]); // true
+    isNumeric([ 0, 'x', 2 ]); // false
+    isNumeric([ 0, 1, 2 ]); // true
     ```
 
 - `fpc.map`
@@ -163,8 +198,15 @@ fpc.pipe('hello, ')
 
     ```javascript
     fpc.pipe([ 1, 2, 3 ])
-      .into(fpc.map, function (val) { return val * 2; })
+      .into(fpc.map, val => val * 2)
       .end; // [ 2, 4, 6 ]
+    ```
+
+    Works on strings like `fpc.reduce`:
+
+    ```javascript
+    fpc.map('hello', shiftChar); // [ 'i', 'f', 'm', 'm', 'p' ]
+    fpc.map('hello', shiftChar).join(''); // 'ifmmp'
     ```
 
 - `fpc.pair`
@@ -198,6 +240,7 @@ fpc.pipe('hello, ')
 
     ```javascript
     fpc.cat(1, 2, 3) === '123';
+    fpc.cat([ 1, 2, 3 ]) === '123';
     ```
 
 - `fpc.flip`
@@ -213,9 +256,17 @@ fpc.pipe('hello, ')
 
     Clamps a number within a given range.
 
+- `fpc.unbox`
+
+  Returns the unboxed value on some objects, works as identity function on other values.
+
+    ```javascript
+    typeof fpc.unbox(Object('str')); // 'string'
+    ```
+
 - `fpc.typeOf`
 
-    Like `typeof`, but `fpc.typeOf(null) === 'null'`.
+    Like `typeof`, but `fpc.typeOf(null) === 'null'` and returns the correct type for boxed values `fpc.typeOf(Object('str')) === 'string'`.
 
 - `fpc.is`
 
@@ -231,7 +282,12 @@ fpc.pipe('hello, ')
 
 - `fpc.expect`
 
-    Throws an error if `fpc.is` returns false, returns given value otherwise.
+    Throws an error if respective `fpc.is` function returns false, otherwise returns given — unboxed — value.
+
+    ```javascript
+    fpc.expect.obj(val).something;
+    typeof fpc.expect.str(Object('str')); // 'string'
+    ```
 
 - `fpc.call`
 
@@ -249,11 +305,21 @@ fpc.pipe('hello, ')
 
 - `fpc.log`
 
-    The following logs `hello, world` and returns `'hello, world'`:
+  The following logs `hello, world` and returns `'hello, world'`:
 
     ```javascript
     fpc.pipe('hello, world')
       .into(fpc.log)
+      .end;
+    ```
+
+- `fpc.show`
+
+    Logs `hello, world` and returns `'world'`:
+
+    ```javascript
+    fpc.pipe('world')
+      .into(fpc.show, 'hello,')
       .end;
     ```
 

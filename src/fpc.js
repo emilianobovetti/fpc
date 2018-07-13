@@ -16,11 +16,7 @@
 }(this, function () {
   'use strict';
 
-  function fpc (val) {
-    return typeof val === 'function'
-      ? fpc.compose.apply(null, arguments)
-      : fpc.pipe.apply(null, arguments);
-  }
+  var fpc = {};
 
   fpc.compose = function (fn) {
     fpc.expect.fun(fn);
@@ -37,9 +33,9 @@
       var args = fpc.slice(arguments, 1);
 
       return fpc.compose(function () {
-        args.unshift(self.apply(null, arguments));
+        var args_ = fpc.unshift(args, self.apply(null, arguments));
 
-        return fn.apply(null, args);
+        return fn.apply(null, args_);
       });
     };
 
@@ -57,9 +53,9 @@
     self.end = arg;
 
     self.into = self.then = function (fn) {
-      args = args.concat(fpc.slice(arguments, 1));
+      var args_ = args.concat(fpc.slice(arguments, 1));
 
-      return fpc.pipe(fpc.expect.fun(fn).apply(null, args));
+      return fpc.pipe(fpc.expect.fun(fn).apply(null, args_));
     };
 
     return self;
@@ -75,22 +71,34 @@
 
   fpc.prop = function (val, prop) {
     return val == null ? undefined : val[prop];
-  }
+  };
 
   fpc.slice = function (val, begin, end) {
-    return [].slice.call(val, begin || 0, end || val.length);
+    if (val == null) return val;
+
+    if (arguments.length < 3) end = val.length;
+    if (arguments.length < 2) begin = 0;
+
+    return [].slice.call(val, begin, end);
+  };
+
+  fpc.unshift = function (val, x) {
+    return [ x ].concat(val);
   };
 
   fpc.reverse = function (val) {
-    return [].reverse.call(val);
+    return fpc.is.str(val)
+      ? fpc.slice(val).reverse().join('')
+      : fpc.is.obj(val)
+      ? fpc.slice(val).reverse()
+      : val;
   };
 
   fpc.reduce = function (val, fn, init) {
-    var len = fpc.is.num(fpc.prop(val, 'length'))
-      ? val.length
-      : fpc.failWith(new Error('Invalid value without "length" in fpc.reduce()'));
+    fpc.expect.reduceable(val);
+    fpc.expect.fun(fn);
 
-    if (len === 0) {
+    if (val.length === 0) {
       if (arguments.length < 3) {
         throw new Error('Invalid call of fpc.reduce() with zero-length value');
       } else {
@@ -98,14 +106,11 @@
       }
     }
 
-    fpc.expect.fun(fn);
-    fpc.expect.reduceable(val);
-
     var acc = arguments.length < 3
       ? val[0]
       : fn(init, val[0]);
 
-    for (var index = 1; index < len; index++) {
+    for (var len = val.length, index = 1; index < len; index++) {
       acc = fn(acc, val[index]);
     }
 
@@ -117,6 +122,7 @@
 
     return fpc.reduce(val, function (acc, val) {
       acc.push(fn(val));
+
       return acc;
     }, []);
   };
@@ -126,15 +132,17 @@
   };
 
   fpc.first = function (val) {
-    return val[0];
+    return fpc.prop(val, 0);
   };
 
   fpc.second = function (val) {
-    return val[1];
+    return fpc.prop(val, 1);
   };
 
   fpc.last = function (val) {
-    return val[val.length - 1];
+    return fpc.is.num((val || {}).length)
+      ? fpc.prop(val, val.length - 1)
+      : undefined;
   };
 
   fpc.flip = function (fn) {
@@ -146,21 +154,27 @@
   };
 
   fpc.sum = function (fst) {
-    return fpc.reduce(fpc.is.reduceable(fst) && ! fpc.is.str(fst) ? fst : arguments,
-      function (a, b) { return a + b; }
-    );
+    return fpc.reduce(arguments.length > 1 ? arguments : fst, function (a, b) {
+      return a + b;
+    });
   };
 
-  fpc.cat = function () {
-    return fpc.sum(fpc.map(arguments, String));
+  fpc.cat = function (fst) {
+    return fpc.sum.apply(null, fpc.map(arguments.length > 1 ? arguments : fst, String));
   };
 
   fpc.bound = function (val, min, max) {
     return Math.max(min, Math.min(max, val));
   };
 
+  fpc.unbox = function (val) {
+    var unb = (val || {}).valueOf();
+
+    return typeof unb !== 'object' && typeof unb !== 'function' ? unb : val;
+  };
+
   fpc.typeOf = function (val) {
-    return val === null ? 'null' : typeof val;
+    return val === null ? 'null' : typeof fpc.unbox(val);
   };
 
   function is (expected, val) {
@@ -177,7 +191,7 @@
     fun: is('function'),
     bool: is('boolean'),
     reduceable: function (val) {
-      return fpc.is.num(fpc.prop(val, 'length')) && typeof val[0] !== undefined;
+      return fpc.is.num(fpc.prop(val, 'length'));
     }
   };
 
@@ -185,7 +199,7 @@
     return arguments.length < 2
       ? function (v) { return expect(expected, v); }
       : is(expected, val)
-        ? val
+        ? fpc.unbox(val)
         : fpc.failWith(new Error('Expected ' + expected + ', got ' + fpc.typeOf(val)));
   }
 
@@ -222,15 +236,21 @@
     return arg;
   };
 
-  fpc.log = typeof console !== 'object'
-    ? fpc.id
-    : function (arg) {
-      var args = fpc.slice(arguments, 1);
-      args.push(arg);
-      console.log.apply(null, args);
+  fpc.log = typeof console !== 'object' ? fpc.id : function (fst) {
+    console.log.apply(null, arguments);
 
-      return arg;
-    };
+    return fst;
+  };
+
+  fpc.show = function (fst) {
+    fpc.log.apply(null, fpc.pipe(arguments)
+      .into(fpc.slice, 1)
+      .then(fpc.pass, fpc.call, 'push', fst)
+      .end
+    );
+
+    return fst;
+  };
 
   return fpc;
 }));

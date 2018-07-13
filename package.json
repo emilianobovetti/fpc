@@ -12,14 +12,24 @@
     "fluent",
     "pipeline",
     "piping",
-    "pipe"
+    "pipe",
+    "fp"
   ],
   "main": "src/fpc.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/emilianobovetti/fpc.git"
   },
   "bugs": {
     "url": "https://github.com/emilianobovetti/fpc/issues"
+  },
+  "devDependencies": {
+    "jsverify": "^0.8.3",
+    "lodash": "^4.17.10",
+    "mocha": "^5.2.0",
+    "uglify-js": "^3.4.4"
   }
 }
