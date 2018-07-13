@@ -1,6 +1,6 @@
 # Functional piping & composition
 
-[![Build Status](https://travis-ci.org/emilianobovetti/fpc.svg?branch=master)](https://travis-ci.org/emilianobovetti/fpc)
+[![Build Status](https://travis-ci.org/emilianobovetti/fpc.svg?branch=master)](https://travis-ci.org/emilianobovetti/fpc) [![dist/fpc.min.js file size](https://badge-size.herokuapp.com/emilianobovetti/fpc/master/dist/fpc.min.js)](https://github.com/emilianobovetti/fpc/blob/master/dist/fpc.min.js) [![GPLv3 license](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](https://github.com/emilianobovetti/fpc/blob/master/LICENSE)
 
 JavaScript developers with functional programming background would appreciate the [pipeline operator](https://github.com/tc39/proposal-pipeline-operator)<sup>[citation needed]</sup>.
 
