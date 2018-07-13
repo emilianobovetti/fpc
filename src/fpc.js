@@ -27,7 +27,7 @@
       return fn.apply(null, fpc.slice(arguments).concat(args));
     }
 
-    self.with = self.and = function (fn) {
+    self['with'] = self.and = function (fn) {
       fpc.expect.fun(fn);
 
       var args = fpc.slice(arguments, 1);

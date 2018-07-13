@@ -1,0 +1,14 @@
+sudo: false
+
+language: generic
+
+script:
+  - make
+
+branches:
+  only:
+    - master
+
+addons:
+  apt:
+    update: true
