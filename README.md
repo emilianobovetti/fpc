@@ -88,6 +88,9 @@ var scoreUpdater =
     .with(fpc.sum, 7)
     .and(fpc.bound, 0, 100);
 
+// Note that you can't use `.with` on older browser
+// use `.and` if you need to support them
+
 var newScore = scoreUpdater(user.score); // 57
 ```
 
