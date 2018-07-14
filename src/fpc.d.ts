@@ -45,7 +45,7 @@ export function id<T>(val: T): T;
 
 export function failWith(err: Error): never;
 
-export function prop(str: string, idx: number): undefined | string;
+export function prop(str: string, idx: number): string | undefined;
 export function prop(val: any, prop: string | number): any;
 
 export function slice(str: string, begin?: number, end?: number): Array<string>;
@@ -107,15 +107,11 @@ export const is: {
 };
 
 export const expect: {
-    num(box: Number): number,
     num(val: any): number,
-    str(box: String): string,
     str(val: any): string,
-    sym(box: Symbol): symbol,
     sym(val: any): symbol,
     obj(val: any): object,
     fun(val: any): Function,
-    bool(box: Boolean): boolean,
     bool(val: any): boolean,
     reduceable(val: any): object | string,
 };
