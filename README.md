@@ -4,7 +4,9 @@
 
 JavaScript developers with functional programming background would appreciate the [pipeline operator](https://github.com/tc39/proposal-pipeline-operator)<sup>[citation needed]</sup>.
 
-I made this implementation focused on [portability](https://github.com/emilianobovetti/fpc-ie6-test-env) that supports piping and function composition with fluent syntax. This allows to apply more than one argument to non-curried functions.
+I made this implementation that supports piping and function composition with fluent syntax. This allows to apply more than one argument to non-curried functions.
+
+Particular attention on portability: the very same code should work natively on [IE6](https://github.com/emilianobovetti/fpc-ie6-test-env) and with [TypeScript](https://github.com/emilianobovetti/fpc/blob/master/src/fpc.d.ts).
 
 ## Examples
 
