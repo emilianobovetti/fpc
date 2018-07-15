@@ -2,41 +2,82 @@
 // Project: https://github.com/emilianobovetti/fpc
 // Definitions by: Emiliano Bovetti <https://github.com/emilianobovetti>
 
-interface Comp1<A, B> {
+interface Fn1<A, B> {
     (a: A): B;
 
     ply(a: A): B;
 
-    with<C>(fn: (b: B) => C): Comp1<A, C>;
-    with<C, D>(fn: (b: B, c: C) => D, c: C): Comp1<A, D>;
+    with<C>(fn: (b: B) => C): Fn1<A, C>;
+    with<C, D>(fn: (b: B, c: C) => D, c: C): Fn1<A, D>;
+    with<C, D, E>(fn: (b: B, c: C, d: D) => E, c: C, d: D): Fn1<A, E>;
+    with<C, D, E, F>(fn: (b: B, c: C, d: D, e: E) => F, c: C, d: D, e: E): Fn1<A, F>;
 
-    and<C>(fn: (b: B) => C): Comp1<A, C>;
-    and<C, D>(fn: (b: B, c: C) => D, c: C): Comp1<A, D>;
+    and<C>(fn: (b: B) => C): Fn1<A, C>;
+    and<C, D>(fn: (b: B, c: C) => D, c: C): Fn1<A, D>;
+    and<C, D, E>(fn: (b: B, c: C, d: D) => E, c: C, d: D): Fn1<A, E>;
+    and<C, D, E, F>(fn: (b: B, c: C, d: D, e: E) => F, c: C, d: D, e: E): Fn1<A, F>;
 }
 
-interface Comp2<A, B, C> {
+interface Fn2<A, B, C> {
     (a: A, b: B): C;
 
     ply(a: A, b: B): C;
 
-    with<D>(fn: (c: C) => D): Comp2<A, B, D>;
-    with<D, E>(fn: (c: C, d: D) => E, d: D): Comp2<A, B, E>;
+    with<D>(fn: (c: C) => D): Fn2<A, B, D>;
+    with<D, E>(fn: (c: C, d: D) => E, d: D): Fn2<A, B, E>;
+    with<D, E, F>(fn: (c: C, d: D, e: E) => F, d: D, e: E): Fn2<A, B, F>;
+    with<D, E, F, G>(fn: (c: C, d: D, e: E, f: F) => G, d: D, e: E, f: F): Fn2<A, B, G>;
 
-    and<D>(fn: (c: C) => D): Comp2<A, B, D>;
-    and<D, E>(fn: (c : C, d: D) => E, d: D): Comp2<A, B, E>;
+    and<D>(fn: (c: C) => D): Fn2<A, B, D>;
+    and<D, E>(fn: (c: C, d: D) => E, d: D): Fn2<A, B, E>;
+    and<D, E, F>(fn: (c: C, d: D, e: E) => F, d: D, e: E): Fn2<A, B, F>;
+    and<D, E, F, G>(fn: (c: C, d: D, e: E, f: F) => G, d: D, e: E, f: F): Fn2<A, B, G>;
 }
 
-export function compose<A, B>(fn: (a: A) => B): Comp1<A, B>;
-export function compose<A, B, C>(fn: (a: A, b: B) => C): Comp2<A, B, C>;
+interface Fn3<A, B, C, D> {
+    (a: A, b: B, c: C): D;
+
+    ply(a: A, b: B, c: C): D;
+
+    with<E>(fn: (d: D) => E): Fn3<A, B, C, E>;
+    with<E, F>(fn: (d: D, e: E) => F, e: E): Fn3<A, B, C, F>;
+    with<E, F, G>(fn: (d: D, e: E, f: F) => G, e: E, f: F): Fn3<A, B, C, G>;
+    with<E, F, G, H>(fn: (d: D, e: E, f: F, g: G) => H, e: E, f: F, g: G): Fn3<A, B, C, H>;
+
+    and<E>(fn: (d: D) => E): Fn3<A, B, C, E>;
+    and<E, F>(fn: (d: D, e: E) => F, e: E): Fn3<A, B, C, F>;
+    and<E, F, G>(fn: (d: D, e: E, f: F) => G, e: E, f: F): Fn3<A, B, C, G>;
+    and<E, F, G, H>(fn: (d: D, e: E, f: F, g: G) => H, e: E, f: F, g: G): Fn3<A, B, C, H>;
+}
+
+interface Fn4<A, B, C, D, E> {
+    (a: A, b: B, c: C, d: D): E;
+
+    ply(a: A, b: B, c: C, d: D): E;
+
+    with<F>(fn: (e: E) => F): Fn4<A, B, C, D, F>;
+    with<F, G>(fn: (e: E, f: F) => G, f: F): Fn4<A, B, C, D, G>;
+    with<F, G, H>(fn: (e: E, f: F, g: G) => H, f: F, g: G): Fn4<A, B, C, D, H>;
+    with<F, G, H, I>(fn: (e: E, f: F, g: G, h: H) => I, f: F, g: G, h: H): Fn4<A, B, C, D, I>;
+}
+
+export function compose<A, B>(fn: (a: A) => B): Fn1<A, B>;
+export function compose<A, B, C>(fn: (a: A, b: B) => C): Fn2<A, B, C>;
+export function compose<A, B, C, D>(fn: (a: A, b: B, c: C) => D): Fn3<A, B, C, D>;
+export function compose<A, B, C, D, E>(fn: (a: A, b: B, c: C, d: D) => E): Fn4<A, B, C, D, E>;
 
 interface Pipe<A> {
     end: A;
 
     into<B>(fn: (a: A) => B): Pipe<B>;
     into<B, C>(fn: (a: A, b: B) => C, b: B): Pipe<C>;
+    into<B, C, D>(fn: (a: A, b: B, c: C) => D, b: B, c: C): Pipe<D>;
+    into<B, C, D, E>(fn: (a: A, b: B, c: C, d: D) => E, b: B, c: C, d: D): Pipe<E>;
 
     then<B>(fn: (a: A) => B): Pipe<B>;
     then<B, C>(fn: (a: A, b: B) => C, b: B): Pipe<C>;
+    then<B, C, D>(fn: (a: A, b: B, c: C) => D, b: B, c: C): Pipe<D>;
+    then<B, C, D, E>(fn: (a: A, b: B, c: C, d: D) => E, b: B, c: C, d: D): Pipe<E>;
 }
 
 export function pipe<T>(val: T): Pipe<T>;

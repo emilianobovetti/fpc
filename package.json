@@ -16,7 +16,8 @@
     "fp",
     "typescript"
   ],
-  "main": "src/fpc.js",
+  "main": "./src/fpc.js",
+  "types": "./src/fpc.d.ts",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
