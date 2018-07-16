@@ -339,7 +339,7 @@ $ npm install fpc
 For browser installation all you need is to include the script:
 
 ```HTML
-<script type="text/javascript" src="path/to/fpc.js"></script>
+<script type="text/javascript" src="path/to/dist/fpc.min.js"></script>
 ```
 
 or require in node:
