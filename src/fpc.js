@@ -2,15 +2,20 @@
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
+
+    /* AMD. Register as an anonymous module. */
     define([], factory);
   } else if (typeof exports === 'object') {
-    // Node. Does not work with strict CommonJS, but
-    // only CommonJS-like environments that support module.exports,
-    // like Node.
+
+    /*
+     * Node. Does not work with strict CommonJS, but
+     * only CommonJS-like environments that support module.exports,
+     * like Node.
+     */
     module.exports = factory();
   } else {
-    // Browser globals (root is window)
+
+    /* Browser globals (root is window) */
     root.fpc = factory();
   }
 }(this, function () {
@@ -18,26 +23,28 @@
 
   var fpc = {};
 
-  fpc.compose = function (fn) {
-    fpc.expect.fun(fn);
-
+  fpc.compose = function (fn1) {
     var args = fpc.slice(arguments, 1);
 
+    fpc.expect.fun(fn1);
+
     function self () {
-      return fn.apply(null, fpc.slice(arguments).concat(args));
+      return fn1.apply(null, fpc.slice(arguments).concat(args));
     }
 
-    self['with'] = self.and = function (fn) {
-      fpc.expect.fun(fn);
+    self['with'] = function (fn2) {
+      var innerArgs = fpc.slice(arguments, 1);
 
-      var args = fpc.slice(arguments, 1);
+      fpc.expect.fun(fn2);
 
       return fpc.compose(function () {
-        var args_ = fpc.unshift(args, self.apply(null, arguments));
+        var argsCopy = fpc.unshift(innerArgs, self.apply(null, arguments));
 
-        return fn.apply(null, args_);
+        return fn2.apply(null, argsCopy);
       });
     };
+
+    self.and = self['with'];
 
     self.ply = function () {
       return self.apply(null, arguments);
@@ -52,11 +59,13 @@
 
     self.end = arg;
 
-    self.into = self.then = function (fn) {
-      var args_ = args.concat(fpc.slice(arguments, 1));
+    self.into = function (fn) {
+      var argsCopy = args.concat(fpc.slice(arguments, 1));
 
-      return fpc.pipe(fpc.expect.fun(fn).apply(null, args_));
+      return fpc.pipe(fpc.expect.fun(fn).apply(null, argsCopy));
     };
+
+    self.then = self.into;
 
     return self;
   };
@@ -70,21 +79,29 @@
   };
 
   fpc.prop = function (val, prop) {
-    return val == null
-      ? undefined
-      : fpc.is.str(val) && fpc.is.num(prop)
-      ? val.charAt(prop)
-      : val[prop];
+    if (val == null) {
+      return undefined;
+    }
+
+    if (fpc.is.str(val) && fpc.is.num(prop)) {
+      return val.charAt(prop);
+    }
+
+    return val[prop];
   };
 
-  fpc.slice = function (val, begin, end) {
-    if (val == null) return val;
+  fpc.slice = function (val, b, e) {
+    var toSlice, begin, end;
 
-    if (arguments.length < 3) end = val.length;
-    if (arguments.length < 2) begin = 0;
-    if (fpc.is.str(val)) val = val.split('');
+    if (val == null) {
+      return val;
+    }
 
-    return [].slice.call(val, begin, end);
+    end = arguments.length < 3 ? val.length : e;
+    begin = arguments.length < 2 ? 0 : b;
+    toSlice = fpc.is.str(val) ? val.split('') : val;
+
+    return [].slice.call(toSlice, begin, end);
   };
 
   fpc.unshift = function (val, x) {
@@ -92,14 +109,23 @@
   };
 
   fpc.reverse = function (val) {
-    return fpc.is.str(val)
-      ? fpc.slice(val).reverse().join('')
-      : fpc.is.obj(val)
-      ? fpc.slice(val).reverse()
-      : val;
+    if (fpc.is.str(val)) {
+      return fpc.slice(val)
+        .reverse()
+        .join('');
+    }
+
+    if (fpc.is.obj(val)) {
+      return fpc.slice(val)
+        .reverse();
+    }
+
+    return val;
   };
 
   fpc.reduce = function (val, fn, init) {
+    var acc, len, index;
+
     fpc.expect.reduceable(val);
     fpc.expect.fun(fn);
 
@@ -111,11 +137,11 @@
       }
     }
 
-    var acc = arguments.length < 3
+    acc = arguments.length < 3
       ? fpc.prop(val, 0)
       : fn(init, fpc.prop(val, 0));
 
-    for (var len = val.length, index = 1; index < len; index++) {
+    for (len = val.length, index = 1; index < len; index++) {
       acc = fn(acc, fpc.prop(val, index));
     }
 
@@ -125,8 +151,8 @@
   fpc.map = function (val, fn) {
     fpc.expect.fun(fn);
 
-    return fpc.reduce(val, function (acc, val) {
-      acc.push(fn(val));
+    return fpc.reduce(val, function (acc, x) {
+      acc.push(fn(x));
 
       return acc;
     }, []);
@@ -165,7 +191,9 @@
   };
 
   fpc.cat = function (fst) {
-    return fpc.sum.apply(null, fpc.map(arguments.length > 1 ? arguments : fst, String));
+    var arg = arguments.length > 1 ? arguments : fst;
+
+    return fpc.sum.apply(null, fpc.map(arg, String));
   };
 
   fpc.bound = function (val, min, max) {
@@ -182,10 +210,14 @@
     return val === null ? 'null' : typeof fpc.unbox(val);
   };
 
-  function is (expected, val) {
-    return arguments.length < 2
-      ? function (v) { return is(expected, v); }
-      : fpc.typeOf(val) === expected;
+  function is (exp, val) {
+    if (arguments.length < 2) {
+      return function (v) {
+        return is(exp, v);
+      };
+    }
+
+    return fpc.typeOf(val) === exp;
   }
 
   fpc.is = {
@@ -200,12 +232,18 @@
     }
   };
 
-  function expect (expected, val) {
-    return arguments.length < 2
-      ? function (v) { return expect(expected, v); }
-      : is(expected, val)
-        ? fpc.unbox(val)
-        : fpc.failWith(new Error('Expected ' + expected + ', got ' + fpc.typeOf(val)));
+  function expect (exp, val) {
+    if (arguments.length < 2) {
+      return function (v) {
+        return expect(exp, v);
+      };
+    }
+
+    if (!is(exp, val)) {
+      fpc.failWith(new Error('Expected ' + exp + ', got ' + fpc.typeOf(val)));
+    }
+
+    return fpc.unbox(val);
   }
 
   fpc.expect = {
@@ -241,18 +279,23 @@
     return arg;
   };
 
-  fpc.log = typeof console !== 'object' ? fpc.id : function (fst) {
-    console.log.apply(null, arguments);
+  if (typeof console === 'object') {
+    fpc.log = function (fst) {
+      console.log.apply(null, arguments);
 
-    return fst;
-  };
+      return fst;
+    };
+  } else {
+    fpc.log = fpc.id;
+  }
 
   fpc.show = function (fst) {
-    fpc.log.apply(null, fpc.pipe(arguments)
+    var args = fpc.pipe(arguments)
       .into(fpc.slice, 1)
       .then(fpc.pass, fpc.call, 'push', fst)
-      .end
-    );
+      .end;
+
+    fpc.log.apply(null, args);
 
     return fst;
   };
