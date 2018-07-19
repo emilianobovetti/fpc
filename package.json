@@ -29,10 +29,12 @@
     "url": "https://github.com/emilianobovetti/fpc/issues"
   },
   "devDependencies": {
+    "@semantic-release/git": "^7.0.1",
     "eslint": "^5.1.0",
     "jsverify": "^0.8.3",
     "lodash": "^4.17.10",
     "mocha": "^5.2.0",
+    "semantic-release": "^15.8.1",
     "uglify-js": "^3.4.4"
   }
 }
