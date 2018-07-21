@@ -19,7 +19,7 @@
   "main": "./src/fpc.js",
   "types": "./src/fpc.d.ts",
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "npx nyc mocha"
   },
   "repository": {
     "type": "git",
