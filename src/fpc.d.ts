@@ -103,6 +103,12 @@ export function reduce<V, T>(arr: Array<V>, fn: (acc: T, val: V) => T, init: T):
 export function map<T>(str: string, fn: (char: string) => T): Array<T>;
 export function map<V, T>(arr: Array<V>, fn: (elem: V) => T): Array<T>;
 
+export function filter(str: string, fn: (char: string) => boolean): Array<string>;
+export function filter<T>(arr: Array<T>, fn: (elem: T) => boolean): Array<T>;
+
+export function forEach(str: string, fn: (char: string) => void): string;
+export function forEach<T>(arr: Array<T>, fn: (elem: T) => void): Array<T>;
+
 export function pair<A, B>(a: A, b: B): [ A, B ];
 
 export function first<A, B>(pair: [ A, B ]): A;

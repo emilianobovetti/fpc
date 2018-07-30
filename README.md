@@ -216,6 +216,30 @@ fpc.pipe('hello, ')
     fpc.map('hello', shiftChar).join(''); // 'ifmmp'
     ```
 
+- `fpc.filter`
+
+  Portable implementation of `Array.prototype.filter()`.
+
+    ```javascript
+    fpc.filter([ 1, 2, 3, 4 ], x => x > 2); // [ 3, 4 ]
+    fpc.filter('hello, world', x => x > 'l'); // [ 'o', 'w', 'o', 'r' ]
+    ```
+
+- `fpc.forEach`
+
+  Portable implementation of `Array.prototype.forEach()`.
+
+    ```javascript
+    fpc.forEach('hey', console.log);
+
+    // same as
+    var str = 'hey';
+    console.log(str[0]);
+    console.log(str[1]);
+    console.log(str[2]);
+    return str;
+    ```
+
 - `fpc.pair`
 
     Creates a two elements array.

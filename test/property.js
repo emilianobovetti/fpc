@@ -8,6 +8,14 @@ function shiftChar (c) {
   return String.fromCharCode(c.charCodeAt(0) + 1);
 }
 
+function isNumeric (val) {
+  return fpc.is.str(val)
+    ? val >= 0 && val <= 9
+    : fpc.is.reduceable(val)
+    ? fpc.reduce(val, (acc, x) => acc && isNumeric(x), true)
+    : fpc.is.num(val);
+}
+
 function eqReducer ([ areEquals, last ], current) {
   return [ areEquals && _.isEqual(current, last), current ];
 }
@@ -75,6 +83,44 @@ describe('fpc', () => {
         fpc.reduce(str, (acc, c) => acc + shiftChar(c), '')
       )
     );
+  });
+
+  describe('#filter', () => {
+    jsc.property('should work as Array.prototype.filter()', jsc.array(any), jsc.fn(jsc.bool), (array, fn) =>
+      compare(
+        array.filter(fn),
+        fpc.filter(array, fn)
+      )
+    );
+
+    jsc.property('should work on strings too', jsc.string, str =>
+      compare(
+        str.split('').filter(isNumeric),
+        fpc.filter(str, isNumeric)
+      )
+    );
+  });
+
+  describe('#forEach', () => {
+    jsc.property('should work as Array.prototype.forEach()', jsc.array(any), jsc.fn(jsc.nat), (array, fn) => {
+      array1 = [];
+      array2 = [];
+
+      array.forEach(x => array1.push(fn(x)));
+      fpc.forEach(array, x => array2.push(fn(x)));
+
+      return compare(array1, array2);
+    });
+
+    jsc.property('should work on strings too', jsc.string, str => {
+      array1 = [];
+      array2 = [];
+
+      str.split('').forEach(char => array1.push(shiftChar(char)));
+      fpc.forEach(str, char => array2.push(shiftChar(char)));
+
+      return compare(array1, array2);
+    });
   });
 
   describe('#slice', () => {

@@ -158,6 +158,28 @@
     }, []);
   };
 
+  fpc.filter = function (val, fn) {
+    fpc.expect.fun(fn);
+
+    return fpc.reduce(val, function (acc, x) {
+      if (fn(x)) {
+        acc.push(x);
+      }
+
+      return acc;
+    }, []);
+  };
+
+  fpc.forEach = function (val, fn) {
+    fpc.expect.fun(fn);
+
+    fpc.reduce(val, function (_, x) {
+      fn(x);
+    }, null);
+
+    return val;
+  };
+
   fpc.pair = function (fst, snd) {
     return [ fst, snd ];
   };
