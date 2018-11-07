@@ -131,9 +131,9 @@
     -   [orElse][127]
         -   [Parameters][128]
     -   [toString][129]
-    -   [get][130]
+    -   [isEmpty][130]
     -   [nonEmpty][131]
-    -   [isEmpty][132]
+    -   [get][132]
 -   [Just][133]
     -   [Parameters][134]
     -   [Examples][135]
@@ -964,6 +964,18 @@ Returns an empty string otherwise.
 
 Returns **[string][157]** empty string or `String(this.get())`
 
+### isEmpty
+
+`true` if maybe is `Nothing`, `false` otherwise.
+
+Type: [boolean][158]
+
+### nonEmpty
+
+Negation of `isEmpty`.
+
+Type: [boolean][158]
+
 ### get
 
 Returns wrapped value or throws an `Error`
@@ -972,18 +984,6 @@ if the object is `Nothing`.
 -   Throws **[Error][156]** 
 
 Returns **any** wrapped value
-
-### nonEmpty
-
-Negation of `isEmpty`.
-
-Type: [boolean][158]
-
-### isEmpty
-
-`true` if maybe is `Nothing`, `false` otherwise.
-
-Type: [boolean][158]
 
 ## Just
 
@@ -1407,11 +1407,11 @@ Returns **[MaybeInterface][167]** `Just(object)` or `Nothing`
 
 [129]: #tostring
 
-[130]: #get
+[130]: #isempty
 
 [131]: #nonempty
 
-[132]: #isempty
+[132]: #get
 
 [133]: #just
 
