@@ -132,8 +132,8 @@
         -   [Parameters][128]
     -   [toString][129]
     -   [get][130]
-    -   [isEmpty][131]
-    -   [nonEmpty][132]
+    -   [nonEmpty][131]
+    -   [isEmpty][132]
 -   [Just][133]
     -   [Parameters][134]
     -   [Examples][135]
@@ -973,15 +973,15 @@ if the object is `Nothing`.
 
 Returns **any** wrapped value
 
-### isEmpty
-
-`true` if maybe is `Nothing`, `false` otherwise.
-
-Type: [boolean][158]
-
 ### nonEmpty
 
 Negation of `isEmpty`.
+
+Type: [boolean][158]
+
+### isEmpty
+
+`true` if maybe is `Nothing`, `false` otherwise.
 
 Type: [boolean][158]
 
@@ -1409,9 +1409,9 @@ Returns **[MaybeInterface][167]** `Just(object)` or `Nothing`
 
 [130]: #get
 
-[131]: #isempty
+[131]: #nonempty
 
-[132]: #nonempty
+[132]: #isempty
 
 [133]: #just
 
