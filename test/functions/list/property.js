@@ -1,55 +1,18 @@
-const fpc = require('../src/fpc');
+const fpc = require('../../../src/index.mjs');
 const jsc = require('jsverify');
-const _ = require('lodash');
+const compare = require('../../compare');
 
 const any = jsc.oneof([ jsc.json, jsc.falsy ]);
 
-function shiftChar (c) {
-  return String.fromCharCode(c.charCodeAt(0) + 1);
-}
+const shiftChar = c => String.fromCharCode(c.charCodeAt(0) + 1);
 
-function isNumeric (val) {
-  return fpc.is.str(val)
+const isNumeric = val => (
+  fpc.is.str(val)
     ? val >= 0 && val <= 9
-    : fpc.is.reduceable(val)
+    : fpc.is.obj(val)
     ? fpc.reduce(val, (acc, x) => acc && isNumeric(x), true)
-    : fpc.is.num(val);
-}
-
-function eqReducer ([ areEquals, last ], current) {
-  return [ areEquals && _.isEqual(current, last), current ];
-}
-
-/*
- * compare(v1, v2, .., vp, vn)
- *
- * compare([ v1, v2, .., vp, vn ])
- *
- * _.isEqual(v1, v2) && .. && _.isEqual(vp, vn)
- *
- * compare( ) and compare(oneArg) always return false
- *         ^                 ^
- *      no args    if it's not `fpc reduceable`
- *
- * compare({ 0: [], 1: null, length: 2 }) // false
- * compare({ 0: [], 1: [], length: 2 }) // true
- * compare('aaaaaba') // false
- * compare('aaaaaaa') // true
- *
- *
- */
-function compare (fst) {
-  switch (arguments.length + ',' + fpc.is.reduceable(fst)) {
-    case '0,false':
-    case '1,false': return false;
-    case '1,true': return compare.apply(null, fpc.slice(fst));
-  }
-
-  return fpc.pipe(arguments)
-    .then(fpc.reduce, eqReducer, [ true, fpc.first(arguments) ])
-    .then(fpc.first)
-    .end;
-}
+    : fpc.is.num(val)
+);
 
 describe('fpc', () => {
 
@@ -103,8 +66,8 @@ describe('fpc', () => {
 
   describe('#forEach', () => {
     jsc.property('should work as Array.prototype.forEach()', jsc.array(any), jsc.fn(jsc.nat), (array, fn) => {
-      array1 = [];
-      array2 = [];
+      const array1 = [];
+      const array2 = [];
 
       array.forEach(x => array1.push(fn(x)));
       fpc.forEach(array, x => array2.push(fn(x)));
@@ -113,8 +76,8 @@ describe('fpc', () => {
     });
 
     jsc.property('should work on strings too', jsc.string, str => {
-      array1 = [];
-      array2 = [];
+      const array1 = [];
+      const array2 = [];
 
       str.split('').forEach(char => array1.push(shiftChar(char)));
       fpc.forEach(str, char => array2.push(shiftChar(char)));
@@ -133,16 +96,16 @@ describe('fpc', () => {
 
     const doubleSlice = fpc.compose(fpc.slice).with(fpc.slice);
 
-    jsc.property('should be idempotent', any, jsc.integer(), jsc.integer(),  (val, n1, n2) =>
+    jsc.property('should be idempotent', jsc.array(any), jsc.integer(), jsc.integer(),  (array, n1, n2) =>
       compare(
-        doubleSlice(val),
-        fpc.slice(val)
+        doubleSlice(array),
+        fpc.slice(array)
       ) && compare(
-        doubleSlice(val, n1),
-        fpc.slice(val, n1)
+        doubleSlice(array, n1),
+        fpc.slice(array, n1)
       ) && compare(
-        doubleSlice(val, n1, n2),
-        fpc.slice(val, n1, n2)
+        doubleSlice(array, n1, n2),
+        fpc.slice(array, n1, n2)
       )
     );
   });
@@ -159,46 +122,19 @@ describe('fpc', () => {
     const tripleReverse = fpc.compose(doubleReverse).with(fpc.reverse);
     const quadrupleReverse = fpc.compose(tripleReverse).with(fpc.reverse);
 
-    jsc.property('should satisfy rev(rev(rev(x)) = rev(x)', any, val =>
+    jsc.property('should satisfy rev(rev(rev(x)) = rev(x)', jsc.array(any), array =>
       compare(
-        tripleReverse(val),
-        fpc.reverse(val)
+        tripleReverse(array),
+        fpc.reverse(array)
       )
     );
 
-    jsc.property('should satisfy rev(rev(rev(rev(x))) = rev(rev(x))', any, val =>
+    jsc.property('should satisfy rev(rev(rev(rev(x))) = rev(rev(x))', jsc.array(any), array =>
       compare(
-        quadrupleReverse(val),
-        doubleReverse(val)
+        quadrupleReverse(array),
+        doubleReverse(array)
       )
     );
   });
 
-  describe('#sum', () => {
-    jsc.property('should sum its arguments', any, any, any, (a, b, c) =>
-      compare(
-        a + b,
-        fpc.sum(a, b),
-        fpc.sum([ a, b ])
-      ) && compare(
-        a + b + c,
-        fpc.sum(a, b, c),
-        fpc.sum([ a, b, c ])
-      )
-    );
-  });
-
-  describe('#cat', () => {
-    jsc.property('should concat strings', any, any, any, (a, b, c) =>
-      compare(
-        String(a) + String(b),
-        fpc.cat(a, b),
-        fpc.cat([ a, b ])
-      ) && compare(
-        String(a) + String(b) + String(c),
-        fpc.cat(a, b, c),
-        fpc.cat([ a, b, c ])
-      )
-    );
-  });
 });

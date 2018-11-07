@@ -1,7 +1,7 @@
 {
   "name": "fpc",
   "description": "Functional piping & composition",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Emiliano Bovetti",
   "license": "GPL-3.0",
   "keywords": [
@@ -16,11 +16,8 @@
     "fp",
     "typescript"
   ],
-  "main": "./src/fpc.js",
-  "types": "./src/fpc.d.ts",
-  "scripts": {
-    "test": "npx nyc mocha"
-  },
+  "main": "./src/index",
+  "types": "./src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/emilianobovetti/fpc.git"
@@ -47,16 +44,33 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
     "@semantic-release/git": "^7.0.1",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-istanbul": "^5.1.0",
+    "babel-preset-minify": "^0.5.0",
     "coveralls": "^3.0.2",
     "cz-conventional-changelog": "^2.1.0",
+    "documentation": "^9.0.0-alpha.1",
     "eslint": "^5.1.0",
+    "eslint-loader": "^2.1.1",
     "jsverify": "^0.8.3",
     "lodash": "^4.17.10",
     "mocha": "^5.2.0",
-    "nyc": "^12.0.2",
+    "nyc": "^13.1.0",
     "semantic-release": "^15.8.1",
-    "uglify-js": "^3.4.4"
+    "should": "^13.2.3",
+    "should-sinon": "^0.0.6",
+    "sinon": "^7.1.1",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "nyc": {
+    "require": [
+      "@babel/register"
+    ]
   },
   "config": {
     "commitizen": {
