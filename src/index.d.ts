@@ -1,4 +1,4 @@
-// Type definitions for fpc 0.1.x
+// Type definitions for fpc 2.0.0
 // Project: https://github.com/emilianobovetti/fpc
 // Definitions by: Emiliano Bovetti <https://github.com/emilianobovetti>
 
@@ -59,6 +59,11 @@ interface Fn4<A, B, C, D, E> {
     with<F, G>(fn: (e: E, f: F) => G, f: F): Fn4<A, B, C, D, G>;
     with<F, G, H>(fn: (e: E, f: F, g: G) => H, f: F, g: G): Fn4<A, B, C, D, H>;
     with<F, G, H, I>(fn: (e: E, f: F, g: G, h: H) => I, f: F, g: G, h: H): Fn4<A, B, C, D, I>;
+
+    and<F>(fn: (e: E) => F): Fn4<A, B, C, D, F>;
+    and<F, G>(fn: (e: E, f: F) => G, f: F): Fn4<A, B, C, D, G>;
+    and<F, G, H>(fn: (e: E, f: F, g: G) => H, f: F, g: G): Fn4<A, B, C, D, H>;
+    and<F, G, H, I>(fn: (e: E, f: F, g: G, h: H) => I, f: F, g: G, h: H): Fn4<A, B, C, D, I>;
 }
 
 export function compose<A, B>(fn: (a: A) => B): Fn1<A, B>;
@@ -67,47 +72,86 @@ export function compose<A, B, C, D>(fn: (a: A, b: B, c: C) => D): Fn3<A, B, C, D
 export function compose<A, B, C, D, E>(fn: (a: A, b: B, c: C, d: D) => E): Fn4<A, B, C, D, E>;
 
 interface Pipe<A> {
-    end: A;
+    result: A;
 
     into<B>(fn: (a: A) => B): Pipe<B>;
     into<B, C>(fn: (a: A, b: B) => C, b: B): Pipe<C>;
     into<B, C, D>(fn: (a: A, b: B, c: C) => D, b: B, c: C): Pipe<D>;
     into<B, C, D, E>(fn: (a: A, b: B, c: C, d: D) => E, b: B, c: C, d: D): Pipe<E>;
 
-    then<B>(fn: (a: A) => B): Pipe<B>;
-    then<B, C>(fn: (a: A, b: B) => C, b: B): Pipe<C>;
-    then<B, C, D>(fn: (a: A, b: B, c: C) => D, b: B, c: C): Pipe<D>;
-    then<B, C, D, E>(fn: (a: A, b: B, c: C, d: D) => E, b: B, c: C, d: D): Pipe<E>;
+    and<B>(fn: (a: A) => B): Pipe<B>;
+    and<B, C>(fn: (a: A, b: B) => C, b: B): Pipe<C>;
+    and<B, C, D>(fn: (a: A, b: B, c: C) => D, b: B, c: C): Pipe<D>;
+    and<B, C, D, E>(fn: (a: A, b: B, c: C, d: D) => E, b: B, c: C, d: D): Pipe<E>;
 }
 
 export function pipe<T>(val: T): Pipe<T>;
 
 export function id<T>(val: T): T;
 
+export function not<A>(fn: (a: A) => boolean): (a: A) => boolean;
+export function not<A, B>(fn: (a: A, b: B) => boolean): (a: A, b: B) => boolean;
+export function not<A, B, C>(fn: (a: A, b: B, c: C) => boolean): (a: A, b: B, c: C) => boolean;
+
+export function flip<A, B, C>(fn: (a: A, b: B) => C): (b: B, a: A) => C;
+export function flip<A, B, C, D>(fn: (a: A, b: B, c: C) => D): (c: C, b: B, a: A) => D;
+
 export function failWith(err: Error): never;
+
+export function curry2<A, B, C>(fn: (a: A, b: B) => C): (a: A) => (b: B) => C
+
+export function unbox(n: Number): number;
+export function unbox(s: String): string;
+export function unbox(s: Symbol): symbol;
+export function unbox(b: Boolean): boolean;
+export function unbox<T>(val: T): T;
+
+export function typeOf(val: any): string;
 
 export function prop(str: string, idx: number): string | undefined;
 export function prop(val: any, prop: string | number): any;
 
-export function slice(str: string, begin?: number, end?: number): Array<string>;
-export function slice<T>(arr: Array<T>, begin?: number, end?: number): Array<T>;
+export const is: {
+    num(val: any): boolean,
+    str(val: any): boolean,
+    sym(val: any): boolean,
+    obj(val: any): boolean,
+    fun(val: any): boolean,
+    bool(val: any): boolean,
+    iter(val: any): boolean,
+    array(val: any): boolean,
+};
 
-export function unshift<T>(arr: Array<T>, fst: T): Array<T>;
+export const expect: {
+    num(val: any): number,
+    str(val: any): string,
+    sym(val: any): symbol,
+    obj(val: any): object,
+    fun(val: any): Function,
+    bool(val: any): boolean,
+    iter(val: any): any[] | string,
+    array(val: any): any[],
+};
 
-export function reverse(str: string): string;
-export function reverse<T>(arr: Array<T>): Array<T>;
+export function sum(arr: Array<number>): number;
+export function sum(a: number, b: number): number;
+export function sum(a: number, b: number, c: number): number;
 
-export function reduce<T>(str: string, fn: (acc: T, char: string) => T, init: T): T;
-export function reduce<V, T>(arr: Array<V>, fn: (acc: T, val: V) => T, init: T): T;
+export function cat(arr: Array<string | number>): string;
+export function cat(a: string | number, b: string | number): string;
+export function cat(a: string | number, b: string | number, c: string | number): string;
 
-export function map<T>(str: string, fn: (char: string) => T): Array<T>;
-export function map<V, T>(arr: Array<V>, fn: (elem: V) => T): Array<T>;
+export function bound(n: number, min: number, max: number): number;
 
-export function filter(str: string, fn: (char: string) => boolean): Array<string>;
-export function filter<T>(arr: Array<T>, fn: (elem: T) => boolean): Array<T>;
+export function call(val: object | string, method: string, arg1?: any, arg2?: any, arg3?: any): any;
 
-export function forEach(str: string, fn: (char: string) => void): string;
-export function forEach<T>(arr: Array<T>, fn: (elem: T) => void): Array<T>;
+export function pass<A>(fst: A, fn: (fst: A) => any): A;
+export function pass<A, B>(fst: A, fn: (fst: A, snd: B) => any, snd: B): A;
+export function pass<A, B, C>(fst: A, fn: (fst: A, snd: B, trd: C) => any, snd: B, trd: C): A;
+
+export function log<T>(val: T, arg1?: any, arg2?: any, arg3?: any): T;
+
+export function show<T>(val: T, arg1?: any, arg2?: any, arg3?: any): T;
 
 export function pair<A, B>(a: A, b: B): [ A, B ];
 
@@ -122,53 +166,64 @@ export function second<T>(arr: Array<T>): T | undefined;
 export function last(str: string): string | undefined;
 export function last<T>(arr: Array<T>): T | undefined;
 
-export function flip<A, B, C>(fn: (a: A, b: B) => C): (b: B, a: A) => C;
-export function flip<A, B, C, D>(fn: (a: A, b: B, c: C) => D): (c: C, b: B, a: A) => D;
+export function slice(str: string, begin?: number, end?: number): Array<string>;
+export function slice<T>(arr: Array<T>, begin?: number, end?: number): Array<T>;
 
-export function sum(arr: Array<number>): number;
-export function sum(a: number, b: number): number;
-export function sum(a: number, b: number, c: number): number;
+export function unshift<T>(arr: Array<T>, fst: T): Array<T>;
 
-export function cat(arr: Array<string | number>): string;
-export function cat(a: string | number, b: string | number): string;
-export function cat(a: string | number, b: string | number, c: string | number): string;
+export function reverse(str: string): Array<string>;
+export function reverse<T>(arr: Array<T>): Array<T>;
 
-export function bound(n: number, min: number, max: number): number;
+export function reduce<T>(str: string, fn: (acc: T, char: string) => T, init: T): T;
+export function reduce<V, T>(arr: Array<V>, fn: (acc: T, val: V) => T, init: T): T;
 
-export function unbox(n: Number): number;
-export function unbox(s: String): string;
-export function unbox(s: Symbol): symbol;
-export function unbox(b: Boolean): boolean;
-export function unbox<T>(val: T): T;
+export function map<T>(str: string, fn: (char: string) => T): Array<T>;
+export function map<V, T>(arr: Array<V>, fn: (elem: V) => T): Array<T>;
 
-export function typeOf(val: any): string;
+export function filter(str: string, fn: (char: string) => boolean): Array<string>;
+export function filter<T>(arr: Array<T>, fn: (elem: T) => boolean): Array<T>;
 
-export const is: {
-    num(val: any): boolean,
-    str(val: any): boolean,
-    sym(val: any): boolean,
-    obj(val: any): boolean,
-    fun(val: any): boolean,
-    bool(val: any): boolean,
-    reduceable(val: any): boolean,
-};
+export function forEach(str: string, fn: (char: string) => void): string;
+export function forEach<T>(arr: Array<T>, fn: (elem: T) => void): Array<T>;
 
-export const expect: {
-    num(val: any): number,
-    str(val: any): string,
-    sym(val: any): symbol,
-    obj(val: any): object,
-    fun(val: any): Function,
-    bool(val: any): boolean,
-    reduceable(val: any): object | string,
-};
+export interface Maybe<T> {
+    readonly isEmpty: boolean;
 
-export function call(val: object | string, method: string, arg1?: any, arg2?: any, arg3?: any): any;
+    readonly nonEmpty: boolean;
 
-export function pass<A>(fst: A, fn: (fst: A) => any): A;
-export function pass<A, B>(fst: A, fn: (fst: A, snd: B) => any, snd: B): A;
-export function pass<A, B, C>(fst: A, fn: (fst: A, snd: B, trd: C) => any, snd: B, trd: C): A;
+    filter(fn: (val: T) => boolean): Maybe<T>;
 
-export function log<T>(val: T, arg1?: any, arg2?: any, arg3?: any): T;
+    map<V>(fn: (val: T) => Maybe<V>): Maybe<V>;
+    map<V>(fn: (val: T) => V): Maybe<V>;
 
-export function show<T>(val: T, arg1?: any, arg2?: any, arg3?: any): T;
+    forEach(fn: (val: T) => void): Maybe<T>;
+
+    get(): T;
+
+    orElse(fn: () => T): Maybe<T>;
+    orElse(val: T): Maybe<T>;
+
+    getOrElse(fn: () => T): T;
+    getOrElse(val: T): T;
+
+    getOrThrow(err: Error): T;
+
+    toString(): string;
+}
+
+export function Just<T>(val: T): Maybe<T>;
+
+export const Nothing: Maybe<never>;
+
+export function Maybe<T>(val: Maybe<T>): Maybe<T>;
+export function Maybe<T>(val: T): Maybe<T>;
+
+export namespace Maybe {
+    export function isInstance(val: any): boolean;
+
+    export function str(val: any): Maybe<string>;
+
+    export function num(val: any): Maybe<number>;
+
+    export function obj(val: any): Maybe<object>;
+}
