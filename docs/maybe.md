@@ -74,7 +74,7 @@ Checks if `value` is a non-empty string.
 Maybe.str(1) === Nothing;
 Maybe.str('') === Nothing;
 
-Maybe.string(Object('hello')).get() === 'hello';
+Maybe.str(Object('hello')).get() === 'hello';
 ```
 
 ### `Maybe.num(value)`
@@ -92,11 +92,11 @@ Maybe.num(Object(1)).get() === 1;
 Checks if `value` is a non-null object.
 
 ```javascript
-Maybe.object('') === Nothing;
-Maybe.object(null) === Nothing;
+Maybe.obj('') === Nothing;
+Maybe.obj(null) === Nothing;
 
-Maybe.object(Object('hello')) === Nothing;
-Maybe.object(Object(1)) === Nothing;
+Maybe.obj(Object('hello')) === Nothing;
+Maybe.obj(Object(1)) === Nothing;
 ```
 
 ## Using Maybes
