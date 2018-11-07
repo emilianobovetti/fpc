@@ -33,7 +33,8 @@
         "path": "@semantic-release/git",
         "assets": [
           "package.json",
-          "dist/*.js"
+          "dist/*.js",
+          "docs/*.md"
         ],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
