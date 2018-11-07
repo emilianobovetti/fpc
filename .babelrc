@@ -3,7 +3,11 @@
     "@babel/preset-env",
     "minify"
   ],
-  "plugins": [
-    "istanbul"
-  ]
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  }
 }

@@ -30,7 +30,7 @@ build: yarn-check $(build_dir)
 
 .PHONY: test
 test : yarn-check
-	@npx nyc mocha --recursive
+	@BABEL_ENV=test npx nyc mocha --recursive
 
 .PHONY: docs
 docs: $(api_docs_file)
