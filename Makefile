@@ -36,7 +36,9 @@ test : yarn-check
 docs: $(api_docs_file)
 
 $(api_docs_file): yarn-check
-	npx documentation build src/** -f md -o $(api_docs_file)
+	npx documentation build src/** \
+		--output $(api_docs_file) \
+		--format md
 
 .PHONY: commit
 commit: yarn-check
