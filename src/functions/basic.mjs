@@ -21,6 +21,11 @@ import { reduce, first, map, unshift } from './list';
 export const id = x => x;
 
 /**
+ * @example
+ * const isOdd = x => x % 2 !== 0;
+ *
+ * [1, 2, 3, 4].filter(not(isOdd)); // [ 2, 4 ]
+ *
  * @param {function} fn - input
  * @return {function} `(...args) => !fn(...args)`
  */
@@ -41,7 +46,7 @@ export const flip = fn => (...args) => fn(...args.reverse());
 
 /**
  * Throws an error but as expression, unlike `throw`.
- * Converts `error` to {@link Error}` if isn't already an `Error` instance.
+ * Converts `error` to {@link Error} if isn't already an `Error` instance.
  *
  * @example
  * args.length > 0 || failWith(new Error('No args'));

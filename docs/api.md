@@ -8,155 +8,158 @@
     -   [Parameters][4]
 -   [not][5]
     -   [Parameters][6]
--   [flip][7]
-    -   [Parameters][8]
-    -   [Examples][9]
--   [failWith][10]
-    -   [Parameters][11]
-    -   [Examples][12]
--   [curry2][13]
-    -   [Parameters][14]
-    -   [Examples][15]
--   [unbox][16]
-    -   [Parameters][17]
-    -   [Examples][18]
--   [typeOf][19]
-    -   [Parameters][20]
--   [prop][21]
-    -   [Parameters][22]
-    -   [Examples][23]
--   [is.num][24]
-    -   [Parameters][25]
--   [is.str][26]
-    -   [Parameters][27]
--   [is.sym][28]
-    -   [Parameters][29]
--   [is.obj][30]
-    -   [Parameters][31]
--   [is.fun][32]
-    -   [Parameters][33]
--   [is.bool][34]
-    -   [Parameters][35]
--   [is.iter][36]
-    -   [Parameters][37]
--   [is.array][38]
-    -   [Parameters][39]
--   [expect.num][40]
-    -   [Parameters][41]
--   [expect.str][42]
-    -   [Parameters][43]
--   [expect.sym][44]
-    -   [Parameters][45]
--   [expect.obj][46]
-    -   [Parameters][47]
--   [expect.fun][48]
-    -   [Parameters][49]
--   [expect.bool][50]
-    -   [Parameters][51]
--   [expect.iter][52]
-    -   [Parameters][53]
--   [expect.array][54]
-    -   [Parameters][55]
--   [sum][56]
-    -   [Parameters][57]
-    -   [Examples][58]
--   [cat][59]
-    -   [Parameters][60]
-    -   [Examples][61]
--   [bound][62]
-    -   [Parameters][63]
-    -   [Examples][64]
--   [call][65]
-    -   [Parameters][66]
-    -   [Examples][67]
--   [pass][68]
-    -   [Parameters][69]
-    -   [Examples][70]
--   [compose][71]
-    -   [Parameters][72]
--   [pipe][73]
-    -   [Parameters][74]
--   [functions/console][75]
-    -   [Examples][76]
--   [log][77]
-    -   [Parameters][78]
-    -   [Examples][79]
--   [show][80]
-    -   [Parameters][81]
-    -   [Examples][82]
--   [functions/list][83]
-    -   [Examples][84]
--   [pair][85]
-    -   [Parameters][86]
--   [first][87]
-    -   [Parameters][88]
--   [second][89]
-    -   [Parameters][90]
--   [last][91]
-    -   [Parameters][92]
--   [slice][93]
-    -   [Parameters][94]
-    -   [Examples][95]
--   [unshift][96]
-    -   [Parameters][97]
-    -   [Examples][98]
--   [reverse][99]
-    -   [Parameters][100]
-    -   [Examples][101]
--   [reduce][102]
-    -   [Parameters][103]
-    -   [Examples][104]
--   [map][105]
-    -   [Parameters][106]
-    -   [Examples][107]
--   [filter][108]
-    -   [Parameters][109]
-    -   [Examples][110]
--   [forEach][111]
-    -   [Parameters][112]
-    -   [Examples][113]
--   [monads/maybe][114]
-    -   [Examples][115]
--   [MaybeInterface][116]
-    -   [getOrThrow][117]
-        -   [Parameters][118]
-    -   [filter][119]
-        -   [Parameters][120]
-    -   [map][121]
-        -   [Parameters][122]
-    -   [forEach][123]
-        -   [Parameters][124]
-    -   [getOrElse][125]
-        -   [Parameters][126]
-    -   [orElse][127]
-        -   [Parameters][128]
-    -   [toString][129]
-    -   [isEmpty][130]
-    -   [nonEmpty][131]
-    -   [get][132]
--   [Just][133]
-    -   [Parameters][134]
-    -   [Examples][135]
--   [Nothing][136]
--   [Maybe][137]
-    -   [Parameters][138]
-    -   [Examples][139]
--   [Maybe.isInstance][140]
-    -   [Parameters][141]
-    -   [Examples][142]
--   [Maybe.of][143]
-    -   [Parameters][144]
--   [Maybe.str][145]
-    -   [Parameters][146]
-    -   [Examples][147]
--   [Maybe.num][148]
-    -   [Parameters][149]
-    -   [Examples][150]
--   [Maybe.obj][151]
-    -   [Parameters][152]
-    -   [Examples][153]
+    -   [Examples][7]
+-   [flip][8]
+    -   [Parameters][9]
+    -   [Examples][10]
+-   [failWith][11]
+    -   [Parameters][12]
+    -   [Examples][13]
+-   [curry2][14]
+    -   [Parameters][15]
+    -   [Examples][16]
+-   [unbox][17]
+    -   [Parameters][18]
+    -   [Examples][19]
+-   [typeOf][20]
+    -   [Parameters][21]
+-   [prop][22]
+    -   [Parameters][23]
+    -   [Examples][24]
+-   [is.num][25]
+    -   [Parameters][26]
+-   [is.str][27]
+    -   [Parameters][28]
+-   [is.sym][29]
+    -   [Parameters][30]
+-   [is.obj][31]
+    -   [Parameters][32]
+-   [is.fun][33]
+    -   [Parameters][34]
+-   [is.bool][35]
+    -   [Parameters][36]
+-   [is.iter][37]
+    -   [Parameters][38]
+-   [is.array][39]
+    -   [Parameters][40]
+-   [expect.num][41]
+    -   [Parameters][42]
+-   [expect.str][43]
+    -   [Parameters][44]
+-   [expect.sym][45]
+    -   [Parameters][46]
+-   [expect.obj][47]
+    -   [Parameters][48]
+-   [expect.fun][49]
+    -   [Parameters][50]
+-   [expect.bool][51]
+    -   [Parameters][52]
+-   [expect.iter][53]
+    -   [Parameters][54]
+-   [expect.array][55]
+    -   [Parameters][56]
+-   [sum][57]
+    -   [Parameters][58]
+    -   [Examples][59]
+-   [cat][60]
+    -   [Parameters][61]
+    -   [Examples][62]
+-   [bound][63]
+    -   [Parameters][64]
+    -   [Examples][65]
+-   [call][66]
+    -   [Parameters][67]
+    -   [Examples][68]
+-   [pass][69]
+    -   [Parameters][70]
+    -   [Examples][71]
+-   [compose][72]
+    -   [Parameters][73]
+-   [pipe][74]
+    -   [Parameters][75]
+-   [functions/console][76]
+    -   [Examples][77]
+-   [log][78]
+    -   [Parameters][79]
+    -   [Examples][80]
+-   [show][81]
+    -   [Parameters][82]
+    -   [Examples][83]
+-   [functions/list][84]
+    -   [Examples][85]
+-   [pair][86]
+    -   [Parameters][87]
+-   [first][88]
+    -   [Parameters][89]
+-   [second][90]
+    -   [Parameters][91]
+-   [last][92]
+    -   [Parameters][93]
+-   [slice][94]
+    -   [Parameters][95]
+    -   [Examples][96]
+-   [unshift][97]
+    -   [Parameters][98]
+    -   [Examples][99]
+-   [reverse][100]
+    -   [Parameters][101]
+    -   [Examples][102]
+-   [reduce][103]
+    -   [Parameters][104]
+    -   [Examples][105]
+-   [map][106]
+    -   [Parameters][107]
+    -   [Examples][108]
+-   [filter][109]
+    -   [Parameters][110]
+    -   [Examples][111]
+-   [forEach][112]
+    -   [Parameters][113]
+    -   [Examples][114]
+-   [monads/maybe][115]
+    -   [Examples][116]
+-   [MaybeInterface][117]
+    -   [getOrThrow][118]
+        -   [Parameters][119]
+    -   [filter][120]
+        -   [Parameters][121]
+    -   [map][122]
+        -   [Parameters][123]
+    -   [forEach][124]
+        -   [Parameters][125]
+    -   [getOrElse][126]
+        -   [Parameters][127]
+    -   [orElse][128]
+        -   [Parameters][129]
+    -   [toString][130]
+    -   [isEmpty][131]
+    -   [nonEmpty][132]
+    -   [get][133]
+-   [Just][134]
+    -   [Parameters][135]
+    -   [Examples][136]
+-   [Nothing][137]
+-   [Maybe][138]
+    -   [Parameters][139]
+    -   [Examples][140]
+-   [Maybe.isInstance][141]
+    -   [Parameters][142]
+    -   [Examples][143]
+-   [Maybe.of][144]
+    -   [Parameters][145]
+-   [Maybe.str][146]
+    -   [Parameters][147]
+    -   [Examples][148]
+-   [Maybe.num][149]
+    -   [Parameters][150]
+    -   [Examples][151]
+-   [Maybe.obj][152]
+    -   [Parameters][153]
+    -   [Examples][154]
 
 ## functions/basic
+
+[src/functions/basic.mjs:13-13][155]
 
 Collection of basic functions.
 
@@ -174,6 +177,8 @@ console.log(id('hello, world'));
 
 ## id
 
+[src/functions/basic.mjs:21-21][156]
+
 Identity function.
 
 ### Parameters
@@ -184,19 +189,31 @@ Returns **any** `x`
 
 ## not
 
+[src/functions/basic.mjs:32-32][157]
+
 ### Parameters
 
--   `fn` **[function][154]** input
+-   `fn` **[function][158]** input
 
-Returns **[function][154]** `(...args) => !fn(...args)`
+### Examples
+
+```javascript
+const isOdd = x => x % 2 !== 0;
+
+[1, 2, 3, 4].filter(not(isOdd)); // [ 2, 4 ]
+```
+
+Returns **[function][158]** `(...args) => !fn(...args)`
 
 ## flip
+
+[src/functions/basic.mjs:45-45][159]
 
 Creates a copy of a function that takes its arguments in reversed order.
 
 ### Parameters
 
--   `fn` **[function][154]** input
+-   `fn` **[function][158]** input
 
 ### Examples
 
@@ -206,16 +223,18 @@ const revCat = flip(cat);
 revCat(1, 2, 3) === cat(3, 2, 1);
 ```
 
-Returns **[function][154]** the flipped version of `fn`
+Returns **[function][158]** the flipped version of `fn`
 
 ## failWith
 
+[src/functions/basic.mjs:58-60][160]
+
 Throws an error but as expression, unlike `throw`.
-Converts `error` to [Error][155]`if isn't already an`Error\` instance.
+Converts `error` to [Error][161] if isn't already an `Error` instance.
 
 ### Parameters
 
--   `e` **[Error][156]** to throw
+-   `e` **[Error][162]** to throw
 
 ### Examples
 
@@ -223,17 +242,19 @@ Converts `error` to [Error][155]`if isn't already an`Error\` instance.
 args.length > 0 || failWith(new Error('No args'));
 ```
 
--   Throws **[Error][156]** 
+-   Throws **[Error][162]** 
 
 Returns **Never** always throws `e`
 
 ## curry2
 
+[src/functions/basic.mjs:78-81][163]
+
 Creates currified a copy of a two-arguments function.
 
 ### Parameters
 
--   `fn` **[function][154]** that takes two arguments
+-   `fn` **[function][158]** that takes two arguments
 
 ### Examples
 
@@ -246,9 +267,11 @@ const sum2 = currifSum(2);
 sum2(3); // 5
 ```
 
-Returns **[function][154]** currified version
+Returns **[function][158]** currified version
 
 ## unbox
+
+[src/functions/basic.mjs:93-97][164]
 
 Returns the unboxed value on some objects,
 works as identity function on other values.
@@ -267,6 +290,8 @@ Returns **any** the unboxed value
 
 ## typeOf
 
+[src/functions/basic.mjs:108-110][165]
+
 Two differences with `typeof` operator:
 
 1.  `typeOf(null) === 'null'`
@@ -276,9 +301,11 @@ Two differences with `typeof` operator:
 
 -   `val` **any** value
 
-Returns **[string][157]** `value` type
+Returns **[string][166]** `value` type
 
 ## prop
+
+[src/functions/basic.mjs:124-126][167]
 
 Returns an object property value, or `undefined`.
 Doesn't throw errors.
@@ -286,7 +313,7 @@ Doesn't throw errors.
 ### Parameters
 
 -   `val` **any** value
--   `propName` **[string][157]** property name
+-   `propName` **[string][166]** property name
 
 ### Examples
 
@@ -299,53 +326,67 @@ Returns **any** the property value
 
 ## is.num
 
+[src/functions/basic.mjs:145-145][168]
+
 ### Parameters
 
 -   `val` **any** value
 
-Returns **[boolean][158]** `typeOf(val) === 'number'`
+Returns **[boolean][169]** `typeOf(val) === 'number'`
 
 ## is.str
 
+[src/functions/basic.mjs:152-152][170]
+
 ### Parameters
 
 -   `val` **any** value
 
-Returns **[boolean][158]** `typeOf(val) === 'string'`
+Returns **[boolean][169]** `typeOf(val) === 'string'`
 
 ## is.sym
 
+[src/functions/basic.mjs:159-159][171]
+
 ### Parameters
 
 -   `val` **any** value
 
-Returns **[boolean][158]** `typeOf(val) === 'symbol'`
+Returns **[boolean][169]** `typeOf(val) === 'symbol'`
 
 ## is.obj
 
+[src/functions/basic.mjs:166-166][172]
+
 ### Parameters
 
 -   `val` **any** value
 
-Returns **[boolean][158]** `typeOf(val) === 'object'`
+Returns **[boolean][169]** `typeOf(val) === 'object'`
 
 ## is.fun
 
+[src/functions/basic.mjs:173-173][173]
+
 ### Parameters
 
 -   `val` **any** value
 
-Returns **[boolean][158]** `typeOf(val) === 'function'`
+Returns **[boolean][169]** `typeOf(val) === 'function'`
 
 ## is.bool
 
+[src/functions/basic.mjs:180-180][174]
+
 ### Parameters
 
 -   `val` **any** value
 
-Returns **[boolean][158]** `typeOf(val) === 'boolean'`
+Returns **[boolean][169]** `typeOf(val) === 'boolean'`
 
 ## is.iter
+
+[src/functions/basic.mjs:189-189][175]
 
 Checks if a value is iterable.
 
@@ -353,9 +394,11 @@ Checks if a value is iterable.
 
 -   `val` **any** value
 
-Returns **[boolean][158]** `true` if `val[Symbol.iterator]` is a function
+Returns **[boolean][169]** `true` if `val[Symbol.iterator]` is a function
 
 ## is.array
+
+[src/functions/basic.mjs:199-199][176]
 
 Checks if a value is an array.
 Uses `Array.isArray` so it's compatible with es5.1.
@@ -364,9 +407,11 @@ Uses `Array.isArray` so it's compatible with es5.1.
 
 -   `val` **any** value
 
-Returns **[boolean][158]** `Array.isArray(val)`
+Returns **[boolean][169]** `Array.isArray(val)`
 
 ## expect.num
+
+[src/functions/basic.mjs:215-215][177]
 
 Checks if `is.num(number)`, then returns that number or throws a `TypeError`.
 
@@ -375,11 +420,13 @@ Checks if `is.num(number)`, then returns that number or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][159]** 
+-   Throws **[TypeError][178]** 
 
-Returns **[number][160]** val
+Returns **[number][179]** val
 
 ## expect.str
+
+[src/functions/basic.mjs:225-225][180]
 
 Checks if `is.num(string)`, then returns that string or throws a `TypeError`.
 
@@ -388,11 +435,13 @@ Checks if `is.num(string)`, then returns that string or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][159]** 
+-   Throws **[TypeError][178]** 
 
-Returns **[string][157]** val
+Returns **[string][166]** val
 
 ## expect.sym
+
+[src/functions/basic.mjs:235-235][181]
 
 Checks if `is.sym(symbol)`, then returns that symbol or throws a `TypeError`.
 
@@ -401,11 +450,13 @@ Checks if `is.sym(symbol)`, then returns that symbol or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][159]** 
+-   Throws **[TypeError][178]** 
 
-Returns **[symbol][161]** val
+Returns **[symbol][182]** val
 
 ## expect.obj
+
+[src/functions/basic.mjs:245-245][183]
 
 Checks if `is.obj(object)`, then returns that object or throws a `TypeError`.
 
@@ -414,11 +465,13 @@ Checks if `is.obj(object)`, then returns that object or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][159]** 
+-   Throws **[TypeError][178]** 
 
-Returns **[object][162]** val
+Returns **[object][184]** val
 
 ## expect.fun
+
+[src/functions/basic.mjs:255-255][185]
 
 Checks if `is.fun(function)`, then returns that function or throws a `TypeError`.
 
@@ -427,11 +480,13 @@ Checks if `is.fun(function)`, then returns that function or throws a `TypeError`
 -   `val` **any** value
 
 
--   Throws **[TypeError][159]** 
+-   Throws **[TypeError][178]** 
 
-Returns **[function][154]** val
+Returns **[function][158]** val
 
 ## expect.bool
+
+[src/functions/basic.mjs:265-265][186]
 
 Checks if `is.bool(boolean)`, then returns that boolean or throws a `TypeError`.
 
@@ -440,11 +495,13 @@ Checks if `is.bool(boolean)`, then returns that boolean or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][159]** 
+-   Throws **[TypeError][178]** 
 
-Returns **[boolean][158]** val
+Returns **[boolean][169]** val
 
 ## expect.iter
+
+[src/functions/basic.mjs:275-275][187]
 
 Checks if `is.iter(value)`, then returns that value or throws a `TypeError`.
 
@@ -453,11 +510,13 @@ Checks if `is.iter(value)`, then returns that value or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][159]** 
+-   Throws **[TypeError][178]** 
 
 Returns **any** iterable
 
 ## expect.array
+
+[src/functions/basic.mjs:285-285][188]
 
 Checks if `is.array(value)`, then returns that value or throws a `TypeError`.
 
@@ -466,18 +525,20 @@ Checks if `is.array(value)`, then returns that value or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][159]** 
+-   Throws **[TypeError][178]** 
 
-Returns **[Array][163]** array
+Returns **[Array][189]** array
 
 ## sum
+
+[src/functions/basic.mjs:299-300][190]
 
 Sums its arguments.
 If called with only one argument, then it must be iterable.
 
 ### Parameters
 
--   `args` **...(any | [Array][163])** the addends or array of addends
+-   `args` **...(any | [Array][189])** the addends or array of addends
 
 ### Examples
 
@@ -487,15 +548,17 @@ sum('1', 2, 3) === '1' + 2 + 3
 sum([ 1, 2, 3 ]) === 1 + 2 + 3
 ```
 
-Returns **([number][160] \| [string][157])** the summation
+Returns **([number][179] \| [string][166])** the summation
 
 ## cat
+
+[src/functions/basic.mjs:312-313][191]
 
 Works like `sum`, but first casts its arguments to `string`.
 
 ### Parameters
 
--   `args` **...(any | [Array][163])** elements to concat
+-   `args` **...(any | [Array][189])** elements to concat
 
 ### Examples
 
@@ -504,17 +567,19 @@ cat(1, 2, 3) === '1' + '2' + '3'
 cat([ 1, 2, 3 ]) === '1' + '2' + '3'
 ```
 
-Returns **[string][157]** the concatenation
+Returns **[string][166]** the concatenation
 
 ## bound
+
+[src/functions/basic.mjs:328-329][192]
 
 Clamps a number within a given range.
 
 ### Parameters
 
--   `num` **[number][160]** to clamp
--   `min` **[number][160]** minimum of the range
--   `max` **[number][160]** maximum of the range
+-   `num` **[number][179]** to clamp
+-   `min` **[number][179]** minimum of the range
+-   `max` **[number][179]** maximum of the range
 
 ### Examples
 
@@ -524,16 +589,18 @@ bound(5, 4, 6); // 5
 bound(7, 4, 6); // 6
 ```
 
-Returns **[number][160]** the clamped value
+Returns **[number][179]** the clamped value
 
 ## call
+
+[src/functions/basic.mjs:351-352][193]
 
 Calls an object method.
 
 ### Parameters
 
--   `obj` **[object][162]** context
--   `propName` **[string][157]** method name
+-   `obj` **[object][184]** context
+-   `propName` **[string][166]** method name
 -   `args` **...any** method arguments
 
 ### Examples
@@ -551,16 +618,18 @@ call(obj, 'someMethod', 'world'); // logs 'hello, world'
 call('1,2,3', 'split', ',');
 ```
 
--   Throws **[TypeError][159]** if `obj[propName]` isn't a function
+-   Throws **[TypeError][178]** if `obj[propName]` isn't a function
 
 Returns **any** `obj[propName](...args)`
 
 ## pass
 
+[src/functions/basic.mjs:370-375][194]
+
 ### Parameters
 
 -   `val` **any** to return
--   `fn` **[function][154]** callback
+-   `fn` **[function][158]** callback
 -   `args` **...any** additional arguments
 
 ### Examples
@@ -581,26 +650,32 @@ Returns **any** the first argument
 
 ## compose
 
-Function composition, read more [here][164].
+[src/functions/basic.mjs:384-400][195]
+
+Function composition, read more [here][196].
 
 ### Parameters
 
--   `fn1` **[function][154]** to compose
+-   `fn1` **[function][158]** to compose
 -   `fn1Args` **...any** additional arguments
 
-Returns **[function][154]** composable function object
+Returns **[function][158]** composable function object
 
 ## pipe
 
-Pipe function, read more [here][165].
+[src/functions/basic.mjs:408-424][197]
+
+Pipe function, read more [here][198].
 
 ### Parameters
 
 -   `args` **...any** pipe arguments
 
-Returns **[object][162]** pipeable object
+Returns **[object][184]** pipeable object
 
 ## functions/console
+
+[src/functions/console.mjs:13-13][199]
 
 Console functions.
 
@@ -617,6 +692,8 @@ const string = log('hello, world');
 -   **author**: Emiliano Bovetti &lt;emiliano.bovetti@gmail.com>
 
 ## log
+
+[src/functions/console.mjs:32-40][200]
 
 Logs its arguments to console, then returns the first one.
 If global object `console` doesn't exist,
@@ -639,6 +716,8 @@ Returns **any** the first argument
 
 ## show
 
+[src/functions/console.mjs:55-60][201]
+
 Acts like `log`, but logs its first argument as last one.
 
 ### Parameters
@@ -659,6 +738,8 @@ Returns **any** `fstArg`
 
 ## functions/list
 
+[src/functions/list.mjs:13-13][202]
+
 List functions.
 
 ### Examples
@@ -675,6 +756,8 @@ const fst = first([ 1, 2, 3 ]); // 1
 
 ## pair
 
+[src/functions/list.mjs:22-22][203]
+
 Creates a list of two elements.
 
 ### Parameters
@@ -682,9 +765,11 @@ Creates a list of two elements.
 -   `fst` **any** first element
 -   `snd` **any** second element
 
-Returns **[Array][163]** `[ fst, snd ]`
+Returns **[Array][189]** `[ fst, snd ]`
 
 ## first
+
+[src/functions/list.mjs:29-29][204]
 
 ### Parameters
 
@@ -694,6 +779,8 @@ Returns **[Array][163]** `[ fst, snd ]`
 Returns **any** the first item or `undefined`
 
 ## second
+
+[src/functions/list.mjs:37-37][205]
 
 ### Parameters
 
@@ -705,6 +792,8 @@ Returns **any** the second item or `undefined`
 
 ## last
 
+[src/functions/list.mjs:43-43][206]
+
 ### Parameters
 
 -   `$0` **iterable** any collection
@@ -714,13 +803,15 @@ Returns **any** the last item or `undefined`
 
 ## slice
 
+[src/functions/list.mjs:55-55][207]
+
 ### Parameters
 
 -   `$0` **iterable** any collection
     -   `$0.list` **...any** 
 -   `args` **...any** 
--   `$1` **[number][160]** starting index (optional, default `0`)
--   `$2` **[number][160]** ending index (optional, default `list.length`)
+-   `$1` **[number][179]** starting index (optional, default `0`)
+-   `$2` **[number][179]** ending index (optional, default `list.length`)
 
 ### Examples
 
@@ -729,9 +820,11 @@ slice([ 1, 2, 3 ], 1, 3); // [ 2, 3 ]
 slice('str'); // [ 's', 't', 'r' ]
 ```
 
-Returns **[Array][163]** sliced array
+Returns **[Array][189]** sliced array
 
 ## unshift
+
+[src/functions/list.mjs:66-66][208]
 
 ### Parameters
 
@@ -746,9 +839,11 @@ unshift([ 1, 2, 3 ], 0); // [ 0, 1, 2, 3 ]
 unshift('123', '0'); // [ '0', '1', '2', '3' ]
 ```
 
-Returns **[Array][163]** new list with `head` as first element
+Returns **[Array][189]** new list with `head` as first element
 
 ## reverse
+
+[src/functions/list.mjs:76-76][209]
 
 ### Parameters
 
@@ -762,16 +857,18 @@ reverse([ 1, 2, 3 ]); // [ 3, 2, 1 ]
 reverse('nice'); // [ 'e', 'c', 'i', 'n' ]
 ```
 
-Returns **[Array][163]** reversed list
+Returns **[Array][189]** reversed list
 
 ## reduce
+
+[src/functions/list.mjs:104-105][210]
 
 ### Parameters
 
 -   `$0` **iterable** any collection
     -   `$0.list` **...any** 
 -   `args` **...any** 
--   `$1` **[function][154]** reduce function
+-   `$1` **[function][158]** reduce function
 -   `$2` **any** initial value (optional, default `list[0]`)
 
 ### Examples
@@ -803,12 +900,14 @@ Returns **any** reduced value
 
 ## map
 
+[src/functions/list.mjs:121-122][211]
+
 ### Parameters
 
 -   `$0` **iterable** any collection
     -   `$0.list` **...any** 
 -   `args` **...any** 
--   `$1` **[function][154]** map function
+-   `$1` **[function][158]** map function
 
 ### Examples
 
@@ -823,16 +922,18 @@ const shiftChar = char =>
 map('hello', shiftChar); // [ 'i', 'f', 'm', 'm', 'p' ]
 ```
 
-Returns **[Array][163]** mapped array
+Returns **[Array][189]** mapped array
 
 ## filter
+
+[src/functions/list.mjs:134-135][212]
 
 ### Parameters
 
 -   `$0` **iterable** any collection
     -   `$0.list` **...any** 
 -   `args` **...any** 
--   `$1` **[function][154]** filter function
+-   `$1` **[function][158]** filter function
 
 ### Examples
 
@@ -842,16 +943,18 @@ filter([ 1, 2, 3, 4 ], x => x > 2); // [ 3, 4 ]
 filter('hello, world', x => x > 'l'); // [ 'o', 'w', 'o', 'r' ]
 ```
 
-Returns **[Array][163]** filtered array
+Returns **[Array][189]** filtered array
 
 ## forEach
+
+[src/functions/list.mjs:145-149][213]
 
 ### Parameters
 
 -   `$0` **iterable** any collection
     -   `$0.list` **...any** 
 -   `args` **...any** 
--   `$1` **[function][154]** callback
+-   `$1` **[function][158]** callback
 
 ### Examples
 
@@ -859,11 +962,13 @@ Returns **[Array][163]** filtered array
 forEach([ 1, 2, 3 ], console.log); // logs 1, 2, 3 and returns the array
 ```
 
-Returns **[Array][163]** input list
+Returns **[Array][189]** input list
 
 ## monads/maybe
 
-Maybe monad ported from [stateless-maybe-js][166].
+[src/monads/maybe.mjs:14-14][214]
+
+Maybe monad ported from [stateless-maybe-js][215].
 
 ### Examples
 
@@ -880,29 +985,37 @@ Maybe('hello, world')
 
 ## MaybeInterface
 
+[src/monads/maybe.mjs:21-138][216]
+
 ### getOrThrow
+
+[src/monads/maybe.mjs:56-58][217]
 
 #### Parameters
 
--   `e` **[Error][156]** a custom error
+-   `e` **[Error][162]** a custom error
 
 
--   Throws **[Error][156]** 
+-   Throws **[Error][162]** 
 
 Returns **any** wrapped value or throws the error
 
 ### filter
+
+[src/monads/maybe.mjs:67-69][218]
 
 If the object is a `Just` instance and `fn(value) == false`,
 returns `Nothing`. Returns the maybe itself otherwise.
 
 #### Parameters
 
--   `fn` **[function][154]** filter function
+-   `fn` **[function][158]** filter function
 
-Returns **[MaybeInterface][167]** itself or `Nothing`
+Returns **[MaybeInterface][219]** itself or `Nothing`
 
 ### map
+
+[src/monads/maybe.mjs:79-81][220]
 
 If the object is a `Just` instance and `fn(value)`
 isn't `null` or `undefined`, returns `Just(fn(value))`.
@@ -910,11 +1023,13 @@ Returns `Nothing` otherwise.
 
 #### Parameters
 
--   `fn` **[function][154]** map function
+-   `fn` **[function][158]** map function
 
-Returns **[MaybeInterface][167]** `Maybe(fn(value))` or `Nothing`
+Returns **[MaybeInterface][219]** `Maybe(fn(value))` or `Nothing`
 
 ### forEach
+
+[src/monads/maybe.mjs:91-97][221]
 
 Does nothing if the object is `Nothing`.
 Applies the given function to wrapped value otherwise.
@@ -922,11 +1037,13 @@ Always returns itself.
 
 #### Parameters
 
--   `fn` **[function][154]** function to apply
+-   `fn` **[function][158]** function to apply
 
-Returns **[MaybeInterface][167]** itself
+Returns **[MaybeInterface][219]** itself
 
 ### getOrElse
+
+[src/monads/maybe.mjs:112-114][222]
 
 If the object is a `Just` instance, returns its value.
 If it's a `Nothing returns`orElse\`.
@@ -945,6 +1062,8 @@ Returns **any** wrapped value or `orElse`
 
 ### orElse
 
+[src/monads/maybe.mjs:124-126][223]
+
 -   **See: getOrElse**
 
 Acts like `getOrElse`, but returns a `Maybe` instance
@@ -954,38 +1073,48 @@ instead of wrapped value.
 
 -   `orElse` **any** some value or a function
 
-Returns **[MaybeInterface][167]** itself or `Maybe(orElse)`
+Returns **[MaybeInterface][219]** itself or `Maybe(orElse)`
 
 ### toString
+
+[src/monads/maybe.mjs:135-137][224]
 
 If the object is a `Just` instance returns
 wrapped value casted to string.
 Returns an empty string otherwise.
 
-Returns **[string][157]** empty string or `String(this.get())`
+Returns **[string][166]** empty string or `String(this.get())`
 
 ### isEmpty
 
+[src/monads/maybe.mjs:56-58][217]
+
 `true` if maybe is `Nothing`, `false` otherwise.
 
-Type: [boolean][158]
+Type: [boolean][169]
 
 ### nonEmpty
 
+[src/monads/maybe.mjs:56-58][217]
+
 Negation of `isEmpty`.
 
-Type: [boolean][158]
+Type: [boolean][169]
 
 ### get
+
+[src/monads/maybe.mjs:56-58][217]
 
 Returns wrapped value or throws an `Error`
 if the object is `Nothing`.
 
--   Throws **[Error][156]** 
+-   Throws **[Error][162]** 
 
 Returns **any** wrapped value
 
 ## Just
+
+[src/monads/maybe.mjs:165-175][225]
 
 Just constructor: function that always returns
 a `Just` instance.
@@ -1016,15 +1145,19 @@ m2 !== Just(m2);
 m2 === Just(m2).get();
 ```
 
-Returns **[MaybeInterface][167]** `Just(val)`
+Returns **[MaybeInterface][219]** `Just(val)`
 
 ## Nothing
 
+[src/monads/maybe.mjs:183-183][226]
+
 `Nothing` instance.
 
-Type: [MaybeInterface][167]
+Type: [MaybeInterface][219]
 
 ## Maybe
+
+[src/monads/maybe.mjs:216-218][227]
 
 Façade: returns `Nothing` if value is `null` or `undefined`,
 returns `Just(value)` otherwise.
@@ -1053,9 +1186,11 @@ const m = Maybe('hello, world');
 m === Maybe(m); // true
 ```
 
-Returns **[MaybeInterface][167]** `Just(val)` or `Nothing`
+Returns **[MaybeInterface][219]** `Just(val)` or `Nothing`
 
 ## Maybe.isInstance
+
+[src/monads/maybe.mjs:235-235][228]
 
 Allows to determine if an object is a `Maybe` instance.
 
@@ -1070,21 +1205,25 @@ Maybe.isInstance(null); // false
 Maybe.isInstance(Maybe(null)); // true
 ```
 
-Returns **[boolean][158]** `true` if `val` is a `Maybe` instance
+Returns **[boolean][169]** `true` if `val` is a `Maybe` instance
 
 ## Maybe.of
 
+[src/monads/maybe.mjs:245-245][229]
+
 -   **See: Maybe**
 
-Alias of [Maybe][137].
+Alias of [Maybe][138].
 
 ### Parameters
 
 -   `val` **any** value to wrap
 
-Returns **[MaybeInterface][167]** `Just(val)` or `Nothing`
+Returns **[MaybeInterface][219]** `Just(val)` or `Nothing`
 
 ## Maybe.str
+
+[src/monads/maybe.mjs:262-266][230]
 
 Creates a `Maybe` object that contains a non-empty string.
 
@@ -1103,9 +1242,11 @@ Maybe.str(Object('')) // Nothing
 Maybe.str(anythingElse) // Nothing
 ```
 
-Returns **[MaybeInterface][167]** `Just(nonEmptyString)` or `Nothing`
+Returns **[MaybeInterface][219]** `Just(nonEmptyString)` or `Nothing`
 
 ## Maybe.num
+
+[src/monads/maybe.mjs:284-288][231]
 
 Creates a `Maybe` object that contains a number
 that is not `NaN` or `Infinite`.
@@ -1125,9 +1266,11 @@ Maybe.num(Object(NaN)) // Nothing
 Maybe.num(anythingElse) // Nothing
 ```
 
-Returns **[MaybeInterface][167]** `Just(validNumber)` or `Nothing`
+Returns **[MaybeInterface][219]** `Just(validNumber)` or `Nothing`
 
 ## Maybe.obj
+
+[src/monads/maybe.mjs:306-308][232]
 
 Creates a `Maybe` object that contains a non-primitive object.
 
@@ -1147,7 +1290,7 @@ Maybe.obj(Object(0)) // Nothing
 Maybe.obj(Object(NaN)) // Nothing
 ```
 
-Returns **[MaybeInterface][167]** `Just(object)` or `Nothing`
+Returns **[MaybeInterface][219]** `Just(object)` or `Nothing`
 
 [1]: #functionsbasic
 
@@ -1161,324 +1304,454 @@ Returns **[MaybeInterface][167]** `Just(object)` or `Nothing`
 
 [6]: #parameters-1
 
-[7]: #flip
+[7]: #examples-1
 
-[8]: #parameters-2
+[8]: #flip
 
-[9]: #examples-1
+[9]: #parameters-2
 
-[10]: #failwith
+[10]: #examples-2
 
-[11]: #parameters-3
+[11]: #failwith
 
-[12]: #examples-2
+[12]: #parameters-3
 
-[13]: #curry2
+[13]: #examples-3
 
-[14]: #parameters-4
+[14]: #curry2
 
-[15]: #examples-3
+[15]: #parameters-4
 
-[16]: #unbox
+[16]: #examples-4
 
-[17]: #parameters-5
+[17]: #unbox
 
-[18]: #examples-4
+[18]: #parameters-5
 
-[19]: #typeof
+[19]: #examples-5
 
-[20]: #parameters-6
+[20]: #typeof
 
-[21]: #prop
+[21]: #parameters-6
 
-[22]: #parameters-7
+[22]: #prop
 
-[23]: #examples-5
+[23]: #parameters-7
 
-[24]: #isnum
+[24]: #examples-6
 
-[25]: #parameters-8
+[25]: #isnum
 
-[26]: #isstr
+[26]: #parameters-8
 
-[27]: #parameters-9
+[27]: #isstr
 
-[28]: #issym
+[28]: #parameters-9
 
-[29]: #parameters-10
+[29]: #issym
 
-[30]: #isobj
+[30]: #parameters-10
 
-[31]: #parameters-11
+[31]: #isobj
 
-[32]: #isfun
+[32]: #parameters-11
 
-[33]: #parameters-12
+[33]: #isfun
 
-[34]: #isbool
+[34]: #parameters-12
 
-[35]: #parameters-13
+[35]: #isbool
 
-[36]: #isiter
+[36]: #parameters-13
 
-[37]: #parameters-14
+[37]: #isiter
 
-[38]: #isarray
+[38]: #parameters-14
 
-[39]: #parameters-15
+[39]: #isarray
 
-[40]: #expectnum
+[40]: #parameters-15
 
-[41]: #parameters-16
+[41]: #expectnum
 
-[42]: #expectstr
+[42]: #parameters-16
 
-[43]: #parameters-17
+[43]: #expectstr
 
-[44]: #expectsym
+[44]: #parameters-17
 
-[45]: #parameters-18
+[45]: #expectsym
 
-[46]: #expectobj
+[46]: #parameters-18
 
-[47]: #parameters-19
+[47]: #expectobj
 
-[48]: #expectfun
+[48]: #parameters-19
 
-[49]: #parameters-20
+[49]: #expectfun
 
-[50]: #expectbool
+[50]: #parameters-20
 
-[51]: #parameters-21
+[51]: #expectbool
 
-[52]: #expectiter
+[52]: #parameters-21
 
-[53]: #parameters-22
+[53]: #expectiter
 
-[54]: #expectarray
+[54]: #parameters-22
 
-[55]: #parameters-23
+[55]: #expectarray
 
-[56]: #sum
+[56]: #parameters-23
 
-[57]: #parameters-24
+[57]: #sum
 
-[58]: #examples-6
+[58]: #parameters-24
 
-[59]: #cat
+[59]: #examples-7
 
-[60]: #parameters-25
+[60]: #cat
 
-[61]: #examples-7
+[61]: #parameters-25
 
-[62]: #bound
+[62]: #examples-8
 
-[63]: #parameters-26
+[63]: #bound
 
-[64]: #examples-8
+[64]: #parameters-26
 
-[65]: #call
+[65]: #examples-9
 
-[66]: #parameters-27
+[66]: #call
 
-[67]: #examples-9
+[67]: #parameters-27
 
-[68]: #pass
+[68]: #examples-10
 
-[69]: #parameters-28
+[69]: #pass
 
-[70]: #examples-10
+[70]: #parameters-28
 
-[71]: #compose
+[71]: #examples-11
 
-[72]: #parameters-29
+[72]: #compose
 
-[73]: #pipe
+[73]: #parameters-29
 
-[74]: #parameters-30
+[74]: #pipe
 
-[75]: #functionsconsole
+[75]: #parameters-30
 
-[76]: #examples-11
+[76]: #functionsconsole
 
-[77]: #log
+[77]: #examples-12
 
-[78]: #parameters-31
+[78]: #log
 
-[79]: #examples-12
+[79]: #parameters-31
 
-[80]: #show
+[80]: #examples-13
 
-[81]: #parameters-32
+[81]: #show
 
-[82]: #examples-13
+[82]: #parameters-32
 
-[83]: #functionslist
+[83]: #examples-14
 
-[84]: #examples-14
+[84]: #functionslist
 
-[85]: #pair
+[85]: #examples-15
 
-[86]: #parameters-33
+[86]: #pair
 
-[87]: #first
+[87]: #parameters-33
 
-[88]: #parameters-34
+[88]: #first
 
-[89]: #second
+[89]: #parameters-34
 
-[90]: #parameters-35
+[90]: #second
 
-[91]: #last
+[91]: #parameters-35
 
-[92]: #parameters-36
+[92]: #last
 
-[93]: #slice
+[93]: #parameters-36
 
-[94]: #parameters-37
+[94]: #slice
 
-[95]: #examples-15
+[95]: #parameters-37
 
-[96]: #unshift
+[96]: #examples-16
 
-[97]: #parameters-38
+[97]: #unshift
 
-[98]: #examples-16
+[98]: #parameters-38
 
-[99]: #reverse
+[99]: #examples-17
 
-[100]: #parameters-39
+[100]: #reverse
 
-[101]: #examples-17
+[101]: #parameters-39
 
-[102]: #reduce
+[102]: #examples-18
 
-[103]: #parameters-40
+[103]: #reduce
 
-[104]: #examples-18
+[104]: #parameters-40
 
-[105]: #map
+[105]: #examples-19
 
-[106]: #parameters-41
+[106]: #map
 
-[107]: #examples-19
+[107]: #parameters-41
 
-[108]: #filter
+[108]: #examples-20
 
-[109]: #parameters-42
+[109]: #filter
 
-[110]: #examples-20
+[110]: #parameters-42
 
-[111]: #foreach
+[111]: #examples-21
 
-[112]: #parameters-43
+[112]: #foreach
 
-[113]: #examples-21
+[113]: #parameters-43
 
-[114]: #monadsmaybe
+[114]: #examples-22
 
-[115]: #examples-22
+[115]: #monadsmaybe
 
-[116]: #maybeinterface
+[116]: #examples-23
 
-[117]: #getorthrow
+[117]: #maybeinterface
 
-[118]: #parameters-44
+[118]: #getorthrow
 
-[119]: #filter-1
+[119]: #parameters-44
 
-[120]: #parameters-45
+[120]: #filter-1
 
-[121]: #map-1
+[121]: #parameters-45
 
-[122]: #parameters-46
+[122]: #map-1
 
-[123]: #foreach-1
+[123]: #parameters-46
 
-[124]: #parameters-47
+[124]: #foreach-1
 
-[125]: #getorelse
+[125]: #parameters-47
 
-[126]: #parameters-48
+[126]: #getorelse
 
-[127]: #orelse
+[127]: #parameters-48
 
-[128]: #parameters-49
+[128]: #orelse
 
-[129]: #tostring
+[129]: #parameters-49
 
-[130]: #isempty
+[130]: #tostring
 
-[131]: #nonempty
+[131]: #isempty
 
-[132]: #get
+[132]: #nonempty
 
-[133]: #just
+[133]: #get
 
-[134]: #parameters-50
+[134]: #just
 
-[135]: #examples-23
+[135]: #parameters-50
 
-[136]: #nothing
+[136]: #examples-24
 
-[137]: #maybe
+[137]: #nothing
 
-[138]: #parameters-51
+[138]: #maybe
 
-[139]: #examples-24
+[139]: #parameters-51
 
-[140]: #maybeisinstance
+[140]: #examples-25
 
-[141]: #parameters-52
+[141]: #maybeisinstance
 
-[142]: #examples-25
+[142]: #parameters-52
 
-[143]: #maybeof
+[143]: #examples-26
 
-[144]: #parameters-53
+[144]: #maybeof
 
-[145]: #maybestr
+[145]: #parameters-53
 
-[146]: #parameters-54
+[146]: #maybestr
 
-[147]: #examples-26
+[147]: #parameters-54
 
-[148]: #maybenum
+[148]: #examples-27
 
-[149]: #parameters-55
+[149]: #maybenum
 
-[150]: #examples-27
+[150]: #parameters-55
 
-[151]: #maybeobj
+[151]: #examples-28
 
-[152]: #parameters-56
+[152]: #maybeobj
 
-[153]: #examples-28
+[153]: #parameters-56
 
-[154]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[154]: #examples-29
 
-[155]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
+[155]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L13-L13 "Source code on GitHub"
 
-[156]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
+[156]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L21-L21 "Source code on GitHub"
 
-[157]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[157]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L32-L32 "Source code on GitHub"
 
-[158]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[158]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[159]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+[159]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L45-L45 "Source code on GitHub"
 
-[160]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[160]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L58-L60 "Source code on GitHub"
 
-[161]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+[161]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
 
-[162]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[162]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
 
-[163]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[163]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L78-L81 "Source code on GitHub"
 
-[164]: composition.md
+[164]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L93-L97 "Source code on GitHub"
 
-[165]: piping.md
+[165]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L108-L110 "Source code on GitHub"
 
-[166]: https://github.com/emilianobovetti/stateless-maybe-js
+[166]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[167]: #maybeinterface
+[167]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L124-L126 "Source code on GitHub"
+
+[168]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L145-L145 "Source code on GitHub"
+
+[169]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[170]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L152-L152 "Source code on GitHub"
+
+[171]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L159-L159 "Source code on GitHub"
+
+[172]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L166-L166 "Source code on GitHub"
+
+[173]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L173-L173 "Source code on GitHub"
+
+[174]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L180-L180 "Source code on GitHub"
+
+[175]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L189-L189 "Source code on GitHub"
+
+[176]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L199-L199 "Source code on GitHub"
+
+[177]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L215-L215 "Source code on GitHub"
+
+[178]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+
+[179]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[180]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L225-L225 "Source code on GitHub"
+
+[181]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L235-L235 "Source code on GitHub"
+
+[182]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+
+[183]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L245-L245 "Source code on GitHub"
+
+[184]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[185]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L255-L255 "Source code on GitHub"
+
+[186]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L265-L265 "Source code on GitHub"
+
+[187]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L275-L275 "Source code on GitHub"
+
+[188]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L285-L285 "Source code on GitHub"
+
+[189]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[190]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L299-L300 "Source code on GitHub"
+
+[191]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L312-L313 "Source code on GitHub"
+
+[192]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L328-L329 "Source code on GitHub"
+
+[193]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L351-L352 "Source code on GitHub"
+
+[194]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L370-L375 "Source code on GitHub"
+
+[195]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L384-L400 "Source code on GitHub"
+
+[196]: composition.md
+
+[197]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/basic.mjs#L408-L424 "Source code on GitHub"
+
+[198]: piping.md
+
+[199]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/console.mjs#L13-L13 "Source code on GitHub"
+
+[200]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/console.mjs#L32-L40 "Source code on GitHub"
+
+[201]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/console.mjs#L55-L60 "Source code on GitHub"
+
+[202]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L13-L13 "Source code on GitHub"
+
+[203]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L22-L22 "Source code on GitHub"
+
+[204]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L29-L29 "Source code on GitHub"
+
+[205]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L37-L37 "Source code on GitHub"
+
+[206]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L43-L43 "Source code on GitHub"
+
+[207]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L55-L55 "Source code on GitHub"
+
+[208]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L66-L66 "Source code on GitHub"
+
+[209]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L76-L76 "Source code on GitHub"
+
+[210]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L104-L105 "Source code on GitHub"
+
+[211]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L121-L122 "Source code on GitHub"
+
+[212]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L134-L135 "Source code on GitHub"
+
+[213]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/functions/list.mjs#L145-L149 "Source code on GitHub"
+
+[214]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L14-L14 "Source code on GitHub"
+
+[215]: https://github.com/emilianobovetti/stateless-maybe-js
+
+[216]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L21-L138 "Source code on GitHub"
+
+[217]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L56-L58 "Source code on GitHub"
+
+[218]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L67-L69 "Source code on GitHub"
+
+[219]: #maybeinterface
+
+[220]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L79-L81 "Source code on GitHub"
+
+[221]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L91-L97 "Source code on GitHub"
+
+[222]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L112-L114 "Source code on GitHub"
+
+[223]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L124-L126 "Source code on GitHub"
+
+[224]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L135-L137 "Source code on GitHub"
+
+[225]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L165-L175 "Source code on GitHub"
+
+[226]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L183-L183 "Source code on GitHub"
+
+[227]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L216-L218 "Source code on GitHub"
+
+[228]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L235-L235 "Source code on GitHub"
+
+[229]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L245-L245 "Source code on GitHub"
+
+[230]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L262-L266 "Source code on GitHub"
+
+[231]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L284-L288 "Source code on GitHub"
+
+[232]: https://git@github.com/:emilianobovetti/fpc/blob/0bdc4baf47f7c224c6a67b5575361327fccf8bff/src/monads/maybe.mjs#L306-L308 "Source code on GitHub"
