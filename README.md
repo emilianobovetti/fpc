@@ -30,6 +30,7 @@ It allows piping and function composition with fluent syntax, so it's possible t
 Here I'll tell you why this library exists, feel free to [skip](#user-content-usage) this chapter.
 
 ![xkcd standards](https://imgs.xkcd.com/comics/standards.png)
+
 I know what you thinking: «do we really need [another](https://github.com/stoeffel/awesome-fp-js) *functional-js-library*?».
 No, we don't. Seriously.
 
@@ -50,7 +51,7 @@ Alright! Let's try this code. `yarn add ramda@0.26.1`
 `let users = validUsersNamedBuzz([ { name: 'Buzz', errors: [] } ]);`
 
 > TypeError: spec[prop] is not a function
-> [...stacktrace]
+  [...stacktrace]
 
 Okay, I won't complain about the documentation apparently not updated, the problem here is I have to dig in `ramda`'s source code to tell what's wrong, this error is meaningless to me.
 
