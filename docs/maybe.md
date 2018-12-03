@@ -127,8 +127,8 @@ const getUser = id => {
  */
 const getUserName = id =>
   getUser(id)
-  .map(user => user.name)
-  .getOrElse('unknown');
+    .map(user => user.name)
+    .getOrElse('unknown');
 
 getUserName(0); // 'unknown'
 getUserName(1); // 'Bob'

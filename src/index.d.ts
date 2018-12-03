@@ -1,4 +1,4 @@
-// Type definitions for fpc 2.0.0
+// Type definitions for fpc 2.0.x
 // Project: https://github.com/emilianobovetti/fpc
 // Definitions by: Emiliano Bovetti <https://github.com/emilianobovetti>
 

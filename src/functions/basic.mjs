@@ -59,26 +59,56 @@ export const failWith = e => {
   throw e instanceof Error ? e : new Error(e);
 };
 
-const empty = {};
+const doCurry = (fn, numArgs, args = []) => (
+  args.length < numArgs
+    ? (...innerArgs) => doCurry(fn, numArgs, args.concat(innerArgs))
+    : fn(...args)
+);
+
+/**
+ * Creates currified a copy of a function.
+ *
+ * @example
+ * const currifSum = curry((x, y) => x + y);
+ *
+ * currifSum(1, 2); // 3
+ *
+ * const add2 = currifSum(2);
+ * add2(3); // 5
+ *
+ * @since 2.1.0
+ *
+ * @param {function} fn - to curry
+ * @param {number} [numArgs=fn.length] - how many arguments `fn` takes
+ * @return {function} currified version
+ */
+export const curry = (fn, numArgs = fn.length) => (
+  Number.isInteger(numArgs) && numArgs >= 0
+    ? doCurry(fn, numArgs)
+    : failWith(new Error('curry() expects a non-negative integer as numArgs'))
+);
 
 /**
  * Creates currified a copy of a two-arguments function.
  *
+ * When we variadic function `fn` unfortunately we cannot use
+ * `curry(fn)` because its `length` is 0.
+ * So we need to specify how many arguments `fn` expects:
+ * `curry(fn, 2)` or simply `curry2(fn)`.
+ *
  * @example
- * const currifSum = curry2((x, y) => x + y);
+ * const currifSum = curry2((...xs) => xs.reduce((a, b) => a + b, 0));
  *
  * currifSum(1, 2); // 3
  *
- * const sum2 = currifSum(2);
- * sum2(3); // 5
+ * const add2 = currifSum(2);
+ * add2(3); // 5
  *
  * @param {function} fn - that takes two arguments
  * @return {function} currified version
  */
 export const curry2 = fn =>
-  (fst, snd = empty) => (
-    snd === empty ? snd_ => fn(fst, snd_) : fn(fst, snd)
-  );
+  doCurry(fn, 2);
 
 /**
  * Returns the unboxed value on some objects,
@@ -125,7 +155,7 @@ export const prop = (val, propName) => (
   val == null ? undefined : val[propName]
 );
 
-export const is = curry2((expected, val) => {
+export const is = curry((expected, val) => {
   if (expected === 'iterable') {
     return is.fun(prop(val, Symbol.iterator));
   }
@@ -198,7 +228,7 @@ is.iter = is('iterable');
  */
 is.array = is('array');
 
-export const expect = curry2((expected, val) => (
+export const expect = curry((expected, val) => (
   is(expected, val)
     ? unbox(val)
     : failWith(new TypeError(`Expected ${expected}, got ${typeOf(val)}`))
@@ -410,7 +440,7 @@ export const pipe = (...args) => {
 
   self.result = args.length > 0
     ? first(args)
-    : failWith(new Error('No value in pipe'));
+    : failWith(new Error('pipe() cannot be called without an argument'));
 
   self.into = (fn, ...innerArgs) => {
     expect.fun(fn);
