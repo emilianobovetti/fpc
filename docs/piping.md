@@ -31,7 +31,7 @@ output = pipe('hello')
 
 ### Multiple Arguments
 
-The value in `pipe()` will be passed to functions as *first* argument. In many ML dialects traditionally the pipe operator will pass its value as *last* argument in functions, but in JavaScript the "context" argument is often the first one.
+The value in `pipe()` will be passed to functions as *first* argument. In many [ML dialects](https://en.wikipedia.org/wiki/ML_%28programming_language%29) traditionally the pipe operator will pass its value as *last* argument in functions, but in JavaScript the "context" argument is often the first one. If you came from [Elixir](https://elixir-lang.org) it's nothing new.
 
 ```javascript
 const double = x => x * 2;
