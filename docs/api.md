@@ -231,7 +231,7 @@ Returns **[function][167]** the flipped version of `fn`
 ## failWith
 
 Throws an error but as expression, unlike `throw`.
-Converts `error` to [Error][168] if isn't already an `Error` instance.
+Converts `e` to [Error][168] if isn't already an `Error` instance.
 
 ### Parameters
 
