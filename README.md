@@ -40,22 +40,7 @@ This library is not intended to replace anything. It won't cover everyone's use 
 
 I'm not trying to blame other libraries here — all of which are *great* open source projects — I'm just telling my personal experience with them.
 
-First time I tried `ramda` didn't go very well. I followed [Introducing Ramda](http://buzzdecafe.github.io/code/2014/05/16/introducing-ramda) from [ramdajs.com](https://ramdajs.com) (hope these links still work).
-At the time of writing the first example is the following:
-```javascript
-// ramda style:
-var validUsersNamedBuzz = R.filter(R.where({name: 'Buzz', errors: R.isEmpty}));
-```
-Alright! Let's try this code. `yarn add ramda@0.26.1`
-
-`let users = validUsersNamedBuzz([ { name: 'Buzz', errors: [] } ]);`
-
-> TypeError: spec[prop] is not a function
-  [...stacktrace]
-
-Okay, I won't complain about the documentation apparently not updated, the problem here is I have to dig in `ramda`'s source code to tell what's wrong, this error is meaningless to me.
-
-Leaving these issues aside, now I'll try to show [difference in approaches](https://youtu.be/m3svKOdZijAt?t=512):
+I'll try to show [difference in approaches](https://youtu.be/m3svKOdZijAt?t=512) with `ramda`:
 
 ```javascript
 const R = require('ramda');
@@ -64,7 +49,7 @@ R.map(R.take(2), [ 'jim', 'kate' ]); // [ 'ji', 'ka' ]
 
 `ramda` loves [pointfree style](https://wiki.haskell.org/Pointfree) and currying, at the cost of being less explicit.
 
-With modern javascript, anyway, we don't need a library to write that code anymore, we can be functional, expressive and terse.
+With modern javascript, anyway, we don't need a library to write that code, we can be functional, expressive and terse.
 
 ```javascript
 [ 'jim', 'kate' ].map(str => str.slice(0, 2)); // [ 'ji', 'ka' ]

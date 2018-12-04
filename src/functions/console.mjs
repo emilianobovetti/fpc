@@ -11,7 +11,7 @@
  */
 
 import { is, id } from './basic';
-import { first } from './list';
+import { first } from './collection';
 
 /* global console */
 

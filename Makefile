@@ -1,53 +1,60 @@
-# directories
-build_dir := $(CURDIR)/dist
+# docs
+api_docs_file := $(CURDIR)/docs/api.md
+# build
+umd_target := $(abspath $(shell node get-package.js umd:main))
+build_dir :=  $(dir $(umd_target))
 node_dir := $(CURDIR)/node_modules
 node_bin := $(node_dir)/.bin
-docs_dir := $(CURDIR)/docs
-# source
-source_dir := $(CURDIR)/src
-mjs_index := $(source_dir)/index.mjs
-# target
-api_docs_file := $(docs_dir)/api.md
 
-all : yarn-check build test docs
+all : build test docs
 
-.PHONY: yarn-check
-yarn-check :
-ifeq ("$(wildcard $(node_bin))", "")
+$(node_bin):
 	@yarn
-endif
 
 $(build_dir):
 	@mkdir -p $(build_dir)
 
-.PHONY: dev
-dev: yarn-check $(build_dir)
-	@npx webpack --mode development
-
-.PHONY: build
-build: yarn-check $(build_dir)
+$(umd_target): $(node_bin) $(build_dir)
 	@npx webpack --mode production
 
-.PHONY: test
-test : yarn-check
-	@BABEL_ENV=test npx nyc mocha --recursive
-
-.PHONY: docs
-docs: $(api_docs_file)
-
-$(api_docs_file): yarn-check
-	npx documentation build src/** \
+$(api_docs_file): $(node_bin)
+	@npx documentation build src/** \
 		--output $(api_docs_file) \
 		--format md
 
+.PHONY: build
+build: clean-build $(umd_target)
+
+.PHONY: test
+test : $(node_bin)
+	@BABEL_ENV=test npx nyc mocha --recursive
+
+.PHONY: docs
+docs: clean-docs $(umd_target) $(api_docs_file)
+
+.PHONY: clean-build
+clean-build:
+	@rm -rf $(build_dir)
+
+.PHONY: clean-node
+clean-node:
+	@rm -rf $(node_dir)
+
+.PHONY: clean-docs
+clean-docs:
+	@rm -f $(api_docs_file)
+
+.PHONY: clean
+clean : clean-build clean-node clean-docs
+
+.PHONY: dev
+dev: $(node_bin) $(build_dir)
+	@npx webpack --mode development
+
 .PHONY: commit
-commit: yarn-check
+commit: build test docs
 	@git cz
 
 .PHONY: playground
-playground: build
+playground: $(umd_target)
 	@node playground.js
-
-.PHONY: clean
-clean :
-	@rm -rf $(node_dir) $(build_dir)

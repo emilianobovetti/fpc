@@ -2,7 +2,8 @@
 
 'use strict';
 
-const fpc = require('../dist/fpc.umd.js');
+const pkg = require('../package.json');
+const fpc = require(`../${pkg['umd:main']}`);
 
 if (typeof exports === 'object' && typeof module === 'object') {
   module.exports = fpc;

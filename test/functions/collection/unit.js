@@ -10,6 +10,12 @@ describe('fpc', () => {
     )
   );
 
+  describe('#unshift', () =>
+    it('should put an item on the head of an array', () =>
+      _.isEqual(fpc.unshift([ 1, 2, 3 ], 0), [ 0, 1, 2, 3 ])
+    )
+  );
+
   describe('#first', () =>
     it('should get the first item of an array', () =>
       fpc.first([ 1 ]).should.be.equal(1)
@@ -49,12 +55,6 @@ describe('fpc', () => {
   describe('#last', () =>
     it('should return undefined on an empty array', () =>
       _.isEqual(fpc.last([]), undefined)
-    )
-  );
-
-  describe('#unshift', () =>
-    it('should put an item on the head of an array', () =>
-      _.isEqual(fpc.unshift([ 1, 2, 3 ], 0), [ 0, 1, 2, 3 ])
     )
   );
 

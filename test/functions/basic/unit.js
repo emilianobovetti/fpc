@@ -18,10 +18,6 @@ const values = [
 const forAll = (vals, fn) =>
   vals.reduce((acc, x) => acc && fn(x), true);
 
-const revCat = fpc.flip(fpc.cat);
-
-const cat2 = fpc.curry2(fpc.cat);
-
 describe('fpc', () => {
 
   describe('#id', () =>
@@ -38,19 +34,13 @@ describe('fpc', () => {
 
   describe('#flip', () =>
     it('should reverse the arguments order', () =>
-      revCat(1, 2, 3) === fpc.cat(3, 2, 1)
+      fpc.flip(fpc.cat)(1, 2, 3) === fpc.cat(3, 2, 1)
     )
   );
 
   describe('#failWith', () =>
     it('should throw an error', () =>
       fpc.failWith.should.throw()
-    )
-  );
-
-  describe('#curry2', () =>
-    it('should currify a two-arguments function', () =>
-      cat2(1)(2).should.be.equal(cat2(1, 2))
     )
   );
 
@@ -151,6 +141,28 @@ describe('fpc', () => {
     it('should be true on arrays', () =>
       fpc.is.array([]).should.be.true()
     )
+  );
+
+  describe('#curry', () =>
+    it('should currify a function', () => {
+      const cat3 = fpc.curry((a, b, c) => a + b + c);
+
+      cat3(1)(2)(3).should.be.equal(cat3(1, 2, 3));
+    })
+  );
+
+  describe('#curry', () =>
+    it('should throw an error if the second argument is not a positive integer', () =>
+      (() => fpc.curry(fpc.cat, -1)).should.throw()
+    )
+  );
+
+  describe('#curry2', () =>
+    it('should currify a two-arguments function', () => {
+      const cat2 = fpc.curry2(fpc.cat);
+
+      cat2(1)(2).should.be.equal(cat2(1, 2));
+    })
   );
 
   describe('#bound', () =>

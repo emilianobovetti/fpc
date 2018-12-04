@@ -16,6 +16,57 @@ const isNumeric = val => (
 
 describe('fpc', () => {
 
+  describe('#slice', () => {
+    jsc.property('should work as Array.prototype.slice()', jsc.array(any), array =>
+      compare(
+        array.slice(),
+        fpc.slice(array)
+      )
+    );
+
+    const doubleSlice = fpc.compose(fpc.slice).with(fpc.slice);
+
+    jsc.property('should be idempotent', jsc.array(any), jsc.integer(), jsc.integer(),  (array, n1, n2) =>
+      compare(
+        doubleSlice(array),
+        fpc.slice(array)
+      ) && compare(
+        doubleSlice(array, n1),
+        fpc.slice(array, n1)
+      ) && compare(
+        doubleSlice(array, n1, n2),
+        fpc.slice(array, n1, n2)
+      )
+    );
+  });
+
+  describe('#reverse', () => {
+    jsc.property('should work as Array.prototype.reverse()', jsc.array(any), array =>
+      compare(
+        array.slice().reverse(),
+        fpc.reverse(array)
+      )
+    );
+
+    const doubleReverse = fpc.compose(fpc.reverse).with(fpc.reverse);
+    const tripleReverse = fpc.compose(doubleReverse).with(fpc.reverse);
+    const quadrupleReverse = fpc.compose(tripleReverse).with(fpc.reverse);
+
+    jsc.property('should satisfy rev(rev(rev(x)) = rev(x)', jsc.array(any), array =>
+      compare(
+        tripleReverse(array),
+        fpc.reverse(array)
+      )
+    );
+
+    jsc.property('should satisfy rev(rev(rev(rev(x))) = rev(rev(x))', jsc.array(any), array =>
+      compare(
+        quadrupleReverse(array),
+        doubleReverse(array)
+      )
+    );
+  });
+
   describe('#map', () => {
     jsc.property('should work as Array.prototype.map()', jsc.array(any), jsc.fn(jsc.nat), (array, fn) =>
       compare(
@@ -84,57 +135,6 @@ describe('fpc', () => {
 
       return compare(array1, array2);
     });
-  });
-
-  describe('#slice', () => {
-    jsc.property('should work as Array.prototype.slice()', jsc.array(any), array =>
-      compare(
-        array.slice(),
-        fpc.slice(array)
-      )
-    );
-
-    const doubleSlice = fpc.compose(fpc.slice).with(fpc.slice);
-
-    jsc.property('should be idempotent', jsc.array(any), jsc.integer(), jsc.integer(),  (array, n1, n2) =>
-      compare(
-        doubleSlice(array),
-        fpc.slice(array)
-      ) && compare(
-        doubleSlice(array, n1),
-        fpc.slice(array, n1)
-      ) && compare(
-        doubleSlice(array, n1, n2),
-        fpc.slice(array, n1, n2)
-      )
-    );
-  });
-
-  describe('#reverse', () => {
-    jsc.property('should work as Array.prototype.reverse()', jsc.array(any), array =>
-      compare(
-        array.slice().reverse(),
-        fpc.reverse(array)
-      )
-    );
-
-    const doubleReverse = fpc.compose(fpc.reverse).with(fpc.reverse);
-    const tripleReverse = fpc.compose(doubleReverse).with(fpc.reverse);
-    const quadrupleReverse = fpc.compose(tripleReverse).with(fpc.reverse);
-
-    jsc.property('should satisfy rev(rev(rev(x)) = rev(x)', jsc.array(any), array =>
-      compare(
-        tripleReverse(array),
-        fpc.reverse(array)
-      )
-    );
-
-    jsc.property('should satisfy rev(rev(rev(rev(x))) = rev(rev(x))', jsc.array(any), array =>
-      compare(
-        quadrupleReverse(array),
-        doubleReverse(array)
-      )
-    );
   });
 
 });

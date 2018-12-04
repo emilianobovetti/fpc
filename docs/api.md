@@ -2,163 +2,171 @@
 
 ### Table of Contents
 
--   [functions/basic][1]
-    -   [Examples][2]
--   [id][3]
-    -   [Parameters][4]
--   [not][5]
-    -   [Parameters][6]
-    -   [Examples][7]
--   [flip][8]
-    -   [Parameters][9]
-    -   [Examples][10]
--   [failWith][11]
-    -   [Parameters][12]
-    -   [Examples][13]
--   [curry][14]
-    -   [Parameters][15]
-    -   [Examples][16]
--   [curry2][17]
-    -   [Parameters][18]
-    -   [Examples][19]
--   [unbox][20]
+-   [functions/basic][2]
+    -   [Examples][3]
+-   [id][4]
+    -   [Parameters][5]
+-   [not][6]
+    -   [Parameters][7]
+    -   [Examples][8]
+-   [flip][9]
+    -   [Parameters][10]
+    -   [Examples][11]
+-   [failWith][12]
+    -   [Parameters][13]
+    -   [Examples][14]
+-   [unbox][15]
+    -   [Parameters][16]
+    -   [Examples][17]
+-   [typeOf][18]
+    -   [Parameters][19]
+-   [prop][20]
     -   [Parameters][21]
     -   [Examples][22]
--   [typeOf][23]
+-   [is.num][23]
     -   [Parameters][24]
--   [prop][25]
+-   [is.str][25]
     -   [Parameters][26]
-    -   [Examples][27]
--   [is.num][28]
-    -   [Parameters][29]
--   [is.str][30]
-    -   [Parameters][31]
--   [is.sym][32]
-    -   [Parameters][33]
--   [is.obj][34]
-    -   [Parameters][35]
--   [is.fun][36]
-    -   [Parameters][37]
--   [is.bool][38]
-    -   [Parameters][39]
--   [is.iter][40]
-    -   [Parameters][41]
--   [is.array][42]
-    -   [Parameters][43]
--   [expect.num][44]
-    -   [Parameters][45]
--   [expect.str][46]
-    -   [Parameters][47]
--   [expect.sym][48]
-    -   [Parameters][49]
--   [expect.obj][50]
-    -   [Parameters][51]
--   [expect.fun][52]
-    -   [Parameters][53]
--   [expect.bool][54]
-    -   [Parameters][55]
--   [expect.iter][56]
-    -   [Parameters][57]
--   [expect.array][58]
-    -   [Parameters][59]
--   [sum][60]
-    -   [Parameters][61]
-    -   [Examples][62]
--   [cat][63]
+-   [is.sym][27]
+    -   [Parameters][28]
+-   [is.obj][29]
+    -   [Parameters][30]
+-   [is.fun][31]
+    -   [Parameters][32]
+-   [is.bool][33]
+    -   [Parameters][34]
+-   [is.int][35]
+    -   [Parameters][36]
+-   [is.iter][37]
+    -   [Parameters][38]
+-   [is.array][39]
+    -   [Parameters][40]
+-   [is.array.like][41]
+    -   [Parameters][42]
+-   [expect.num][43]
+    -   [Parameters][44]
+-   [expect.str][45]
+    -   [Parameters][46]
+-   [expect.sym][47]
+    -   [Parameters][48]
+-   [expect.obj][49]
+    -   [Parameters][50]
+-   [expect.fun][51]
+    -   [Parameters][52]
+-   [expect.bool][53]
+    -   [Parameters][54]
+-   [expect.int][55]
+    -   [Parameters][56]
+-   [expect.iter][57]
+    -   [Parameters][58]
+-   [expect.array][59]
+    -   [Parameters][60]
+-   [expect.array.like][61]
+    -   [Parameters][62]
+-   [curry][63]
     -   [Parameters][64]
     -   [Examples][65]
--   [bound][66]
+-   [curry2][66]
     -   [Parameters][67]
     -   [Examples][68]
--   [call][69]
+-   [sum][69]
     -   [Parameters][70]
     -   [Examples][71]
--   [pass][72]
+-   [cat][72]
     -   [Parameters][73]
     -   [Examples][74]
--   [compose][75]
+-   [bound][75]
     -   [Parameters][76]
--   [pipe][77]
-    -   [Parameters][78]
--   [functions/console][79]
+    -   [Examples][77]
+-   [call][78]
+    -   [Parameters][79]
     -   [Examples][80]
--   [log][81]
+-   [pass][81]
     -   [Parameters][82]
     -   [Examples][83]
--   [show][84]
+-   [compose][84]
     -   [Parameters][85]
-    -   [Examples][86]
--   [functions/list][87]
-    -   [Examples][88]
--   [pair][89]
-    -   [Parameters][90]
--   [first][91]
-    -   [Parameters][92]
--   [second][93]
-    -   [Parameters][94]
--   [last][95]
-    -   [Parameters][96]
--   [slice][97]
-    -   [Parameters][98]
-    -   [Examples][99]
--   [unshift][100]
-    -   [Parameters][101]
-    -   [Examples][102]
--   [reverse][103]
-    -   [Parameters][104]
-    -   [Examples][105]
--   [reduce][106]
-    -   [Parameters][107]
-    -   [Examples][108]
--   [map][109]
-    -   [Parameters][110]
-    -   [Examples][111]
--   [filter][112]
-    -   [Parameters][113]
-    -   [Examples][114]
--   [forEach][115]
-    -   [Parameters][116]
-    -   [Examples][117]
--   [monads/maybe][118]
-    -   [Examples][119]
--   [MaybeInterface][120]
-    -   [getOrThrow][121]
-        -   [Parameters][122]
-    -   [filter][123]
-        -   [Parameters][124]
-    -   [map][125]
-        -   [Parameters][126]
-    -   [forEach][127]
-        -   [Parameters][128]
-    -   [getOrElse][129]
-        -   [Parameters][130]
-    -   [orElse][131]
-        -   [Parameters][132]
-    -   [toString][133]
-    -   [get][134]
-    -   [nonEmpty][135]
-    -   [isEmpty][136]
--   [Just][137]
-    -   [Parameters][138]
-    -   [Examples][139]
--   [Nothing][140]
--   [Maybe][141]
-    -   [Parameters][142]
-    -   [Examples][143]
--   [Maybe.isInstance][144]
-    -   [Parameters][145]
-    -   [Examples][146]
--   [Maybe.of][147]
-    -   [Parameters][148]
--   [Maybe.str][149]
-    -   [Parameters][150]
-    -   [Examples][151]
--   [Maybe.num][152]
-    -   [Parameters][153]
-    -   [Examples][154]
--   [Maybe.obj][155]
-    -   [Parameters][156]
-    -   [Examples][157]
+-   [pipe][86]
+    -   [Parameters][87]
+-   [functions/collection][88]
+    -   [Examples][89]
+-   [pair][90]
+    -   [Parameters][91]
+-   [first][92]
+    -   [Parameters][93]
+-   [second][94]
+    -   [Parameters][95]
+-   [last][96]
+    -   [Parameters][97]
+-   [slice][98]
+    -   [Parameters][99]
+    -   [Examples][100]
+-   [unshift][101]
+    -   [Parameters][102]
+    -   [Examples][103]
+-   [reverse][104]
+    -   [Parameters][105]
+    -   [Examples][106]
+-   [reduce][107]
+    -   [Parameters][108]
+    -   [Examples][109]
+-   [map][110]
+    -   [Parameters][111]
+    -   [Examples][112]
+-   [filter][113]
+    -   [Parameters][114]
+    -   [Examples][115]
+-   [forEach][116]
+    -   [Parameters][117]
+    -   [Examples][118]
+-   [functions/console][119]
+    -   [Examples][120]
+-   [log][121]
+    -   [Parameters][122]
+    -   [Examples][123]
+-   [show][124]
+    -   [Parameters][125]
+    -   [Examples][126]
+-   [monads/maybe][127]
+    -   [Examples][128]
+-   [MaybeInterface][129]
+    -   [getOrThrow][130]
+        -   [Parameters][131]
+    -   [filter][132]
+        -   [Parameters][133]
+    -   [map][134]
+        -   [Parameters][135]
+    -   [forEach][136]
+        -   [Parameters][137]
+    -   [getOrElse][138]
+        -   [Parameters][139]
+    -   [orElse][140]
+        -   [Parameters][141]
+    -   [toString][142]
+    -   [isEmpty][143]
+    -   [nonEmpty][144]
+    -   [get][145]
+-   [Just][146]
+    -   [Parameters][147]
+    -   [Examples][148]
+-   [Nothing][149]
+-   [Maybe][150]
+    -   [Parameters][151]
+    -   [Examples][152]
+-   [Maybe.isInstance][153]
+    -   [Parameters][154]
+    -   [Examples][155]
+-   [Maybe.of][156]
+    -   [Parameters][157]
+-   [Maybe.str][158]
+    -   [Parameters][159]
+    -   [Examples][160]
+-   [Maybe.num][161]
+    -   [Parameters][162]
+    -   [Examples][163]
+-   [Maybe.obj][164]
+    -   [Parameters][165]
+    -   [Examples][166]
 
 ## functions/basic
 
@@ -190,7 +198,7 @@ Returns **any** `x`
 
 ### Parameters
 
--   `fn` **[function][158]** input
+-   `fn` **[function][167]** input
 
 ### Examples
 
@@ -200,7 +208,7 @@ const isOdd = x => x % 2 !== 0;
 [1, 2, 3, 4].filter(not(isOdd)); // [ 2, 4 ]
 ```
 
-Returns **[function][158]** `(...args) => !fn(...args)`
+Returns **[function][167]** `(...args) => !fn(...args)`
 
 ## flip
 
@@ -208,7 +216,7 @@ Creates a copy of a function that takes its arguments in reversed order.
 
 ### Parameters
 
--   `fn` **[function][158]** input
+-   `fn` **[function][167]** input
 
 ### Examples
 
@@ -218,16 +226,16 @@ const revCat = flip(cat);
 revCat(1, 2, 3) === cat(3, 2, 1);
 ```
 
-Returns **[function][158]** the flipped version of `fn`
+Returns **[function][167]** the flipped version of `fn`
 
 ## failWith
 
 Throws an error but as expression, unlike `throw`.
-Converts `error` to [Error][159] if isn't already an `Error` instance.
+Converts `error` to [Error][168] if isn't already an `Error` instance.
 
 ### Parameters
 
--   `e` **[Error][160]** to throw
+-   `e` **[Error][169]** to throw
 
 ### Examples
 
@@ -235,61 +243,9 @@ Converts `error` to [Error][159] if isn't already an `Error` instance.
 args.length > 0 || failWith(new Error('No args'));
 ```
 
--   Throws **[Error][160]** 
+-   Throws **[Error][169]** 
 
 Returns **Never** always throws `e`
-
-## curry
-
-Creates currified a copy of a function.
-
-### Parameters
-
--   `fn` **[function][158]** to curry
--   `numArgs` **[number][161]** how many arguments `fn` takes (optional, default `fn.length`)
-
-### Examples
-
-```javascript
-const currifSum = curry((x, y) => x + y);
-
-currifSum(1, 2); // 3
-
-const add2 = currifSum(2);
-add2(3); // 5
-```
-
-Returns **[function][158]** currified version
-
-**Meta**
-
--   **since**: 2.1.0
-
-## curry2
-
-Creates currified a copy of a two-arguments function.
-
-When we variadic function `fn` unfortunately we cannot use
-`curry(fn)` because its `length` is 0.
-So we need to specify how many arguments `fn` expects:
-`curry(fn, 2)` or simply `curry2(fn)`.
-
-### Parameters
-
--   `fn` **[function][158]** that takes two arguments
-
-### Examples
-
-```javascript
-const currifSum = curry2((...xs) => xs.reduce((a, b) => a + b, 0));
-
-currifSum(1, 2); // 3
-
-const add2 = currifSum(2);
-add2(3); // 5
-```
-
-Returns **[function][158]** currified version
 
 ## unbox
 
@@ -319,7 +275,7 @@ Two differences with `typeof` operator:
 
 -   `val` **any** value
 
-Returns **[string][162]** `value` type
+Returns **[string][170]** `value` type
 
 ## prop
 
@@ -329,7 +285,7 @@ Doesn't throw errors.
 ### Parameters
 
 -   `val` **any** value
--   `propName` **[string][162]** property name
+-   `propName` **[string][170]** property name
 
 ### Examples
 
@@ -346,7 +302,7 @@ Returns **any** the property value
 
 -   `val` **any** value
 
-Returns **[boolean][163]** `typeOf(val) === 'number'`
+Returns **[boolean][171]** `typeOf(val) === 'number'`
 
 ## is.str
 
@@ -354,7 +310,7 @@ Returns **[boolean][163]** `typeOf(val) === 'number'`
 
 -   `val` **any** value
 
-Returns **[boolean][163]** `typeOf(val) === 'string'`
+Returns **[boolean][171]** `typeOf(val) === 'string'`
 
 ## is.sym
 
@@ -362,7 +318,7 @@ Returns **[boolean][163]** `typeOf(val) === 'string'`
 
 -   `val` **any** value
 
-Returns **[boolean][163]** `typeOf(val) === 'symbol'`
+Returns **[boolean][171]** `typeOf(val) === 'symbol'`
 
 ## is.obj
 
@@ -370,7 +326,7 @@ Returns **[boolean][163]** `typeOf(val) === 'symbol'`
 
 -   `val` **any** value
 
-Returns **[boolean][163]** `typeOf(val) === 'object'`
+Returns **[boolean][171]** `typeOf(val) === 'object'`
 
 ## is.fun
 
@@ -378,7 +334,7 @@ Returns **[boolean][163]** `typeOf(val) === 'object'`
 
 -   `val` **any** value
 
-Returns **[boolean][163]** `typeOf(val) === 'function'`
+Returns **[boolean][171]** `typeOf(val) === 'function'`
 
 ## is.bool
 
@@ -386,17 +342,32 @@ Returns **[boolean][163]** `typeOf(val) === 'function'`
 
 -   `val` **any** value
 
-Returns **[boolean][163]** `typeOf(val) === 'boolean'`
+Returns **[boolean][171]** `typeOf(val) === 'boolean'`
 
-## is.iter
+## is.int
 
-Checks if a value is iterable.
+Checks if a value is integer.
 
 ### Parameters
 
 -   `val` **any** value
 
-Returns **[boolean][163]** `true` if `val[Symbol.iterator]` is a function
+Returns **[boolean][171]** `true` if value is integer
+
+**Meta**
+
+-   **since**: 2.2.0
+
+## is.iter
+
+Checks if a value is iterable.
+Uses `Symbol.iterator` so it's compatible with es6.
+
+### Parameters
+
+-   `val` **any** value
+
+Returns **[boolean][171]** `true` if `val[Symbol.iterator]` is a function
 
 ## is.array
 
@@ -407,7 +378,21 @@ Uses `Array.isArray` so it's compatible with es5.1.
 
 -   `val` **any** value
 
-Returns **[boolean][163]** `Array.isArray(val)`
+Returns **[boolean][171]** `Array.isArray(val)`
+
+## is.array.like
+
+Checks if a value is an array-like object.
+
+### Parameters
+
+-   `val` **any** value
+
+Returns **[boolean][171]** `true` if `val` is a string or an object with a length
+
+**Meta**
+
+-   **since**: 2.2.0
 
 ## expect.num
 
@@ -418,9 +403,9 @@ Checks if `is.num(number)`, then returns that number or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][164]** 
+-   Throws **[TypeError][172]** 
 
-Returns **[number][161]** val
+Returns **[number][173]** val
 
 ## expect.str
 
@@ -431,9 +416,9 @@ Checks if `is.num(string)`, then returns that string or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][164]** 
+-   Throws **[TypeError][172]** 
 
-Returns **[string][162]** val
+Returns **[string][170]** val
 
 ## expect.sym
 
@@ -444,9 +429,9 @@ Checks if `is.sym(symbol)`, then returns that symbol or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][164]** 
+-   Throws **[TypeError][172]** 
 
-Returns **[symbol][165]** val
+Returns **[symbol][174]** val
 
 ## expect.obj
 
@@ -457,9 +442,9 @@ Checks if `is.obj(object)`, then returns that object or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][164]** 
+-   Throws **[TypeError][172]** 
 
-Returns **[object][166]** val
+Returns **[object][175]** val
 
 ## expect.fun
 
@@ -470,9 +455,9 @@ Checks if `is.fun(function)`, then returns that function or throws a `TypeError`
 -   `val` **any** value
 
 
--   Throws **[TypeError][164]** 
+-   Throws **[TypeError][172]** 
 
-Returns **[function][158]** val
+Returns **[function][167]** val
 
 ## expect.bool
 
@@ -483,9 +468,26 @@ Checks if `is.bool(boolean)`, then returns that boolean or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][164]** 
+-   Throws **[TypeError][172]** 
 
-Returns **[boolean][163]** val
+Returns **[boolean][171]** val
+
+## expect.int
+
+Checks if `is.int(value)`, then returns that value or throws a `TypeError`.
+
+### Parameters
+
+-   `val` **any** value
+
+
+-   Throws **[TypeError][172]** 
+
+Returns **any** number
+
+**Meta**
+
+-   **since**: 2.2.0
 
 ## expect.iter
 
@@ -496,9 +498,9 @@ Checks if `is.iter(value)`, then returns that value or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][164]** 
+-   Throws **[TypeError][172]** 
 
-Returns **any** iterable
+Returns **iterable** iterable
 
 ## expect.array
 
@@ -509,9 +511,78 @@ Checks if `is.array(value)`, then returns that value or throws a `TypeError`.
 -   `val` **any** value
 
 
--   Throws **[TypeError][164]** 
+-   Throws **[TypeError][172]** 
 
-Returns **[Array][167]** array
+Returns **[Array][176]** array
+
+## expect.array.like
+
+Checks if `is.array.like(value)`, then returns that value or throws a `TypeError`.
+
+### Parameters
+
+-   `val` **any** value
+
+
+-   Throws **[TypeError][172]** 
+
+Returns **([string][170] \| [object][175])** array like object
+
+**Meta**
+
+-   **since**: 2.2.0
+
+## curry
+
+Creates currified a copy of a function.
+
+### Parameters
+
+-   `fn` **[function][167]** to curry
+-   `numArgs` **[number][173]** how many arguments `fn` takes (optional, default `fn.length`)
+
+### Examples
+
+```javascript
+const currifSum = curry((x, y) => x + y);
+
+currifSum(1, 2); // 3
+
+const add2 = currifSum(2);
+add2(3); // 5
+```
+
+Returns **[function][167]** currified version
+
+**Meta**
+
+-   **since**: 2.1.0
+
+## curry2
+
+Creates currified a copy of a two-arguments function.
+
+When we variadic function `fn` unfortunately we cannot use
+`curry(fn)` because its `length` is 0.
+So we need to specify how many arguments `fn` expects:
+`curry(fn, 2)` or simply `curry2(fn)`.
+
+### Parameters
+
+-   `fn` **[function][167]** that takes two arguments
+
+### Examples
+
+```javascript
+const currifSum = curry2((...xs) => xs.reduce((a, b) => a + b, 0));
+
+currifSum(1, 2); // 3
+
+const add2 = currifSum(2);
+add2(3); // 5
+```
+
+Returns **[function][167]** currified version
 
 ## sum
 
@@ -520,7 +591,7 @@ If called with only one argument, then it must be iterable.
 
 ### Parameters
 
--   `args` **...(any | [Array][167])** the addends or array of addends
+-   `args` **...(any | [Array][176])** the addends or array of addends
 
 ### Examples
 
@@ -530,7 +601,7 @@ sum('1', 2, 3) === '1' + 2 + 3
 sum([ 1, 2, 3 ]) === 1 + 2 + 3
 ```
 
-Returns **([number][161] \| [string][162])** the summation
+Returns **([number][173] \| [string][170])** the summation
 
 ## cat
 
@@ -538,7 +609,7 @@ Works like `sum`, but first casts its arguments to `string`.
 
 ### Parameters
 
--   `args` **...(any | [Array][167])** elements to concat
+-   `args` **...(any | [Array][176])** elements to concat
 
 ### Examples
 
@@ -547,7 +618,7 @@ cat(1, 2, 3) === '1' + '2' + '3'
 cat([ 1, 2, 3 ]) === '1' + '2' + '3'
 ```
 
-Returns **[string][162]** the concatenation
+Returns **[string][170]** the concatenation
 
 ## bound
 
@@ -555,9 +626,9 @@ Clamps a number within a given range.
 
 ### Parameters
 
--   `num` **[number][161]** to clamp
--   `min` **[number][161]** minimum of the range
--   `max` **[number][161]** maximum of the range
+-   `num` **[number][173]** to clamp
+-   `min` **[number][173]** minimum of the range
+-   `max` **[number][173]** maximum of the range
 
 ### Examples
 
@@ -567,7 +638,7 @@ bound(5, 4, 6); // 5
 bound(7, 4, 6); // 6
 ```
 
-Returns **[number][161]** the clamped value
+Returns **[number][173]** the clamped value
 
 ## call
 
@@ -575,8 +646,8 @@ Calls an object method.
 
 ### Parameters
 
--   `obj` **[object][166]** context
--   `propName` **[string][162]** method name
+-   `obj` **[object][175]** context
+-   `propName` **[string][170]** method name
 -   `args` **...any** method arguments
 
 ### Examples
@@ -594,7 +665,7 @@ call(obj, 'someMethod', 'world'); // logs 'hello, world'
 call('1,2,3', 'split', ',');
 ```
 
--   Throws **[TypeError][164]** if `obj[propName]` isn't a function
+-   Throws **[TypeError][172]** if `obj[propName]` isn't a function
 
 Returns **any** `obj[propName](...args)`
 
@@ -603,7 +674,7 @@ Returns **any** `obj[propName](...args)`
 ### Parameters
 
 -   `val` **any** to return
--   `fn` **[function][158]** callback
+-   `fn` **[function][167]** callback
 -   `args` **...any** additional arguments
 
 ### Examples
@@ -624,24 +695,222 @@ Returns **any** the first argument
 
 ## compose
 
-Function composition, read more [here][168].
+Function composition, read more [here][177].
 
 ### Parameters
 
--   `fn1` **[function][158]** to compose
+-   `fn1` **[function][167]** to compose
 -   `fn1Args` **...any** additional arguments
 
-Returns **[function][158]** composable function object
+Returns **[function][167]** composable function object
 
 ## pipe
 
-Pipe function, read more [here][169].
+Pipe function, read more [here][178].
 
 ### Parameters
 
 -   `args` **...any** pipe arguments
 
-Returns **[object][166]** pipeable object
+Returns **[object][175]** pipeable object
+
+## functions/collection
+
+Functions that operate on javascript collections like
+strings, arrays and array-like objects.
+
+### Examples
+
+```javascript
+import { slice } from 'fpc';
+
+const array = slice('123'); // [ '1', '2', '3' ]
+```
+
+**Meta**
+
+-   **author**: Emiliano Bovetti &lt;emiliano.bovetti@gmail.com>
+
+## pair
+
+Creates a two-elements array.
+
+### Parameters
+
+-   `fst` **any** first element
+-   `snd` **any** second element
+
+Returns **[Array][176]** `[ fst, snd ]`
+
+## first
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+
+Returns **any** the first item or `undefined`
+
+## second
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+
+Returns **any** the second item or `undefined`
+
+## last
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+
+Returns **any** the last item or `undefined`
+
+## slice
+
+Calls [Array.prototype.slice][1] on an array-like object.
+
+[1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+-   `args` **...any** 
+-   `$1` **[number][173]** starting index (optional, default `0`)
+-   `$2` **[number][173]** ending index (optional, default `coll.length`)
+
+### Examples
+
+```javascript
+slice([ 1, 2, 3 ], 1, 3); // [ 2, 3 ]
+slice('str'); // [ 's', 't', 'r' ]
+```
+
+Returns **[Array][176]** sliced array
+
+## unshift
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+-   `head` **any** element to unshift
+
+### Examples
+
+```javascript
+unshift([ 1, 2, 3 ], 0); // [ 0, 1, 2, 3 ]
+unshift('123', '0'); // [ '0', '1', '2', '3' ]
+```
+
+Returns **[Array][176]** new array with `head` as first element
+
+## reverse
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+
+### Examples
+
+```javascript
+reverse([ 1, 2, 3 ]); // [ 3, 2, 1 ]
+reverse('nice'); // [ 'e', 'c', 'i', 'n' ]
+```
+
+Returns **[Array][176]** reversed array
+
+## reduce
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+-   `args` **...any** 
+-   `$1` **[function][167]** reduce function
+-   `$2` **any** initial value (optional, default `coll[0]`)
+
+### Examples
+
+```javascript
+reduce([ 1, 2, 3 ], (acc, val) => acc + ', ' + val, '0'); // '0, 1, 2, 3'
+```
+
+```javascript
+const shiftChar = char =>
+  String.fromCharCode(char.charCodeAt(0) + 1);
+
+reduce('hello', (acc, c) => acc + shiftChar(c), ''); // 'ifmmp'
+```
+
+```javascript
+const isNumeric = val =>
+  reduce(val, (acc, x) => acc && x >= 0 && x <= 9, true);
+
+isNumeric('0123456789'); // true
+isNumeric('0123x45678'); // false
+
+isNumeric([ 0, 1, 2 ]); // true
+isNumeric([ 0, '1', 2 ]); // true
+isNumeric([ 0, 'x', 2 ]); // false
+```
+
+Returns **any** reduced value
+
+## map
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+-   `args` **...any** 
+-   `$1` **[function][167]** map function
+
+### Examples
+
+```javascript
+map([ 1, 2, 3 ], x => x * 2); // [ 2, 4, 6 ]
+```
+
+```javascript
+const shiftChar = char =>
+  String.fromCharCode(char.charCodeAt(0) + 1);
+
+map('hello', shiftChar); // [ 'i', 'f', 'm', 'm', 'p' ]
+```
+
+Returns **[Array][176]** mapped array
+
+## filter
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+-   `args` **...any** 
+-   `$1` **[function][167]** filter function
+
+### Examples
+
+```javascript
+filter([ 1, 2, 3, 4, 5 ], x => x % 2 == 0); // [ 2, 4 ]
+filter([ 1, 2, 3, 4 ], x => x > 2); // [ 3, 4 ]
+filter('hello, world', x => x > 'l'); // [ 'o', 'w', 'o', 'r' ]
+```
+
+Returns **[Array][176]** filtered array
+
+## forEach
+
+### Parameters
+
+-   `coll` **([string][170] \| [object][175])** array-like object
+-   `args` **...any** 
+-   `$1` **[function][167]** callback
+
+### Examples
+
+```javascript
+forEach([ 1, 2, 3 ], console.log); // logs 1, 2, 3 and returns the array
+```
+
+Returns **[Array][176]** input coll
 
 ## functions/console
 
@@ -700,213 +969,9 @@ pipe('world')
 
 Returns **any** `fstArg`
 
-## functions/list
-
-List functions.
-
-### Examples
-
-```javascript
-import { first } from 'fpc';
-
-const fst = first([ 1, 2, 3 ]); // 1
-```
-
-**Meta**
-
--   **author**: Emiliano Bovetti &lt;emiliano.bovetti@gmail.com>
-
-## pair
-
-Creates a list of two elements.
-
-### Parameters
-
--   `fst` **any** first element
--   `snd` **any** second element
-
-Returns **[Array][167]** `[ fst, snd ]`
-
-## first
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.0` **any** the first item
-
-Returns **any** the first item or `undefined`
-
-## second
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.0` **any** the first item
-    -   `$0.1` **any** the second item
-
-Returns **any** the second item or `undefined`
-
-## last
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.list` **...any** 
-
-Returns **any** the last item or `undefined`
-
-## slice
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.list` **...any** 
--   `args` **...any** 
--   `$1` **[number][161]** starting index (optional, default `0`)
--   `$2` **[number][161]** ending index (optional, default `list.length`)
-
-### Examples
-
-```javascript
-slice([ 1, 2, 3 ], 1, 3); // [ 2, 3 ]
-slice('str'); // [ 's', 't', 'r' ]
-```
-
-Returns **[Array][167]** sliced array
-
-## unshift
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.list` **...any** 
--   `head` **any** element to unshift
-
-### Examples
-
-```javascript
-unshift([ 1, 2, 3 ], 0); // [ 0, 1, 2, 3 ]
-unshift('123', '0'); // [ '0', '1', '2', '3' ]
-```
-
-Returns **[Array][167]** new list with `head` as first element
-
-## reverse
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.list` **...any** 
-
-### Examples
-
-```javascript
-reverse([ 1, 2, 3 ]); // [ 3, 2, 1 ]
-reverse('nice'); // [ 'e', 'c', 'i', 'n' ]
-```
-
-Returns **[Array][167]** reversed list
-
-## reduce
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.list` **...any** 
--   `args` **...any** 
--   `$1` **[function][158]** reduce function
--   `$2` **any** initial value (optional, default `list[0]`)
-
-### Examples
-
-```javascript
-reduce([ 1, 2, 3 ], (acc, val) => acc + ', ' + val, '0'); // '0, 1, 2, 3'
-```
-
-```javascript
-const shiftChar = char =>
-  String.fromCharCode(char.charCodeAt(0) + 1);
-
-reduce('hello', (acc, c) => acc + shiftChar(c), ''); // 'ifmmp'
-```
-
-```javascript
-const isNumeric = val =>
-  reduce(val, (acc, x) => acc && x >= 0 && x <= 9, true);
-
-isNumeric('0123456789'); // true
-isNumeric('0123x45678'); // false
-
-isNumeric([ 0, 1, 2 ]); // true
-isNumeric([ 0, '1', 2 ]); // true
-isNumeric([ 0, 'x', 2 ]); // false
-```
-
-Returns **any** reduced value
-
-## map
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.list` **...any** 
--   `args` **...any** 
--   `$1` **[function][158]** map function
-
-### Examples
-
-```javascript
-map([ 1, 2, 3 ], x => x * 2); // [ 2, 4, 6 ]
-```
-
-```javascript
-const shiftChar = char =>
-  String.fromCharCode(char.charCodeAt(0) + 1);
-
-map('hello', shiftChar); // [ 'i', 'f', 'm', 'm', 'p' ]
-```
-
-Returns **[Array][167]** mapped array
-
-## filter
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.list` **...any** 
--   `args` **...any** 
--   `$1` **[function][158]** filter function
-
-### Examples
-
-```javascript
-filter([ 1, 2, 3, 4, 5 ], x => x % 2 == 0); // [ 2, 4 ]
-filter([ 1, 2, 3, 4 ], x => x > 2); // [ 3, 4 ]
-filter('hello, world', x => x > 'l'); // [ 'o', 'w', 'o', 'r' ]
-```
-
-Returns **[Array][167]** filtered array
-
-## forEach
-
-### Parameters
-
--   `$0` **iterable** any collection
-    -   `$0.list` **...any** 
--   `args` **...any** 
--   `$1` **[function][158]** callback
-
-### Examples
-
-```javascript
-forEach([ 1, 2, 3 ], console.log); // logs 1, 2, 3 and returns the array
-```
-
-Returns **[Array][167]** input list
-
 ## monads/maybe
 
-Maybe monad ported from [stateless-maybe-js][170].
+Maybe monad ported from [stateless-maybe-js][179].
 
 ### Examples
 
@@ -927,10 +992,10 @@ Maybe('hello, world')
 
 #### Parameters
 
--   `e` **[Error][160]** a custom error
+-   `e` **[Error][169]** a custom error
 
 
--   Throws **[Error][160]** 
+-   Throws **[Error][169]** 
 
 Returns **any** wrapped value or throws the error
 
@@ -941,9 +1006,9 @@ returns `Nothing`. Returns the maybe itself otherwise.
 
 #### Parameters
 
--   `fn` **[function][158]** filter function
+-   `fn` **[function][167]** filter function
 
-Returns **[MaybeInterface][171]** itself or `Nothing`
+Returns **[MaybeInterface][180]** itself or `Nothing`
 
 ### map
 
@@ -953,9 +1018,9 @@ Returns `Nothing` otherwise.
 
 #### Parameters
 
--   `fn` **[function][158]** map function
+-   `fn` **[function][167]** map function
 
-Returns **[MaybeInterface][171]** `Maybe(fn(value))` or `Nothing`
+Returns **[MaybeInterface][180]** `Maybe(fn(value))` or `Nothing`
 
 ### forEach
 
@@ -965,9 +1030,9 @@ Always returns itself.
 
 #### Parameters
 
--   `fn` **[function][158]** function to apply
+-   `fn` **[function][167]** function to apply
 
-Returns **[MaybeInterface][171]** itself
+Returns **[MaybeInterface][180]** itself
 
 ### getOrElse
 
@@ -997,7 +1062,7 @@ instead of wrapped value.
 
 -   `orElse` **any** some value or a function
 
-Returns **[MaybeInterface][171]** itself or `Maybe(orElse)`
+Returns **[MaybeInterface][180]** itself or `Maybe(orElse)`
 
 ### toString
 
@@ -1005,28 +1070,28 @@ If the object is a `Just` instance returns
 wrapped value casted to string.
 Returns an empty string otherwise.
 
-Returns **[string][162]** empty string or `String(this.get())`
+Returns **[string][170]** empty string or `String(this.get())`
+
+### isEmpty
+
+`true` if maybe is `Nothing`, `false` otherwise.
+
+Type: [boolean][171]
+
+### nonEmpty
+
+Negation of `isEmpty`.
+
+Type: [boolean][171]
 
 ### get
 
 Returns wrapped value or throws an `Error`
 if the object is `Nothing`.
 
--   Throws **[Error][160]** 
+-   Throws **[Error][169]** 
 
 Returns **any** wrapped value
-
-### nonEmpty
-
-Negation of `isEmpty`.
-
-Type: [boolean][163]
-
-### isEmpty
-
-`true` if maybe is `Nothing`, `false` otherwise.
-
-Type: [boolean][163]
 
 ## Just
 
@@ -1059,13 +1124,13 @@ m2 !== Just(m2);
 m2 === Just(m2).get();
 ```
 
-Returns **[MaybeInterface][171]** `Just(val)`
+Returns **[MaybeInterface][180]** `Just(val)`
 
 ## Nothing
 
 `Nothing` instance.
 
-Type: [MaybeInterface][171]
+Type: [MaybeInterface][180]
 
 ## Maybe
 
@@ -1096,7 +1161,7 @@ const m = Maybe('hello, world');
 m === Maybe(m); // true
 ```
 
-Returns **[MaybeInterface][171]** `Just(val)` or `Nothing`
+Returns **[MaybeInterface][180]** `Just(val)` or `Nothing`
 
 ## Maybe.isInstance
 
@@ -1113,19 +1178,19 @@ Maybe.isInstance(null); // false
 Maybe.isInstance(Maybe(null)); // true
 ```
 
-Returns **[boolean][163]** `true` if `val` is a `Maybe` instance
+Returns **[boolean][171]** `true` if `val` is a `Maybe` instance
 
 ## Maybe.of
 
 -   **See: Maybe**
 
-Alias of [Maybe][141].
+Alias of [Maybe][150].
 
 ### Parameters
 
 -   `val` **any** value to wrap
 
-Returns **[MaybeInterface][171]** `Just(val)` or `Nothing`
+Returns **[MaybeInterface][180]** `Just(val)` or `Nothing`
 
 ## Maybe.str
 
@@ -1146,7 +1211,7 @@ Maybe.str(Object('')) // Nothing
 Maybe.str(anythingElse) // Nothing
 ```
 
-Returns **[MaybeInterface][171]** `Just(nonEmptyString)` or `Nothing`
+Returns **[MaybeInterface][180]** `Just(nonEmptyString)` or `Nothing`
 
 ## Maybe.num
 
@@ -1168,7 +1233,7 @@ Maybe.num(Object(NaN)) // Nothing
 Maybe.num(anythingElse) // Nothing
 ```
 
-Returns **[MaybeInterface][171]** `Just(validNumber)` or `Nothing`
+Returns **[MaybeInterface][180]** `Just(validNumber)` or `Nothing`
 
 ## Maybe.obj
 
@@ -1190,346 +1255,362 @@ Maybe.obj(Object(0)) // Nothing
 Maybe.obj(Object(NaN)) // Nothing
 ```
 
-Returns **[MaybeInterface][171]** `Just(object)` or `Nothing`
+Returns **[MaybeInterface][180]** `Just(object)` or `Nothing`
 
-[1]: #functionsbasic
+[2]: #functionsbasic
 
-[2]: #examples
+[3]: #examples
 
-[3]: #id
+[4]: #id
 
-[4]: #parameters
+[5]: #parameters
 
-[5]: #not
+[6]: #not
 
-[6]: #parameters-1
+[7]: #parameters-1
 
-[7]: #examples-1
+[8]: #examples-1
 
-[8]: #flip
+[9]: #flip
 
-[9]: #parameters-2
+[10]: #parameters-2
 
-[10]: #examples-2
+[11]: #examples-2
 
-[11]: #failwith
+[12]: #failwith
 
-[12]: #parameters-3
+[13]: #parameters-3
 
-[13]: #examples-3
+[14]: #examples-3
 
-[14]: #curry
+[15]: #unbox
 
-[15]: #parameters-4
+[16]: #parameters-4
 
-[16]: #examples-4
+[17]: #examples-4
 
-[17]: #curry2
+[18]: #typeof
 
-[18]: #parameters-5
+[19]: #parameters-5
 
-[19]: #examples-5
-
-[20]: #unbox
+[20]: #prop
 
 [21]: #parameters-6
 
-[22]: #examples-6
+[22]: #examples-5
 
-[23]: #typeof
+[23]: #isnum
 
 [24]: #parameters-7
 
-[25]: #prop
+[25]: #isstr
 
 [26]: #parameters-8
 
-[27]: #examples-7
+[27]: #issym
 
-[28]: #isnum
+[28]: #parameters-9
 
-[29]: #parameters-9
+[29]: #isobj
 
-[30]: #isstr
+[30]: #parameters-10
 
-[31]: #parameters-10
+[31]: #isfun
 
-[32]: #issym
+[32]: #parameters-11
 
-[33]: #parameters-11
+[33]: #isbool
 
-[34]: #isobj
+[34]: #parameters-12
 
-[35]: #parameters-12
+[35]: #isint
 
-[36]: #isfun
+[36]: #parameters-13
 
-[37]: #parameters-13
+[37]: #isiter
 
-[38]: #isbool
+[38]: #parameters-14
 
-[39]: #parameters-14
+[39]: #isarray
 
-[40]: #isiter
+[40]: #parameters-15
 
-[41]: #parameters-15
+[41]: #isarraylike
 
-[42]: #isarray
+[42]: #parameters-16
 
-[43]: #parameters-16
+[43]: #expectnum
 
-[44]: #expectnum
+[44]: #parameters-17
 
-[45]: #parameters-17
+[45]: #expectstr
 
-[46]: #expectstr
+[46]: #parameters-18
 
-[47]: #parameters-18
+[47]: #expectsym
 
-[48]: #expectsym
+[48]: #parameters-19
 
-[49]: #parameters-19
+[49]: #expectobj
 
-[50]: #expectobj
+[50]: #parameters-20
 
-[51]: #parameters-20
+[51]: #expectfun
 
-[52]: #expectfun
+[52]: #parameters-21
 
-[53]: #parameters-21
+[53]: #expectbool
 
-[54]: #expectbool
+[54]: #parameters-22
 
-[55]: #parameters-22
+[55]: #expectint
 
-[56]: #expectiter
+[56]: #parameters-23
 
-[57]: #parameters-23
+[57]: #expectiter
 
-[58]: #expectarray
+[58]: #parameters-24
 
-[59]: #parameters-24
+[59]: #expectarray
 
-[60]: #sum
+[60]: #parameters-25
 
-[61]: #parameters-25
+[61]: #expectarraylike
 
-[62]: #examples-8
+[62]: #parameters-26
 
-[63]: #cat
+[63]: #curry
 
-[64]: #parameters-26
+[64]: #parameters-27
 
-[65]: #examples-9
+[65]: #examples-6
 
-[66]: #bound
+[66]: #curry2
 
-[67]: #parameters-27
+[67]: #parameters-28
 
-[68]: #examples-10
+[68]: #examples-7
 
-[69]: #call
+[69]: #sum
 
-[70]: #parameters-28
+[70]: #parameters-29
 
-[71]: #examples-11
+[71]: #examples-8
 
-[72]: #pass
+[72]: #cat
 
-[73]: #parameters-29
+[73]: #parameters-30
 
-[74]: #examples-12
+[74]: #examples-9
 
-[75]: #compose
+[75]: #bound
 
-[76]: #parameters-30
+[76]: #parameters-31
 
-[77]: #pipe
+[77]: #examples-10
 
-[78]: #parameters-31
+[78]: #call
 
-[79]: #functionsconsole
+[79]: #parameters-32
 
-[80]: #examples-13
+[80]: #examples-11
 
-[81]: #log
+[81]: #pass
 
-[82]: #parameters-32
+[82]: #parameters-33
 
-[83]: #examples-14
+[83]: #examples-12
 
-[84]: #show
+[84]: #compose
 
-[85]: #parameters-33
+[85]: #parameters-34
 
-[86]: #examples-15
+[86]: #pipe
 
-[87]: #functionslist
+[87]: #parameters-35
 
-[88]: #examples-16
+[88]: #functionscollection
 
-[89]: #pair
+[89]: #examples-13
 
-[90]: #parameters-34
+[90]: #pair
 
-[91]: #first
+[91]: #parameters-36
 
-[92]: #parameters-35
+[92]: #first
 
-[93]: #second
+[93]: #parameters-37
 
-[94]: #parameters-36
+[94]: #second
 
-[95]: #last
+[95]: #parameters-38
 
-[96]: #parameters-37
+[96]: #last
 
-[97]: #slice
+[97]: #parameters-39
 
-[98]: #parameters-38
+[98]: #slice
 
-[99]: #examples-17
+[99]: #parameters-40
 
-[100]: #unshift
+[100]: #examples-14
 
-[101]: #parameters-39
+[101]: #unshift
 
-[102]: #examples-18
+[102]: #parameters-41
 
-[103]: #reverse
+[103]: #examples-15
 
-[104]: #parameters-40
+[104]: #reverse
 
-[105]: #examples-19
+[105]: #parameters-42
 
-[106]: #reduce
+[106]: #examples-16
 
-[107]: #parameters-41
+[107]: #reduce
 
-[108]: #examples-20
+[108]: #parameters-43
 
-[109]: #map
+[109]: #examples-17
 
-[110]: #parameters-42
+[110]: #map
 
-[111]: #examples-21
+[111]: #parameters-44
 
-[112]: #filter
+[112]: #examples-18
 
-[113]: #parameters-43
+[113]: #filter
 
-[114]: #examples-22
+[114]: #parameters-45
 
-[115]: #foreach
+[115]: #examples-19
 
-[116]: #parameters-44
+[116]: #foreach
 
-[117]: #examples-23
+[117]: #parameters-46
 
-[118]: #monadsmaybe
+[118]: #examples-20
 
-[119]: #examples-24
+[119]: #functionsconsole
 
-[120]: #maybeinterface
+[120]: #examples-21
 
-[121]: #getorthrow
+[121]: #log
 
-[122]: #parameters-45
+[122]: #parameters-47
 
-[123]: #filter-1
+[123]: #examples-22
 
-[124]: #parameters-46
+[124]: #show
 
-[125]: #map-1
+[125]: #parameters-48
 
-[126]: #parameters-47
+[126]: #examples-23
 
-[127]: #foreach-1
+[127]: #monadsmaybe
 
-[128]: #parameters-48
+[128]: #examples-24
 
-[129]: #getorelse
+[129]: #maybeinterface
 
-[130]: #parameters-49
+[130]: #getorthrow
 
-[131]: #orelse
+[131]: #parameters-49
 
-[132]: #parameters-50
+[132]: #filter-1
 
-[133]: #tostring
+[133]: #parameters-50
 
-[134]: #get
+[134]: #map-1
 
-[135]: #nonempty
+[135]: #parameters-51
 
-[136]: #isempty
+[136]: #foreach-1
 
-[137]: #just
+[137]: #parameters-52
 
-[138]: #parameters-51
+[138]: #getorelse
 
-[139]: #examples-25
+[139]: #parameters-53
 
-[140]: #nothing
+[140]: #orelse
 
-[141]: #maybe
+[141]: #parameters-54
 
-[142]: #parameters-52
+[142]: #tostring
 
-[143]: #examples-26
+[143]: #isempty
 
-[144]: #maybeisinstance
+[144]: #nonempty
 
-[145]: #parameters-53
+[145]: #get
 
-[146]: #examples-27
+[146]: #just
 
-[147]: #maybeof
+[147]: #parameters-55
 
-[148]: #parameters-54
+[148]: #examples-25
 
-[149]: #maybestr
+[149]: #nothing
 
-[150]: #parameters-55
+[150]: #maybe
 
-[151]: #examples-28
+[151]: #parameters-56
 
-[152]: #maybenum
+[152]: #examples-26
 
-[153]: #parameters-56
+[153]: #maybeisinstance
 
-[154]: #examples-29
+[154]: #parameters-57
 
-[155]: #maybeobj
+[155]: #examples-27
 
-[156]: #parameters-57
+[156]: #maybeof
 
-[157]: #examples-30
+[157]: #parameters-58
 
-[158]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[158]: #maybestr
 
-[159]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
+[159]: #parameters-59
 
-[160]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
+[160]: #examples-28
 
-[161]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[161]: #maybenum
 
-[162]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[162]: #parameters-60
 
-[163]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[163]: #examples-29
 
-[164]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+[164]: #maybeobj
 
-[165]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+[165]: #parameters-61
 
-[166]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[166]: #examples-30
 
-[167]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[167]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[168]: composition.md
+[168]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
 
-[169]: piping.md
+[169]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
 
-[170]: https://github.com/emilianobovetti/stateless-maybe-js
+[170]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[171]: #maybeinterface
+[171]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[172]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+
+[173]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[174]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+
+[175]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[176]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[177]: composition.md
+
+[178]: piping.md
+
+[179]: https://github.com/emilianobovetti/stateless-maybe-js
+
+[180]: #maybeinterface

@@ -1,3 +1,3 @@
 export * from './basic';
-export * from './list';
+export * from './collection';
 export * from './console';

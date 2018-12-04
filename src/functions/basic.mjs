@@ -10,7 +10,7 @@
  * @author Emiliano Bovetti <emiliano.bovetti@gmail.com>
  */
 
-import { reduce, first, map, unshift } from './list';
+import { first, unshift, reduce, map } from './collection';
 
 /**
  * Identity function.
@@ -46,7 +46,7 @@ export const flip = fn => (...args) => fn(...args.reverse());
 
 /**
  * Throws an error but as expression, unlike `throw`.
- * Converts `error` to {@link Error} if isn't already an `Error` instance.
+ * Converts `e` to {@link Error} if isn't already an `Error` instance.
  *
  * @example
  * args.length > 0 || failWith(new Error('No args'));
@@ -58,57 +58,6 @@ export const flip = fn => (...args) => fn(...args.reverse());
 export const failWith = e => {
   throw e instanceof Error ? e : new Error(e);
 };
-
-const doCurry = (fn, numArgs, args = []) => (
-  args.length < numArgs
-    ? (...innerArgs) => doCurry(fn, numArgs, args.concat(innerArgs))
-    : fn(...args)
-);
-
-/**
- * Creates currified a copy of a function.
- *
- * @example
- * const currifSum = curry((x, y) => x + y);
- *
- * currifSum(1, 2); // 3
- *
- * const add2 = currifSum(2);
- * add2(3); // 5
- *
- * @since 2.1.0
- *
- * @param {function} fn - to curry
- * @param {number} [numArgs=fn.length] - how many arguments `fn` takes
- * @return {function} currified version
- */
-export const curry = (fn, numArgs = fn.length) => (
-  Number.isInteger(numArgs) && numArgs >= 0
-    ? doCurry(fn, numArgs)
-    : failWith(new Error('curry() expects a non-negative integer as numArgs'))
-);
-
-/**
- * Creates currified a copy of a two-arguments function.
- *
- * When we variadic function `fn` unfortunately we cannot use
- * `curry(fn)` because its `length` is 0.
- * So we need to specify how many arguments `fn` expects:
- * `curry(fn, 2)` or simply `curry2(fn)`.
- *
- * @example
- * const currifSum = curry2((...xs) => xs.reduce((a, b) => a + b, 0));
- *
- * currifSum(1, 2); // 3
- *
- * const add2 = currifSum(2);
- * add2(3); // 5
- *
- * @param {function} fn - that takes two arguments
- * @return {function} currified version
- */
-export const curry2 = fn =>
-  doCurry(fn, 2);
 
 /**
  * Returns the unboxed value on some objects,
@@ -155,9 +104,28 @@ export const prop = (val, propName) => (
   val == null ? undefined : val[propName]
 );
 
-export const is = curry((expected, val) => {
+const privCurry = (fn, numArgs, args = []) => (
+  args.length < numArgs
+    ? (...innerArgs) => privCurry(fn, numArgs, args.concat(innerArgs))
+    : fn(...args)
+);
+
+export const is = privCurry((expected, val) => {
+  /* eslint complexity: "off" */
+  /* eslint no-mixed-operators: "off" */
+
+  if (expected === 'array-like') {
+    return is.str(val) || is.obj(val) && is.int(val.length) && val.length >= 0;
+  }
+
   if (expected === 'iterable') {
     return is.fun(prop(val, Symbol.iterator));
+  }
+
+  if (expected === 'integer') {
+    return is.num(val) &&
+      isFinite(val) &&
+      Math.floor(val) === unbox(val);
   }
 
   if (expected === 'array') {
@@ -165,7 +133,7 @@ export const is = curry((expected, val) => {
   }
 
   return typeOf(val) === expected;
-});
+}, 2);
 
 /**
  * @name is.num
@@ -210,7 +178,18 @@ is.fun = is('function');
 is.bool = is('boolean');
 
 /**
+ * Checks if a value is integer.
+ *
+ * @since 2.2.0
+ * @name is.int
+ * @param {*} val - value
+ * @return {boolean} `true` if value is integer
+ */
+is.int = is('integer');
+
+/**
  * Checks if a value is iterable.
+ * Uses `Symbol.iterator` so it's compatible with es6.
  *
  * @name is.iter
  * @param {*} val - value
@@ -228,11 +207,21 @@ is.iter = is('iterable');
  */
 is.array = is('array');
 
-export const expect = curry((expected, val) => (
+/**
+ * Checks if a value is an array-like object.
+ *
+ * @since 2.2.0
+ * @name is.array.like
+ * @param {*} val - value
+ * @return {boolean} `true` if `val` is a string or an object with a length
+ */
+is.array.like = is('array-like');
+
+export const expect = privCurry((expected, val) => (
   is(expected, val)
     ? unbox(val)
     : failWith(new TypeError(`Expected ${expected}, got ${typeOf(val)}`))
-));
+), 2);
 
 /**
  * Checks if `is.num(number)`, then returns that number or throws a `TypeError`.
@@ -295,11 +284,22 @@ expect.fun = expect('function');
 expect.bool = expect('boolean');
 
 /**
+ * Checks if `is.int(value)`, then returns that value or throws a `TypeError`.
+ *
+ * @since 2.2.0
+ * @name expect.int
+ * @param {*} val - value
+ * @return {*} number
+ * @throws {TypeError}
+ */
+expect.int = expect('integer');
+
+/**
  * Checks if `is.iter(value)`, then returns that value or throws a `TypeError`.
  *
  * @name expect.iter
  * @param {*} val - value
- * @return {*} iterable
+ * @return {iterable} iterable
  * @throws {TypeError}
  */
 expect.iter = expect('iterable');
@@ -313,6 +313,61 @@ expect.iter = expect('iterable');
  * @throws {TypeError}
  */
 expect.array = expect('array');
+
+/**
+ * Checks if `is.array.like(value)`, then returns that value or throws a `TypeError`.
+ *
+ * @since 2.2.0
+ * @name expect.array.like
+ * @param {*} val - value
+ * @return {string|object} array like object
+ * @throws {TypeError}
+ */
+expect.array.like = expect('array-like');
+
+/**
+ * Creates currified a copy of a function.
+ *
+ * @example
+ * const currifSum = curry((x, y) => x + y);
+ *
+ * currifSum(1, 2); // 3
+ *
+ * const add2 = currifSum(2);
+ * add2(3); // 5
+ *
+ * @since 2.1.0
+ * @param {function} fn - to curry
+ * @param {number} [numArgs=fn.length] - how many arguments `fn` takes
+ * @return {function} currified version
+ */
+export const curry = (fn, numArgs = fn.length) => (
+  is.int(numArgs) && numArgs >= 0
+    ? privCurry(fn, numArgs)
+    : failWith(new Error('curry() expects a non-negative integer as numArgs'))
+);
+
+/**
+ * Creates currified a copy of a two-arguments function.
+ *
+ * When we variadic function `fn` unfortunately we cannot use
+ * `curry(fn)` because its `length` is 0.
+ * So we need to specify how many arguments `fn` expects:
+ * `curry(fn, 2)` or simply `curry2(fn)`.
+ *
+ * @example
+ * const currifSum = curry2((...xs) => xs.reduce((a, b) => a + b, 0));
+ *
+ * currifSum(1, 2); // 3
+ *
+ * const add2 = currifSum(2);
+ * add2(3); // 5
+ *
+ * @param {function} fn - that takes two arguments
+ * @return {function} currified version
+ */
+export const curry2 = fn =>
+  privCurry(fn, 2);
 
 /**
  * Sums its arguments.

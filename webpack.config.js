@@ -1,4 +1,6 @@
 const pkg = require('./package.json');
+const path = require('path');
+const target = path.resolve(pkg['umd:main']);
 
 module.exports = {
   entry: pkg.main,
@@ -6,8 +8,8 @@ module.exports = {
   output: {
     library: pkg.name,
     libraryTarget: 'umd',
-    path: `${__dirname}/dist`,
-    filename: `${pkg.name}.umd.js`,
+    path: `${path.dirname(target)}`,
+    filename: `${path.basename(target)}`,
     globalObject: 'this'
   },
   module: {

@@ -18,6 +18,7 @@
   ],
   "main": "./src/index",
   "types": "./src/index.d.ts",
+  "umd:main": "./dist/fpc.umd.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/emilianobovetti/fpc.git"
