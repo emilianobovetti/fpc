@@ -102,7 +102,7 @@ For direct browser usage you can include the [UMD][umdjs-umd] bundle:
 <script type="text/javascript" src="path/to/dist/fpc.umd.js"></script>
 ```
 
-[pipe]: docs/README.md#user-content-id
+[pipe]: docs/README.md#user-content-pipe
 
 [maybe-docs]: docs/maybe.md
 [piping-docs]: docs/piping.md

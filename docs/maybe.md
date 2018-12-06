@@ -193,12 +193,12 @@ let updateMetaDescription = desc =>
     .forEach(el => el.setAttribute('content', desc));
 ```
 
-[Just]: README.md#user-content-Just
-[Nothing]: README.md#user-content-Nothing
+[Just]: README.md#user-content-just
+[Nothing]: README.md#user-content-nothing
 [maybe-map]: README.md#user-content-maybe-map
 [maybe-filter]: README.md#user-content-maybe-filter
-[maybe-forEach]: README.md#user-content-maybe-forEach
-[Maybe-constructor]: README.md#user-content-Maybe-constructor
+[maybe-forEach]: README.md#user-content-maybe-foreach
+[Maybe-constructor]: README.md#user-content-maybe-constructor
 
 [Glob-null]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null
 [Glob-undefined]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined

@@ -323,7 +323,7 @@ sum([ 1, 2, 3 ]) === 1 + 2 + 3
 
 ### cat
 
-Works like [sum][sum], but first casts its arguments to [string][[Glob-String].
+Works like [sum][sum], but first casts its arguments to [string][Glob-String].
 
 ```javascript
 import { cat } from 'fpc';
@@ -633,10 +633,10 @@ Returns an empty string otherwise.
 [log]: #user-content-log
 [get]: #user-content-get
 
-[Just]: #user-content-Just
-[Nothing]: #user-content-Nothing
-[maybe-isEmpty]: #user-content-maybe-isEmpty
-[maybe-getOrElse]: #user-content-maybe-getOrElse
+[Just]: #user-content-just
+[Nothing]: #user-content-nothing
+[maybe-isEmpty]: #user-content-maybe-isempty
+[maybe-getOrElse]: #user-content-maybe-getorelse
 
 [maybe-docs]: maybe.md
 [piping-docs]: piping.md

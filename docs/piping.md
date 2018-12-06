@@ -31,7 +31,7 @@ output = pipe('hello')
 
 ### Multiple Arguments
 
-The value in `pipe()` will be passed to functions as *first* argument. In many [ML dialects][ML-lang] traditionally the pipe operator will pass its value as *last* argument in functions, but in JavaScript the "context" argument is often the first one. If you came from [Elixir][elixir-lang] it's nothing new.
+The value in [pipe()][pipe] will be passed to functions as *first* argument. In many [ML dialects][ML-lang] traditionally the pipe operator will pass its value as *last* argument in functions, but in JavaScript the "context" argument is often the first one. If you came from [Elixir][elixir-lang] it's nothing new.
 
 ```javascript
 const double = x => x * 2;
@@ -67,7 +67,7 @@ newScore = pipe(person.score)
 
 ### Logging
 
-`show()` will help to keep track of the value inside a pipe:
+[show()][show] will help to keep track of the value inside a pipe:
 
 ```javascript
 import { show, cat } from 'fpc';
@@ -84,6 +84,9 @@ pipe('hello, ')
   .and(show, 'Final value:') // Final value: Hello, Bob! Your score is: 25
   .result;
 ```
+
+[pipe]: README.md#user-content-pipe
+[show]: README.md#user-content-show
 
 [ML-lang]: https://en.wikipedia.org/wiki/ML_%28programming_language%29
 [elixir-lang]: https://elixir-lang.org
