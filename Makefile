@@ -1,12 +1,9 @@
-# docs
-api_docs_file := $(CURDIR)/docs/api.md
-# build
 umd_target := $(abspath $(shell node get-package.js umd:main))
 build_dir :=  $(dir $(umd_target))
 node_dir := $(CURDIR)/node_modules
 node_bin := $(node_dir)/.bin
 
-all : build test docs
+all : build test
 
 $(node_bin):
 	@yarn
@@ -17,20 +14,12 @@ $(build_dir):
 $(umd_target): $(node_bin) $(build_dir)
 	@npx webpack --mode production
 
-$(api_docs_file): $(node_bin)
-	@npx documentation build src/** \
-		--output $(api_docs_file) \
-		--format md
-
 .PHONY: build
 build: clean-build $(umd_target)
 
 .PHONY: test
 test : $(node_bin)
 	@BABEL_ENV=test npx nyc mocha --recursive
-
-.PHONY: docs
-docs: clean-docs $(umd_target) $(api_docs_file)
 
 .PHONY: clean-build
 clean-build:
@@ -40,19 +29,15 @@ clean-build:
 clean-node:
 	@rm -rf $(node_dir)
 
-.PHONY: clean-docs
-clean-docs:
-	@rm -f $(api_docs_file)
-
 .PHONY: clean
-clean : clean-build clean-node clean-docs
+clean : clean-build clean-node
 
 .PHONY: dev
 dev: $(node_bin) $(build_dir)
 	@npx webpack --mode development
 
 .PHONY: commit
-commit: build test docs
+commit: build test
 	@git cz
 
 .PHONY: playground

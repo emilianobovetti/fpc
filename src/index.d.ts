@@ -1,6 +1,116 @@
-// Type definitions for fpc 2.0.x
+// Type definitions for fpc 2.2.x
 // Project: https://github.com/emilianobovetti/fpc
 // Definitions by: Emiliano Bovetti <https://github.com/emilianobovetti>
+
+export function id<T>(val: T): T;
+
+export function not<A>(fn: (a: A) => boolean): (a: A) => boolean;
+export function not<A, B>(fn: (a: A, b: B) => boolean): (a: A, b: B) => boolean;
+export function not<A, B, C>(fn: (a: A, b: B, c: C) => boolean): (a: A, b: B, c: C) => boolean;
+
+export function flip<A, B, C>(fn: (a: A, b: B) => C): (b: B, a: A) => C;
+export function flip<A, B, C, D>(fn: (a: A, b: B, c: C) => D): (c: C, b: B, a: A) => D;
+
+export function failWith(err: Error): never;
+
+export function unbox(n: Number): number;
+export function unbox(s: String): string;
+export function unbox(s: Symbol): symbol;
+export function unbox(b: Boolean): boolean;
+export function unbox<T>(val: T): T;
+
+export function typeOf(val: any): string;
+
+export function prop(str: string, idx: number): string | undefined;
+export function prop(val: any, prop: string | number): any;
+
+export function pair<A, B>(a: A, b: B): [ A, B ];
+
+export function first<A, B>(pair: [ A, B ]): A;
+export function first(str: string): string | undefined;
+export function first<T>(arr: Array<T>): T | undefined;
+
+export function second<A, B>(pair: [ A, B ]): B;
+export function second(str: string): string | undefined;
+export function second<T>(arr: Array<T>): T | undefined;
+
+export function last(str: string): string | undefined;
+export function last<T>(arr: Array<T>): T | undefined;
+
+export function slice(str: string, begin?: number, end?: number): Array<string>;
+export function slice<T>(arr: Array<T>, begin?: number, end?: number): Array<T>;
+
+export function unshift(str: string, fst: string): Array<string>;
+export function unshift<T>(arr: Array<T>, fst: T): Array<T>;
+
+export function reverse(str: string): Array<string>;
+export function reverse<T>(arr: Array<T>): Array<T>;
+
+export function reduce<T>(str: string, fn: (acc: T, char: string) => T, init: T): T;
+export function reduce<V, T>(arr: Array<V>, fn: (acc: T, val: V) => T, init: T): T;
+
+export function map<T>(str: string, fn: (char: string) => T): Array<T>;
+export function map<V, T>(arr: Array<V>, fn: (elem: V) => T): Array<T>;
+
+export function filter(str: string, fn: (char: string) => boolean): Array<string>;
+export function filter<T>(arr: Array<T>, fn: (elem: T) => boolean): Array<T>;
+
+export function forEach(str: string, fn: (char: string) => void): string;
+export function forEach<T>(arr: Array<T>, fn: (elem: T) => void): Array<T>;
+
+export namespace is {
+    export function num(val: any): boolean;
+    export function int(val: any): boolean;
+    export function str(val: any): boolean;
+    export function sym(val: any): boolean;
+    export function obj(val: any): boolean;
+    export function fun(val: any): boolean;
+    export function bool(val: any): boolean;
+    export function iter(val: any): boolean;
+    export function array(val: any): boolean;
+
+    export namespace array {
+        export function like(val: any): boolean;
+    }
+}
+
+export namespace is {
+    export function num(val: any): number;
+    export function int(val: any): number;
+    export function str(val: any): string;
+    export function sym(val: any): symbol;
+    export function obj(val: any): object;
+    export function fun(val: any): Function;
+    export function bool(val: any): boolean;
+    export function iter(val: any): any[] | string;
+    export function array(val: any): any[];
+
+    export namespace array {
+        export function like(val: any): object;
+    }
+}
+
+
+export function curry<A, B, C>(fn: (a: A, b: B) => C): (a: A) => (b: B) => C;
+export function curry<A, B, C, D>(fn: (a: A, b: B, c: C) => D): (a: A) => (b: B) => (c: C) => D;
+
+export function curry2(fn: Function): (any) => (any) => any;
+
+export function sum(arr: Array<number>): number;
+export function sum(a: number, b: number): number;
+export function sum(a: number, b: number, c: number): number;
+
+export function cat(arr: Array<string | number>): string;
+export function cat(a: string | number, b: string | number): string;
+export function cat(a: string | number, b: string | number, c: string | number): string;
+
+export function bound(n: number, min: number, max: number): number;
+
+export function call(val: object | string, method: string, arg1?: any, arg2?: any, arg3?: any): any;
+
+export function pass<A>(fst: A, fn: (fst: A) => any): A;
+export function pass<A, B>(fst: A, fn: (fst: A, snd: B) => any, snd: B): A;
+export function pass<A, B, C>(fst: A, fn: (fst: A, snd: B, trd: C) => any, snd: B, trd: C): A;
 
 interface Fn1<A, B> {
     (a: A): B;
@@ -87,104 +197,9 @@ interface Pipe<A> {
 
 export function pipe<T>(val: T): Pipe<T>;
 
-export function id<T>(val: T): T;
-
-export function not<A>(fn: (a: A) => boolean): (a: A) => boolean;
-export function not<A, B>(fn: (a: A, b: B) => boolean): (a: A, b: B) => boolean;
-export function not<A, B, C>(fn: (a: A, b: B, c: C) => boolean): (a: A, b: B, c: C) => boolean;
-
-export function flip<A, B, C>(fn: (a: A, b: B) => C): (b: B, a: A) => C;
-export function flip<A, B, C, D>(fn: (a: A, b: B, c: C) => D): (c: C, b: B, a: A) => D;
-
-export function failWith(err: Error): never;
-
-export function curry2<A, B, C>(fn: (a: A, b: B) => C): (a: A) => (b: B) => C
-
-export function unbox(n: Number): number;
-export function unbox(s: String): string;
-export function unbox(s: Symbol): symbol;
-export function unbox(b: Boolean): boolean;
-export function unbox<T>(val: T): T;
-
-export function typeOf(val: any): string;
-
-export function prop(str: string, idx: number): string | undefined;
-export function prop(val: any, prop: string | number): any;
-
-export const is: {
-    num(val: any): boolean,
-    str(val: any): boolean,
-    sym(val: any): boolean,
-    obj(val: any): boolean,
-    fun(val: any): boolean,
-    bool(val: any): boolean,
-    iter(val: any): boolean,
-    array(val: any): boolean,
-};
-
-export const expect: {
-    num(val: any): number,
-    str(val: any): string,
-    sym(val: any): symbol,
-    obj(val: any): object,
-    fun(val: any): Function,
-    bool(val: any): boolean,
-    iter(val: any): any[] | string,
-    array(val: any): any[],
-};
-
-export function sum(arr: Array<number>): number;
-export function sum(a: number, b: number): number;
-export function sum(a: number, b: number, c: number): number;
-
-export function cat(arr: Array<string | number>): string;
-export function cat(a: string | number, b: string | number): string;
-export function cat(a: string | number, b: string | number, c: string | number): string;
-
-export function bound(n: number, min: number, max: number): number;
-
-export function call(val: object | string, method: string, arg1?: any, arg2?: any, arg3?: any): any;
-
-export function pass<A>(fst: A, fn: (fst: A) => any): A;
-export function pass<A, B>(fst: A, fn: (fst: A, snd: B) => any, snd: B): A;
-export function pass<A, B, C>(fst: A, fn: (fst: A, snd: B, trd: C) => any, snd: B, trd: C): A;
-
 export function log<T>(val: T, arg1?: any, arg2?: any, arg3?: any): T;
 
 export function show<T>(val: T, arg1?: any, arg2?: any, arg3?: any): T;
-
-export function pair<A, B>(a: A, b: B): [ A, B ];
-
-export function first<A, B>(pair: [ A, B ]): A;
-export function first(str: string): string | undefined;
-export function first<T>(arr: Array<T>): T | undefined;
-
-export function second<A, B>(pair: [ A, B ]): B;
-export function second(str: string): string | undefined;
-export function second<T>(arr: Array<T>): T | undefined;
-
-export function last(str: string): string | undefined;
-export function last<T>(arr: Array<T>): T | undefined;
-
-export function slice(str: string, begin?: number, end?: number): Array<string>;
-export function slice<T>(arr: Array<T>, begin?: number, end?: number): Array<T>;
-
-export function unshift<T>(arr: Array<T>, fst: T): Array<T>;
-
-export function reverse(str: string): Array<string>;
-export function reverse<T>(arr: Array<T>): Array<T>;
-
-export function reduce<T>(str: string, fn: (acc: T, char: string) => T, init: T): T;
-export function reduce<V, T>(arr: Array<V>, fn: (acc: T, val: V) => T, init: T): T;
-
-export function map<T>(str: string, fn: (char: string) => T): Array<T>;
-export function map<V, T>(arr: Array<V>, fn: (elem: V) => T): Array<T>;
-
-export function filter(str: string, fn: (char: string) => boolean): Array<string>;
-export function filter<T>(arr: Array<T>, fn: (elem: T) => boolean): Array<T>;
-
-export function forEach(str: string, fn: (char: string) => void): string;
-export function forEach<T>(arr: Array<T>, fn: (elem: T) => void): Array<T>;
 
 export interface Maybe<T> {
     readonly isEmpty: boolean;

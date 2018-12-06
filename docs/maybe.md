@@ -2,6 +2,8 @@
 import { Maybe, Nothing, Just } from 'fpc';
 ```
 
+A `Maybe` behaves like an array of at most one element: you can use `map`, `filter` and `forEach` like usual.
+
 ## How to create new Maybe
 
 `Maybe(someValue)` creates a new object wrapping `someValue`.

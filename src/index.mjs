@@ -1,2 +1,2 @@
-export * from './functions';
-export * from './monads';
+export * from './function';
+export * from './monad';

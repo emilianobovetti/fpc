@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const pkg = require('./package.json');
 const path = require('path');
 const target = path.resolve(pkg['umd:main']);
@@ -12,6 +13,9 @@ module.exports = {
     filename: `${path.basename(target)}`,
     globalObject: 'this'
   },
+  plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin()
+  ],
   module: {
     rules: [
       {
@@ -19,12 +23,6 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         loader: 'eslint-loader'
-      },
-      {
-        test: /\.mjs$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        sideEffects: false
       }
     ]
   }
