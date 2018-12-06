@@ -586,7 +586,7 @@ Maybe(null).get(); // throws Error: Trying to get value of Nothing
 
 ### maybe getOrThrow
 
-Works like [get][get], allows to customize the [Error][Glob-Error] to throw.
+Works like [get][maybe-get], allows to customize the [Error][Glob-Error] to throw.
 
 ```javascript
 Maybe(null).getOrThrow(new Error('Oh no!'));
@@ -631,10 +631,10 @@ Returns an empty string otherwise.
 [id]: #user-content-id
 [sum]: #user-content-sum
 [log]: #user-content-log
-[get]: #user-content-get
 
 [Just]: #user-content-just
 [Nothing]: #user-content-nothing
+[maybe-get]: #user-content-maybe-get
 [maybe-isEmpty]: #user-content-maybe-isempty
 [maybe-getOrElse]: #user-content-maybe-getorelse
 
