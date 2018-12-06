@@ -2,7 +2,7 @@
 import { compose } from 'fpc';
 ```
 
-Function composition works like [piping](piping.md):
+Function composition works like [piping][piping-docs]:
 
 ```javascript
 import { bound, sum } from 'fpc';
@@ -53,8 +53,8 @@ const users = [
 getNameOfAdults(users); // [ 'Walter', 'Amanda' ]
 ```
 
-`filter` and `map` will receive `users` as first argument and the callback as second.
-Of course in this case we are composing `filter` and `map`, and we could use array's native methods, but `compose()` would work with any function:
+[filter][filter] and [map][map] will receive `users` as first argument and the callback as second.
+Of course in this case we are composing [filter][filter] and [map][map], and we could use array's native methods, but [compose()][compose] would work with any function:
 
 ```javascript
 import { is } from 'fpc';
@@ -76,3 +76,9 @@ const parseUser =
 parseUser('{ "name": "WILL", "age": "31" }');
 // { name: 'Will', age: 31 }
 ```
+
+[map]: README.md#user-content-map
+[filter]: README.md#user-content-filter
+[compose]: README.md#user-content-compose
+
+[piping-docs]: piping.md

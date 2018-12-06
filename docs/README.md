@@ -33,9 +33,9 @@ revCat(1, 2, 3) === cat(3, 2, 1);
 
 ### failWith
 
-Throws an error but, unlike `throw`, it's an expression.
+Throws an error but, unlike [throw][Statement-throw], it's an expression.
 
-Converts its input if it isn't already an [Error][Error] instance.
+Converts its input if it isn't already an [Error][Glob-Error] instance.
 
 ```javascript
 import { failWith } from 'fpc';
@@ -55,7 +55,7 @@ typeof unbox(Object('str')); // 'string'
 
 ### typeOf
 
-Two differences with `typeof` operator:
+Two differences with [typeof][Operators-typeof] operator:
 
 1. `typeOf(null) === 'null'`
 2. `typeOf(Object('str')) === 'string'`
@@ -68,7 +68,7 @@ typeOf(Object('str')); // 'string'
 
 ### prop
 
-Returns an object property value, or `undefined`.
+Returns an object property value, or [undefined][Glob-undefined].
 Doesn't throw errors.
 
 ```javascript
@@ -120,7 +120,7 @@ last({ 0: 'fst', 1: 'snd', 2: 'trd', length: 3 }); // 'trd'
 
 ### slice
 
-Calls [Array.prototype.slice][slice] on an array-like object.
+Calls [Array.prototype.slice][Glob-Array-slice] on an array-like object.
 
 ```javascript
 import { slice } from 'fpc';
@@ -222,7 +222,7 @@ forEach(Maybe('hey'), console.log);
 
 ### is
 
-These functions check the type of a value and return a [boolean][Boolean].
+These functions check the type of a value and return a [boolean][Glob-Boolean].
 
 ```javascript
 import { is } from 'fpc';
@@ -256,7 +256,7 @@ is.array.like('strings are array-like');
 
 ### expect
 
-These functions check if a value respect given type, then throw a [TypeError][TypeError] if it doesn't or return the value itself.
+These functions check if a value respect given type, then throw a [TypeError][Glob-TypeError] if it doesn't or return the value itself.
 
 ```javascript
 import { expect } from 'fpc';
@@ -323,7 +323,7 @@ sum([ 1, 2, 3 ]) === 1 + 2 + 3
 
 ### cat
 
-Works like [sum](#user-content-sum), but first casts its arguments to `string`.
+Works like [sum][sum], but first casts its arguments to [string][[Glob-String].
 
 ```javascript
 import { cat } from 'fpc';
@@ -348,7 +348,7 @@ bound(7, 4, 6); // 6
 
 Calls an object's method.
 
-Throws a [TypeError][TypeError] if `obj[propName]` isn't a function.
+Throws a [TypeError][Glob-TypeError] if `obj[propName]` isn't a function.
 
 ```javascript
 import { call } from 'fpc';
@@ -379,7 +379,7 @@ pipe([ 1 ])
 
 ### compose
 
-Function composition, read more [here](composition.md).
+Function composition, read more [here][composition-docs].
 
 ```javascript
 import { compose, log } from 'fpc';
@@ -398,7 +398,7 @@ fn(2);
 
 ### pipe
 
-Pipe function, read more [here](piping.md).
+Pipe function, read more [here][piping-docs].
 
 ```javascript
 import { pipe, sum } from 'fpc';
@@ -422,7 +422,7 @@ const mean =
 
 Logs its arguments to console, then returns the first one.
 
-If global object `console` doesn't exist, acts like [id](#user-content-id) without rising errors.
+If global object [console][API-console] doesn't exist, acts like [identity][id] function without rising errors.
 
 ```javascript
 import { log, pipe } from 'fpc';
@@ -435,7 +435,7 @@ pipe('hello, world')
 
 ### show
 
-Acts like [log](#user-content-log), but logs its first argument as last one.
+Acts like [log][log], but logs its first argument as last one.
 
 ```javascript
 import { show } from 'fpc';
@@ -450,9 +450,9 @@ pipe('world')
 
 ## Maybe
 
-Maybe monad ported from [stateless-maybe-js](https://github.com/emilianobovetti/stateless-maybe-js).
+Maybe monad ported from [stateless-maybe-js][stateless-maybe-js].
 
-[Read more](maybe.md).
+[Read more][maybe-docs].
 
 ### Just
 
@@ -484,9 +484,9 @@ import { Nothing } from 'fpc';
 Nothing.get(); // fancy way to throw an error
 ```
 
-### Maybe
+### Maybe constructor
 
-Façade function: returns `Nothing` if value is `null` or `undefined`, returns `Just(value)` otherwise.
+Facade function: returns [Nothing][Nothing] if value is [null][Glob-null] or [undefined][Glob-undefined], returns [Just][Just](value) otherwise.
 
 Alias: `Maybe.of`
 
@@ -532,7 +532,7 @@ Maybe.str(anythingElse); // Nothing
 
 ### Maybe.num
 
-Creates a `Maybe` object that contains a number that is not [NaN][NaN] or [Infinity][Infinity].
+Creates a `Maybe` object that contains a number that is not [NaN][Glob-NaN] or [Infinity][Glob-Infinity].
 
 ```javascript
 Maybe.num(0); // Just(0)
@@ -558,11 +558,11 @@ Maybe.obj(Object(0)); // Nothing
 Maybe.obj(Object(NaN)); // Nothing
 ```
 
-## Methods
+## Properties
 
-### isEmpty
+### maybe isEmpty
 
-`true` on `Nothing`, `false` otherwise.
+`true` on [Nothing][Nothing], `false` otherwise.
 
 ```javascript
 Maybe(null).isEmpty; // true
@@ -570,65 +570,95 @@ Maybe(undefined).isEmpty; // true
 Maybe(0).isEmpty; // false
 ```
 
-### nonEmpty
+### maybe nonEmpty
 
-Negation of [isEmpty](#user-content-isEmpty).
+Negation of [isEmpty][maybe-isEmpty].
 
 
-### get
+### maybe get
 
-Returns the `Maybe` value, throws an [Error][Error] if it's empty.
+Returns the `Maybe` value, throws an [Error][Glob-Error] if it's empty.
 
 ```javascript
 Maybe(0).get(); // 0
 Maybe(null).get(); // throws Error: Trying to get value of Nothing
 ```
 
-### getOrThrow
+### maybe getOrThrow
 
-Works like [get](#user-content-get), allows to customize the [Error][Error] to throw.
+Works like [get][get], allows to customize the [Error][Glob-Error] to throw.
 
 ```javascript
 Maybe(null).getOrThrow(new Error('Oh no!'));
 ```
 
-### filter
+### maybe filter
 
-If the object is a `Just` instance and `fn(value)` is [falsy][Falsy] returns `Nothing`. Returns the `Maybe` itself otherwise.
+If the object is a [Just][Just] instance and `fn(value)` is [falsy][Glossary-falsy] returns [Nothing][Nothing]. Returns the `Maybe` itself otherwise.
 
-### map
+### maybe map
 
-If the object is a `Just` instance and `fn(value)` isn't `null`, `undefined` or `Nothing`, returns `Maybe(fn(value))`. Returns `Nothing` otherwise.
+If the object is a [Just][Just] instance and `fn(value)` isn't [null][Glob-null, [undefined][Glob-undefined] or [Nothing][Nothing], returns `Maybe(fn(value))`. Returns [Nothing][Nothing] otherwise.
 
-### forEach
+### maybe forEach
 
-Does nothing if the object is `Nothing`.
+Does nothing if the object is [Nothing][Nothing].
 Applies the given function to wrapped value otherwise.
 Always returns the `Maybe` itself.
 
-### getOrElse
+### maybe getOrElse
 
-If the object is a `Just` instance, returns its value.
-If it's a `Nothing` returns `orElse`.
+If the object is a [Just][Just] instance, returns its value.
+If it's a [Nothing][Nothing] returns `orElse`.
 
 `orElse` can be:
 
 1. a function - which is called and its result returned if the maybe is empty.
 2. any other value - which is returned in case the maybe is empty.
 
-### orElse
+### maybe orElse
 
-Acts like `getOrElse`, but returns a `Maybe` instance instead of wrapped value.
+Acts like [getOrElse][maybe-getOrElse], but returns a `Maybe` instance instead of wrapped value.
 
-### toString
+### maybe toString
 
-If the object is a `Just` instance returns wrapped value casted to string.
+If the object is a [Just][Just] instance returns wrapped value casted to string.
 Returns an empty string otherwise.
 
-[Boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-[Falsy]: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
-[NaN]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN
-[Infinity]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity
-[Error]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
-[TypeError]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError
-[slice]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+
+
+[id]: #user-content-id
+[sum]: #user-content-sum
+[log]: #user-content-log
+[get]: #user-content-get
+
+[Just]: #user-content-Just
+[Nothing]: #user-content-Nothing
+[maybe-isEmpty]: #user-content-maybe-isEmpty
+[maybe-getOrElse]: #user-content-maybe-getOrElse
+
+[maybe-docs]: maybe.md
+[piping-docs]: piping.md
+[composition-docs]: composition.md
+
+[stateless-maybe-js]: https://github.com/emilianobovetti/stateless-maybe-js
+
+[Statement-throw]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
+
+[Operators-typeof]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+
+[Glossary-falsy]: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+[API-console]: https://developer.mozilla.org/en-US/docs/Web/API/console
+
+[Glob-null]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null
+[Glob-undefined]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined
+[Glob-String]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+[Glob-Boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[Glob-NaN]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN
+[Glob-Infinity]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity
+[Glob-Error]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
+[Glob-TypeError]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+
+[Glob-Array-slice]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice

@@ -2,13 +2,13 @@
 import { Maybe, Nothing, Just } from 'fpc';
 ```
 
-A `Maybe` behaves like an array of at most one element: you can use `map`, `filter` and `forEach` like usual.
+A `Maybe` behaves like an array of at most one element: you can use [map][maybe-map], [filter][maybe-filter] and [forEach][maybe-forEach] like usual.
 
 ## How to create new Maybe
 
-`Maybe(someValue)` creates a new object wrapping `someValue`.
+[Maybe][Maybe-constructor](value) creates a new object wrapping `value`.
 
-If `someValue` is `null` or `undefined` the result will be `Nothing` instance, otherwise it'll be `Just(someValue)`.
+If `value` is [null][Glob-null] or [undefined][Glob-undefined] the result will be [Nothing][Nothing] instance, otherwise it'll be [Just][Just](value).
 
 `Maybe` objects aren't nested by constructor function.
 
@@ -17,7 +17,7 @@ const m = Maybe('hello, world');
 
 m === Maybe(m); // true
 ```
-If the emptiness definition isn't trivial (i.e. `null` or `undefined`), you can use `Nothing` and `Just()`.
+If the emptiness definition isn't trivial (i.e. [null][Glob-null] or [undefined][Glob-undefined]), you can use [Nothing][Nothing] and [Just()][Just].
 
 ```javascript
 const filterPeople = ({ people, maxAge, atLeast }) => {
@@ -38,7 +38,7 @@ filterPeople({ people: ppl, maxAge: 14, atLeast: 2 }).isEmpty; // true;
 filterPeople({ people: ppl, maxAge: 16, atLeast: 3 }).isEmpty; // true;
 ```
 
-Note that `Just()`, unlike `Maybe()`, doesn't make any check. A `Just` instance is *always* created.
+Note that [Just()][Just], unlike [Maybe()][Maybe-constructor], doesn't make any check. A `Just` instance is *always* created.
 
 ```javascript
 // `Maybe`s *can* contain null or undefined
@@ -54,9 +54,9 @@ m2 !== Just(m2);
 m2 === Just(m2).get();
 ```
 
-In a nutshell with `Just()` you are explicitly asking for a `Just` instance.
+In a nutshell with [Just()][Just] you are explicitly asking for a `Just` instance.
 
-If you want to be sure the wrapped value isn't `null` or `undefined`, use `Maybe()` instead of `Just()`.
+If you want to be sure the wrapped value isn't [null][Glob-null] or [undefined][Glob-undefined], use [Maybe()][Maybe-constructor] instead of [Just()][Just].
 
 ## Check if a value is a Maybe
 
@@ -67,7 +67,7 @@ Maybe.isInstance(Maybe(null)); // true
 
 ## Type specific constructors
 
-All type-specific constructors also unbox their value before making checks, so `0` and `Object(0)` are treated identically.
+All type-specific constructors also unbox their value before making checks, so `0` and [Object][Glob-Object](0) are treated identically.
 
 ### `Maybe.str(value)`
 Checks if `value` is a non-empty string.
@@ -163,7 +163,7 @@ Maybe.getElementById('some-node')
   .toString();
 ```
 
-Sometimes nesting functions might seem the only way to go. There are some tricks to keep the code simple, like use `filter` method.
+Sometimes nesting functions might seem the only way to go. There are some tricks to keep the code simple, like use [filter][maybe-filter] method.
 For example, let's write a function to update meta description only if the meta tag exists and the given description is a non-empty string:
 
 ```javascript
@@ -192,3 +192,14 @@ let updateMetaDescription = desc =>
     .filter(() => Maybe.str(desc).nonEmpty)
     .forEach(el => el.setAttribute('content', desc));
 ```
+
+[Just]: README.md#user-content-Just
+[Nothing]: README.md#user-content-Nothing
+[maybe-map]: README.md#user-content-maybe-map
+[maybe-filter]: README.md#user-content-maybe-filter
+[maybe-forEach]: README.md#user-content-maybe-forEach
+[Maybe-constructor]: README.md#user-content-Maybe-constructor
+
+[Glob-null]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null
+[Glob-undefined]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined
+[Glob-Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object

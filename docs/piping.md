@@ -2,9 +2,9 @@
 import { pipe } from 'fpc';
 ```
 
-JavaScript developers with functional programming background would appreciate the [pipeline operator](https://github.com/tc39/proposal-pipeline-operator)<sup>[citation needed]</sup>.
+JavaScript developers with functional programming background would appreciate the [pipeline operator][tc39-proposal-pipeline-operator]<sup>[citation needed]</sup>.
 
-Note: some examples are translated from [tc39/proposal-pipeline-operator](https://github.com/tc39/proposal-pipeline-operator).
+Note: some examples are translated from [tc39/proposal-pipeline-operator][tc39-proposal-pipeline-operator].
 
 ```javascript
 const doubleSay = str => str + ', ' + str;
@@ -31,7 +31,7 @@ output = pipe('hello')
 
 ### Multiple Arguments
 
-The value in `pipe()` will be passed to functions as *first* argument. In many [ML dialects](https://en.wikipedia.org/wiki/ML_%28programming_language%29) traditionally the pipe operator will pass its value as *last* argument in functions, but in JavaScript the "context" argument is often the first one. If you came from [Elixir](https://elixir-lang.org) it's nothing new.
+The value in `pipe()` will be passed to functions as *first* argument. In many [ML dialects][ML-lang] traditionally the pipe operator will pass its value as *last* argument in functions, but in JavaScript the "context" argument is often the first one. If you came from [Elixir][elixir-lang] it's nothing new.
 
 ```javascript
 const double = x => x * 2;
@@ -84,3 +84,7 @@ pipe('hello, ')
   .and(show, 'Final value:') // Final value: Hello, Bob! Your score is: 25
   .result;
 ```
+
+[ML-lang]: https://en.wikipedia.org/wiki/ML_%28programming_language%29
+[elixir-lang]: https://elixir-lang.org
+[tc39-proposal-pipeline-operator]: https://github.com/tc39/proposal-pipeline-operator

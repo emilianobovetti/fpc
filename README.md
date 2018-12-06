@@ -21,11 +21,11 @@
   </a>
 </div>
 
-`fpc` is a lightweight collection of functional patterns, compatible with es6 module system and [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)able.
+`fpc` is a lightweight collection of functional patterns, compatible with es6 module system and [import][Statement-import]able.
 
-So I have written [another](https://github.com/stoeffel/awesome-fp-js) functional js library.
+So I have written [another][awesome-fp-js] functional js library.
 
-![xkcd standards](https://imgs.xkcd.com/comics/standards.png)
+![xkcd standards][xkcd-standards]
 
 Anyway I'll try to show `fpc`'s' approach to functional javascript with some examples.
 
@@ -46,17 +46,19 @@ pipe('a, p')
   .and(applyToAll, style, { color: 'red' });
 
 // or without `style` function
+import { map } from 'fpc';
+
 pipe('a, p')
   .into(querySelectorAll)
   .and(map, node => node.style)
   .and(applyToAll, Object.assign, { color: 'red' });
 ```
 
-The idea is to build many small modular and reusable functions instead of relying on currying and [pointfree style](https://wiki.haskell.org/Pointfree) and use them in sequence.
+The idea is to build many small modular and reusable functions instead of relying on currying and [pointfree style][point-free] and use them in sequence.
 
-What is this `pipe()` madness?
+What is this [pipe()][pipe] madness?
 
-One beautiful day we will use [pipeline-operator](https://github.com/tc39/proposal-pipeline-operator) and [partial-application](https://github.com/tc39/proposal-partial-application) and our code will look like
+One beautiful day we will use [pipeline-operator][tc39-proposal-pipeline-operator] and [partial-application][tc39-proposal-partial-application] and our code will look like
 
 ```javascript
 'a, p'
@@ -65,16 +67,16 @@ One beautiful day we will use [pipeline-operator](https://github.com/tc39/propos
 |> applyToAll(?, Object.assign, { color: 'red' })
 ```
 
-Pretty sweet eh? While we wait for that day we can use `pipe()`.
+Pretty sweet eh? While we wait for that day we can use [pipe()][pipe].
 
 ## Usage
 
 Please refer to the following docs:
 
-- [`pipe()`](docs/piping.md)
-- [`compose()`](docs/composition.md)
-- [`Maybe`](docs/maybe.md)
-- [API docs](docs/README.md)
+- [pipe()][piping-docs]
+- [compose()][composition-docs]
+- [Maybe][maybe-docs]
+- [API docs][API-docs]
 
 ## Installation
 
@@ -94,8 +96,24 @@ Require in node:
 const fpc = require('fpc');
 ```
 
-For direct browser usage you can include the [UMD](https://github.com/umdjs/umd) bundle:
+For direct browser usage you can include the [UMD][umdjs-umd] bundle:
 
 ```HTML
 <script type="text/javascript" src="path/to/dist/fpc.umd.js"></script>
 ```
+
+[pipe]: docs/README.md#user-content-id
+
+[maybe-docs]: docs/maybe.md
+[piping-docs]: docs/piping.md
+[composition-docs]: docs/composition.md
+[API-docs]: docs/README.md
+
+[point-free]: https://wiki.haskell.org/Pointfree
+[xkcd-standards]: https://imgs.xkcd.com/comics/standards.png
+[awesome-fp-js]: https://github.com/stoeffel/awesome-fp-js
+[tc39-proposal-pipeline-operator]: https://github.com/tc39/proposal-pipeline-operator
+[tc39-proposal-partial-application]: https://github.com/tc39/proposal-partial-application
+[umdjs-umd]: https://github.com/umdjs/umd
+
+[Statement-import]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
