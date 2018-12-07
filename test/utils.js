@@ -1,11 +1,23 @@
-const { is, pipe, first, reduce, failWith } = require('../src/index.mjs');
+const { is, pipe, first, map, reduce, failWith } = require('../src/index.mjs');
 const isEqual = require('lodash.isequal');
 
-const toString = val =>
+const stringifyArray = arr =>
+  arr.length === 0 ? '[]' : `[ ${arr.map(stringify).join(', ')} ]`;
+
+const stringifyObject = obj =>
+  pipe(obj)
+    .into(Object.entries)
+    .and(map, ([ key, val ]) => `${key}: ${stringify(val)}`)
+    .and(arr => arr.length === 0 ? '{}' : `{ ${arr.join(', ')} }`)
+    .result;
+
+const stringify = val =>
   is.array(val)
-  ? `[${val.map(toString).join(',')}]`
+  ? stringifyArray(val)
   : is.obj(val)
-  ? val.toSource()
+  ? stringifyObject(val)
+  : is.str(val)
+  ? `"${val}"`
   : String(val);
 
 const eqReducer = ([ areEquals, last ], current) =>
@@ -22,7 +34,7 @@ const compare = (...args) => {
     .and(first)
     .result
 
-  return areEquals || failWith(new Error(`compare(${args.map(toString)}) failed`));
+  return areEquals || failWith(new Error(`compare(${args.map(stringify)}) failed`));
 };
 
 const forAll = (vals, fn) =>
