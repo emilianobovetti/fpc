@@ -74,8 +74,8 @@ Pretty sweet eh? While we wait for that day we can use [pipe()][pipe].
 Please refer to the following docs:
 
 - [functions][functions]
-- [pipe()][piping-docs]
-- [compose()][composition-docs]
+- [pipe][piping-docs]
+- [compose][composition-docs]
 - [Maybe][maybe-docs]
 - [Result][result-docs]
 

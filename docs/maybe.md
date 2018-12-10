@@ -8,9 +8,9 @@ A `Maybe` behaves like an array of at most one element: you can use [map][maybe-
 
 ## How to create new Maybe
 
-[Maybe][Maybe-constructor](value) creates a new object wrapping `value`.
+[`Maybe(value)`][Maybe-constructor] creates a new object wrapping `value`.
 
-If `value` is [null][Glob-null] or [undefined][Glob-undefined] the result will be [Nothing][Nothing] instance, otherwise it'll be [Just][Just](value).
+If `value` is [null][Glob-null] or [undefined][Glob-undefined] the result will be [`Nothing`][Nothing] instance, otherwise it'll be [`Just(value)`][Just].
 
 `Maybe` objects aren't nested by constructor function.
 
@@ -19,7 +19,7 @@ const m = Maybe('hello, world');
 
 m === Maybe(m); // true
 ```
-If the emptiness definition isn't trivial (i.e. [null][Glob-null] or [undefined][Glob-undefined]), you can use [Nothing][Nothing] and [Just()][Just].
+If the emptiness definition isn't trivial (i.e. [null][Glob-null] or [undefined][Glob-undefined]), you can use [`Nothing`][Nothing] and [`Just()`][Just].
 
 ```javascript
 const filterPeople = ({ people, maxAge, atLeast }) => {
@@ -40,7 +40,7 @@ filterPeople({ people: ppl, maxAge: 14, atLeast: 2 }).isEmpty; // true;
 filterPeople({ people: ppl, maxAge: 16, atLeast: 3 }).isEmpty; // true;
 ```
 
-Note that [Just()][Just], unlike [Maybe()][Maybe-constructor], doesn't make any check. A `Just` instance is *always* created.
+Note that [`Just()`][Just], unlike [`Maybe()`][Maybe-constructor], doesn't make any check. A `Just` instance is *always* created.
 
 ```javascript
 // `Maybe`s *can* contain null or undefined
@@ -56,9 +56,9 @@ m2 !== Just(m2);
 m2 === Just(m2).get();
 ```
 
-In a nutshell with [Just()][Just] you are explicitly asking for a `Just` instance.
+In a nutshell with [`Just()`][Just] you are explicitly asking for a `Just` instance.
 
-If you want to be sure the wrapped value isn't [null][Glob-null] or [undefined][Glob-undefined], use [Maybe()][Maybe-constructor] instead of [Just()][Just].
+If you want to be sure the wrapped value isn't [null][Glob-null] or [undefined][Glob-undefined], use [`Maybe()`][Maybe-constructor] instead of [`Just()`][Just].
 
 ## Using Maybes
 
@@ -186,7 +186,7 @@ Nothing.get(); // fancy way to throw an error
 
 ### Maybe constructor
 
-Facade function: returns [Nothing][Nothing] if value is [null][Glob-null] or [undefined][Glob-undefined], returns [Just][Just](value) otherwise.
+Facade function: returns [`Nothing`][Nothing] if value is [null][Glob-null] or [undefined][Glob-undefined], returns [`Just(value)`][Just] otherwise.
 
 ```javascript
 import { Maybe } from 'fpc';
@@ -217,7 +217,7 @@ Maybe.isInstance(Maybe(null)); // true
 
 ## Type specific constructors
 
-All type-specific constructors also unbox their value before making checks, so `0` and [Object][Glob-Object](0) are treated identically.
+All type-specific constructors also unbox their value before making checks, so `0` and [`Object(0)`][Glob-Object] are treated identically.
 
 ### Maybe.str
 
@@ -262,7 +262,7 @@ Maybe.obj(Object(NaN)); // Nothing
 
 ### isEmpty
 
-`true` on [Nothing][Nothing], `false` otherwise.
+`true` on [`Nothing`][Nothing], `false` otherwise.
 
 ```javascript
 Maybe(null).isEmpty; // true
@@ -298,7 +298,7 @@ If the object is a [Just][Just] instance and `fn(value)` is [falsy][Glossary-fal
 
 ### map
 
-If the object is a [Just][Just] instance and `fn(value)` isn't [null][Glob-null, [undefined][Glob-undefined] or [Nothing][Nothing], returns `Maybe(fn(value))`. Returns [Nothing][Nothing] otherwise.
+If the object is a [Just][Just] instance and `fn(value)` isn't [null][Glob-null], [undefined][Glob-undefined] or [Nothing][Nothing], returns `Maybe(fn(value))`. Returns [Nothing][Nothing] otherwise.
 
 ### forEach
 
