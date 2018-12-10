@@ -1,3 +1,5 @@
+# Maybe
+
 ```javascript
 import { Maybe, Nothing, Just } from 'fpc';
 ```
@@ -57,49 +59,6 @@ m2 === Just(m2).get();
 In a nutshell with [Just()][Just] you are explicitly asking for a `Just` instance.
 
 If you want to be sure the wrapped value isn't [null][Glob-null] or [undefined][Glob-undefined], use [Maybe()][Maybe-constructor] instead of [Just()][Just].
-
-## Check if a value is a Maybe
-
-```javascript
-Maybe.isInstance(null); // false
-Maybe.isInstance(Maybe(null)); // true
-```
-
-## Type specific constructors
-
-All type-specific constructors also unbox their value before making checks, so `0` and [Object][Glob-Object](0) are treated identically.
-
-### `Maybe.str(value)`
-Checks if `value` is a non-empty string.
-
-```javascript
-Maybe.str(1) === Nothing;
-Maybe.str('') === Nothing;
-
-Maybe.str(Object('hello')).get() === 'hello';
-```
-
-### `Maybe.num(value)`
-Checks if `value` is finite, valid number.
-
-```javascript
-Maybe.num('1') === Nothing;
-Maybe.num(0/0) === Nothing;
-Maybe.num(NaN) === Nothing;
-
-Maybe.num(Object(1)).get() === 1;
-```
-
-### `Maybe.obj(value)`
-Checks if `value` is a non-null object.
-
-```javascript
-Maybe.obj('') === Nothing;
-Maybe.obj(null) === Nothing;
-
-Maybe.obj(Object('hello')) === Nothing;
-Maybe.obj(Object(1)) === Nothing;
-```
 
 ## Using Maybes
 
@@ -193,13 +152,202 @@ let updateMetaDescription = desc =>
     .forEach(el => el.setAttribute('content', desc));
 ```
 
-[Just]: README.md#user-content-just
-[Nothing]: README.md#user-content-nothing
-[maybe-map]: README.md#user-content-maybe-map
-[maybe-filter]: README.md#user-content-maybe-filter
-[maybe-forEach]: README.md#user-content-maybe-foreach
-[Maybe-constructor]: README.md#user-content-maybe-constructor
+## API
+
+### Just
+
+Function that always returns a `Just` instance.
+
+```javascript
+import { Just, Maybe } from 'fpc';
+
+// Maybe objects *can* contain null or undefined
+const m1 = Just(null);
+
+m1.isEmpty; // false
+m1.get(); // null
+
+const m2 = Maybe('hello, world');
+
+// Maybe objects *can* be nested with `Just()`
+m2 !== Just(m2);
+m2 === Just(m2).get();
+```
+
+### Nothing
+
+`Nothing` instance.
+
+```javascript
+import { Nothing } from 'fpc';
+
+Nothing.get(); // fancy way to throw an error
+```
+
+### Maybe constructor
+
+Facade function: returns [Nothing][Nothing] if value is [null][Glob-null] or [undefined][Glob-undefined], returns [Just][Just](value) otherwise.
+
+```javascript
+import { Maybe } from 'fpc';
+
+const m1 = Maybe('hello, world');
+const m2 = Maybe(undefined);
+const m3 = Maybe(null);
+
+m1.isEmpty; // false
+m2.isEmpty; // true
+m3.isEmpty; // true
+
+const m = Maybe('hello, world');
+
+// when Maybe() receives a maybe monad
+// it simply returns the maybe itself
+m === Maybe(m); // true
+```
+
+### Maybe.isInstance
+
+Allows to determine if an object is a `Maybe` instance.
+
+```javascript
+Maybe.isInstance(null); // false
+Maybe.isInstance(Maybe(null)); // true
+```
+
+## Type specific constructors
+
+All type-specific constructors also unbox their value before making checks, so `0` and [Object][Glob-Object](0) are treated identically.
+
+### Maybe.str
+
+Creates a `Maybe` object that contains a non-empty string.
+
+```javascript
+Maybe.str('string'); // Just('string')
+Maybe.str(Object('string')); // Just('string')
+
+Maybe.str(''); // Nothing
+Maybe.str(Object('')); // Nothing
+Maybe.str(anythingElse); // Nothing
+```
+
+### Maybe.num
+
+Creates a `Maybe` object that contains a number that is not [NaN][Glob-NaN] or [Infinity][Glob-Infinity].
+
+```javascript
+Maybe.num(0); // Just(0)
+Maybe.num(Object(0)); // Just(0)
+
+Maybe.num(NaN); // Nothing
+Maybe.num(Object(NaN)); // Nothing
+Maybe.num(anythingElse); // Nothing
+```
+
+### Maybe.obj
+
+Creates a `Maybe` object that contains a non-primitive object.
+
+```javascript
+Maybe.obj({}); // Just({})
+Maybe.obj([]); // Just([])
+
+Maybe.obj(null); // Nothing
+Maybe.obj(Object('')); // Nothing
+Maybe.obj(Object('string')); // Nothing
+Maybe.obj(Object(0)); // Nothing
+Maybe.obj(Object(NaN)); // Nothing
+```
+
+### isEmpty
+
+`true` on [Nothing][Nothing], `false` otherwise.
+
+```javascript
+Maybe(null).isEmpty; // true
+Maybe(undefined).isEmpty; // true
+Maybe(0).isEmpty; // false
+```
+
+### nonEmpty
+
+Negation of [isEmpty][isEmpty].
+
+
+### get
+
+Returns the `Maybe` value, throws an [Error][Glob-Error] if it's empty.
+
+```javascript
+Maybe(0).get(); // 0
+Maybe(null).get(); // throws Error: Trying to get value of Nothing
+```
+
+### getOrThrow
+
+Works like [get][get], allows to customize the [Error][Glob-Error] to throw.
+
+```javascript
+Maybe(null).getOrThrow(new Error('Oh no!'));
+```
+
+### filter
+
+If the object is a [Just][Just] instance and `fn(value)` is [falsy][Glossary-falsy] returns [Nothing][Nothing]. Returns the `Maybe` itself otherwise.
+
+### map
+
+If the object is a [Just][Just] instance and `fn(value)` isn't [null][Glob-null, [undefined][Glob-undefined] or [Nothing][Nothing], returns `Maybe(fn(value))`. Returns [Nothing][Nothing] otherwise.
+
+### forEach
+
+Does nothing if the object is [Nothing][Nothing].
+Applies the given function to wrapped value otherwise.
+Always returns the `Maybe` itself.
+
+### getOrElse
+
+If the object is a [Just][Just] instance, returns its value.
+If it's a [Nothing][Nothing] returns `orElse`.
+
+`orElse` can be:
+
+1. a function - which is called and its result returned if the maybe is empty.
+2. any other value - which is returned in case the maybe is empty.
+
+### orElse
+
+Acts like [getOrElse][getOrElse], but returns a `Maybe` instance instead of wrapped value.
+
+### toString
+
+If the object is a [Just][Just] instance returns wrapped value casted to string.
+Returns an empty string otherwise.
+
+[Just]: #user-content-just
+[Nothing]: #user-content-nothing
+[Maybe-constructor]: #user-content-maybe-constructor
+[maybe-map]: #user-content-map
+[maybe-filter]: #user-content-filter
+[maybe-forEach]: #user-content-foreach
+
+[Statement-throw]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
+[Statement-import]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+
+[Operators-typeof]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+
+[Glossary-falsy]: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+[API-console]: https://developer.mozilla.org/en-US/docs/Web/API/console
 
 [Glob-null]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null
 [Glob-undefined]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined
+[Glob-String]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+[Glob-Boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [Glob-Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[Glob-NaN]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN
+[Glob-Infinity]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity
+[Glob-Error]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
+[Glob-TypeError]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+[Glob-Array-slice]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice

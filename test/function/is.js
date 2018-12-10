@@ -45,28 +45,38 @@ describe('is', () => {
     )
   );
 
-  describe('#iter', () =>
+  describe('#iter', () => {
     it('should be true on strings', () =>
       is.iter('').should.be.true()
-    )
-  );
+    );
 
-  describe('#iter', () =>
     it('should be true on arrays', () =>
       is.iter([]).should.be.true()
-    )
-  );
+    );
+  });
 
-  describe('#array', () =>
+  describe('#array', () => {
     it('should be false on strings', () =>
       is.array('').should.be.false()
-    )
-  );
+    );
 
-  describe('#array', () =>
     it('should be true on arrays', () =>
       is.array([]).should.be.true()
-    )
-  );
+    );
+  });
+
+  describe('#array.like', () => {
+    it('should be true on strings', () =>
+      is.array.like('').should.be.true()
+    );
+
+    it('should be true on arrays', () =>
+      is.array.like([]).should.be.true()
+    );
+
+    it('should be true on array-like objects', () =>
+      is.array.like({ 0: 'a', length: 1 }).should.be.true()
+    );
+  });
 
 });

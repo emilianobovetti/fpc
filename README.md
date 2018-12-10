@@ -73,10 +73,11 @@ Pretty sweet eh? While we wait for that day we can use [pipe()][pipe].
 
 Please refer to the following docs:
 
+- [functions][functions]
 - [pipe()][piping-docs]
 - [compose()][composition-docs]
 - [Maybe][maybe-docs]
-- [API docs][API-docs]
+- [Result][result-docs]
 
 ## Installation
 
@@ -104,10 +105,11 @@ For direct browser usage you can include the [UMD][umdjs-umd] bundle:
 
 [pipe]: docs/README.md#user-content-pipe
 
-[maybe-docs]: docs/maybe.md
+[functions]: docs/README.md
 [piping-docs]: docs/piping.md
 [composition-docs]: docs/composition.md
-[API-docs]: docs/README.md
+[maybe-docs]: docs/maybe.md
+[result-docs]: docs/result.md
 
 [point-free]: https://wiki.haskell.org/Pointfree
 [xkcd-standards]: https://imgs.xkcd.com/comics/standards.png
@@ -116,4 +118,22 @@ For direct browser usage you can include the [UMD][umdjs-umd] bundle:
 [tc39-proposal-partial-application]: https://github.com/tc39/proposal-partial-application
 [umdjs-umd]: https://github.com/umdjs/umd
 
+[Statement-throw]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
 [Statement-import]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+
+[Operators-typeof]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+
+[Glossary-falsy]: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+[API-console]: https://developer.mozilla.org/en-US/docs/Web/API/console
+
+[Glob-null]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null
+[Glob-undefined]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined
+[Glob-String]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+[Glob-Boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[Glob-Object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[Glob-NaN]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN
+[Glob-Infinity]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity
+[Glob-Error]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
+[Glob-TypeError]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+[Glob-Array-slice]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice

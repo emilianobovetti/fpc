@@ -1,4 +1,4 @@
-// Type definitions for fpc 2.2.x
+// Type definitions for fpc 2.3.x
 // Project: https://github.com/emilianobovetti/fpc
 // Definitions by: Emiliano Bovetti <https://github.com/emilianobovetti>
 
@@ -242,3 +242,32 @@ export namespace Maybe {
 
     export function obj(val: any): Maybe<object>;
 }
+
+export interface Result<E, T> {
+    readonly isOk: boolean;
+
+    readonly isError: boolean;
+
+    map<V>(fn: (val: T) => V): Result<E, V>;
+    map<V>(fn: (val: T) => Result<E, V>): Result<E, V>;
+    map<F>(fn: (val: T) => Result<F, T>): Result<F, T>;
+
+    mapError<F>(fn: (err: E) => F): Result<F, T>;
+
+    forEach(fn: (val: T) => void): Result<E, T>;
+
+    forEachError(fn: (err: E) => void): Result<E, T>;
+
+    merge(): E | T;
+    merge<V>(mapErr: (err: E) => V, map: (val: T) => V): V;
+}
+
+export namespace Result {
+    export function of<A>(fn : () => A): Result<Error, A>;
+    export function of<A, B>(fn: (a: A) => B, a: A): Result<Error, B>;
+    export function of<A, B, C>(fn: (a: A, b: B) => C): Result<Error, C>;
+}
+
+export function Ok<E, T>(val: T): Result<E, T>;
+
+export function Err<E, T>(err: E): Result<E, T>;
