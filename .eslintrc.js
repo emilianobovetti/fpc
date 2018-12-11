@@ -39,7 +39,7 @@ module.exports = {
         "linebreak-style": [ "error", "unix" ],
         "max-depth": [ "warn", { "max": 4 } ],
         "max-len": [ "warn", { "code": 80, "comments": 110 } ],
-        "max-lines": [ "warn", { "max": 550 } ],
+        "max-lines": [ "warn", { "max": 200 } ],
         "max-nested-callbacks": [ "warn", { "max": 4 } ],
         "max-params": [ "warn", { "max": 4 } ],
         //"max-statements": [ "warn", { "max": 10 } ],
