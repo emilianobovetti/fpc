@@ -1,7 +1,5 @@
-import slice from './slice';
-import is from './is';
+import collectionCall from './internal/collectionCall';
 
-const reduce = (coll, ...args) =>
-  (is.fun(coll.reduce) ? coll : slice(coll)).reduce(...args);
+const reduce = (val, ...args) => collectionCall(val, 'reduce', ...args);
 
 export default reduce;

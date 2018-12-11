@@ -1,7 +1,5 @@
-import slice from './slice';
-import is from './is';
+import collectionCall from './internal/collectionCall';
 
-const filter = (coll, ...args) =>
-  (is.fun(coll.filter) ? coll : slice(coll)).filter(...args);
+const filter = (val, fn) => collectionCall(val, 'filter', fn);
 
 export default filter;

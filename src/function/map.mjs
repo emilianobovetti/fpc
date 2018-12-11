@@ -1,7 +1,5 @@
-import slice from './slice';
-import is from './is';
+import collectionCall from './internal/collectionCall';
 
-const map = (coll, ...args) =>
-  (is.fun(coll.map) ? coll : slice(coll)).map(...args);
+const map = (val, fn) => collectionCall(val, 'map', fn);
 
 export default map;

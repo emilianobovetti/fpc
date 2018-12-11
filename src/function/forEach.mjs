@@ -1,10 +1,7 @@
-import slice from './slice';
-import is from './is';
+import collectionCall from './internal/collectionCall';
+import pass from './pass';
 
-const forEach = (coll, ...args) => {
-  (is.fun(coll.forEach) ? coll : slice(coll)).forEach(...args);
-
-  return coll;
-};
+const forEach = (val, fn) =>
+  pass(val, _ => collectionCall(_, 'forEach', fn));
 
 export default forEach;
