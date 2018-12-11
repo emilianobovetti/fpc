@@ -158,22 +158,6 @@ let updateMetaDescription = desc =>
 
 Function that always returns a `Just` instance.
 
-```javascript
-import { Just, Maybe } from 'fpc';
-
-// Maybe objects *can* contain null or undefined
-const m1 = Just(null);
-
-m1.isEmpty; // false
-m1.get(); // null
-
-const m2 = Maybe('hello, world');
-
-// Maybe objects *can* be nested with `Just()`
-m2 !== Just(m2);
-m2 === Just(m2).get();
-```
-
 ### Nothing
 
 `Nothing` instance.
