@@ -206,14 +206,14 @@ export interface Maybe<T> {
 
     readonly nonEmpty: boolean;
 
+    get(): T;
+
     filter(fn: (val: T) => boolean): Maybe<T>;
 
     map<V>(fn: (val: T) => Maybe<V>): Maybe<V>;
     map<V>(fn: (val: T) => V): Maybe<V>;
 
     forEach(fn: (val: T) => void): Maybe<T>;
-
-    get(): T;
 
     orElse(fn: () => T): Maybe<T>;
     orElse(val: T): Maybe<T>;
@@ -247,6 +247,10 @@ export interface Result<E, T> {
     readonly isOk: boolean;
 
     readonly isError: boolean;
+
+    get(): T;
+
+    getError(): E;
 
     map<V>(fn: (val: T) => V): Result<E, V>;
     map<V>(fn: (val: T) => Result<E, V>): Result<E, V>;
