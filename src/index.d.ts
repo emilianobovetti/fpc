@@ -1,4 +1,4 @@
-// Type definitions for fpc 2.3.x
+// Type definitions for fpc 2.4.x
 // Project: https://github.com/emilianobovetti/fpc
 // Definitions by: Emiliano Bovetti <https://github.com/emilianobovetti>
 
@@ -111,6 +111,51 @@ export function pass<A>(fst: A, fn: (fst: A) => any): A;
 export function pass<A, B>(fst: A, fn: (fst: A, snd: B) => any, snd: B): A;
 export function pass<A, B, C>(fst: A, fn: (fst: A, snd: B, trd: C) => any, snd: B, trd: C): A;
 
+interface Lazy0<A> {
+    (): A;
+
+    update(): A;
+}
+
+interface Lazy1<A, B> {
+    (a: A): B;
+
+    update(a : A): B;
+}
+
+interface Lazy2<A, B, C> {
+    (a: A, b: B): C;
+
+    update(a: A, b: B): C;
+}
+
+interface Lazy3<A, B, C, D> {
+    (a: A, b: B, c: C): D;
+
+    update(a: A, b: B, c: C): D;
+}
+
+export function lazy<A>(fn: () => A): Lazy0<A>;
+export function lazy<A, B>(fn: (a: A) => B, a: A): Lazy1<A, B>;
+export function lazy<A, B, C>(fn: (a: A, b: B) => C, a: A, b: B): Lazy2<A, B, C>;
+export function lazy<A, B, C, D>(fn: (a: A, b: B, c: C) => D, a: A, b: B, c: C): Lazy3<A, B, C, D>;
+
+interface Fn0<A> {
+    (): A;
+
+    ply(): A;
+
+    with<B>(fn: (a: A) => B): Fn0<B>;
+    with<B, C>(fn: (a: A, b: B) => C, b: B): Fn0<C>;
+    with<B, C, D>(fn: (a: A, b: B, c: C) => D, b: B, c: C): Fn0<D>;
+    with<B, C, D, E>(fn: (a: A, b: B, c: C, d: D) => E, b: B, c: C, d: D): Fn0<E>;
+
+    and<B>(fn: (a: A) => B): Fn0<B>;
+    and<B, C>(fn: (a: A, b: B) => C, b: B): Fn0<C>;
+    and<B, C, D>(fn: (a: A, b: B, c: C) => D, b: B, c: C): Fn0<D>;
+    and<B, C, D, E>(fn: (a: A, b: B, c: C, d: D) => E, b: B, c: C, d: D): Fn0<E>;
+}
+
 interface Fn1<A, B> {
     (a: A): B;
 
@@ -175,6 +220,7 @@ interface Fn4<A, B, C, D, E> {
     and<F, G, H, I>(fn: (e: E, f: F, g: G, h: H) => I, f: F, g: G, h: H): Fn4<A, B, C, D, I>;
 }
 
+export function compose<A>(fn: () => A): Fn0<A>;
 export function compose<A, B>(fn: (a: A) => B): Fn1<A, B>;
 export function compose<A, B, C>(fn: (a: A, b: B) => C): Fn2<A, B, C>;
 export function compose<A, B, C, D>(fn: (a: A, b: B, c: C) => D): Fn3<A, B, C, D>;

@@ -377,6 +377,29 @@ pipe([ 1 ])
   .result;
 ```
 
+### lazy
+
+```javascript
+import { lazy } from 'fpc';
+
+const counter = (() => {
+  let count = 0;
+
+  return () => count++;
+})();
+
+const lazyCounter = lazy(counter);
+
+lazyCounter(); // 0
+lazyCounter(); // 0
+lazyCounter.update(); // 1
+
+import { id } from 'fpc';
+
+const lazyOne = lazy(id, 1);
+lazyOne(); // 1
+```
+
 ### compose
 
 Function composition, read more [here][composition-docs].

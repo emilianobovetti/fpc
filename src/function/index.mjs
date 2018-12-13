@@ -25,6 +25,7 @@ export { default as cat } from './cat';
 export { default as bound } from './bound';
 export { default as call } from './call';
 export { default as pass } from './pass';
+export { default as lazy } from './lazy';
 export { default as compose } from './compose';
 export { default as pipe } from './pipe';
 export { default as log } from './log';
