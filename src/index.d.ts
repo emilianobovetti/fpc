@@ -74,7 +74,7 @@ export namespace is {
     }
 }
 
-export namespace is {
+export namespace expect {
     export function num(val: any): number;
     export function int(val: any): number;
     export function str(val: any): string;
@@ -89,7 +89,6 @@ export namespace is {
         export function like(val: any): object;
     }
 }
-
 
 export function curry<A, B, C>(fn: (a: A, b: B) => C): (a: A) => (b: B) => C;
 export function curry<A, B, C, D>(fn: (a: A, b: B, c: C) => D): (a: A) => (b: B) => (c: C) => D;
