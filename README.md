@@ -69,6 +69,44 @@ One beautiful day we will use [pipeline-operator][tc39-proposal-pipeline-operato
 
 Pretty sweet eh? While we wait for that day we can use [pipe()][pipe].
 
+`fpc` comes with many [functions][functions] and monads like [Maybe][maybe-docs] and [Result][result-docs] which may help in everyday tasks:
+
+```javascript
+import { Maybe, lazy } from 'fpc';
+
+const lazyLoadElement = id =>
+  lazy(() => Maybe(document.getElementById(id)));
+
+const lazyMenu = lazyLoadElement('menu');
+
+const toggleMenuOpen = () =>
+  lazyMenu()
+    .orElse(lazyMenu.update)
+    .forEach(menu => menu.classList.toggle('opened'));
+```
+
+Here (roughly) an imperative counterpart:
+
+```javascript
+let menu;
+
+const loadMenu = () => {
+  if (menu == null) {
+    menu = document.getElementById('menu');
+  }
+};
+
+const toggleMenuOpen = () => {
+  loadMenu();
+
+  if (menu != null) {
+    menu.classList.toggle('opened');
+  }
+};
+```
+
+This isn't the place to talk about the advantages of both approaches, but should be clear which version encourages composability and function reuse.
+
 ## Usage
 
 Please refer to the following docs:
