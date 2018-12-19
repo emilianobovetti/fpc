@@ -111,34 +111,16 @@ export function pass<A>(fst: A, fn: (fst: A) => any): A;
 export function pass<A, B>(fst: A, fn: (fst: A, snd: B) => any, snd: B): A;
 export function pass<A, B, C>(fst: A, fn: (fst: A, snd: B, trd: C) => any, snd: B, trd: C): A;
 
-interface Lazy0<A> {
+interface Lazy<A> {
     (): A;
 
     update(): A;
 }
 
-interface Lazy1<A, B> {
-    (a: A): B;
-
-    update(a : A): B;
-}
-
-interface Lazy2<A, B, C> {
-    (a: A, b: B): C;
-
-    update(a: A, b: B): C;
-}
-
-interface Lazy3<A, B, C, D> {
-    (a: A, b: B, c: C): D;
-
-    update(a: A, b: B, c: C): D;
-}
-
-export function lazy<A>(fn: () => A): Lazy0<A>;
-export function lazy<A, B>(fn: (a: A) => B, a: A): Lazy1<A, B>;
-export function lazy<A, B, C>(fn: (a: A, b: B) => C, a: A, b: B): Lazy2<A, B, C>;
-export function lazy<A, B, C, D>(fn: (a: A, b: B, c: C) => D, a: A, b: B, c: C): Lazy3<A, B, C, D>;
+export function lazy<A>(fn: () => A): Lazy<A>;
+export function lazy<A, B>(fn: (a: A) => B, a: A): Lazy<B>;
+export function lazy<A, B, C>(fn: (a: A, b: B) => C, a: A, b: B): Lazy<C>;
+export function lazy<A, B, C, D>(fn: (a: A, b: B, c: C) => D, a: A, b: B, c: C): Lazy<D>;
 
 interface Fn0<A> {
     (): A;
