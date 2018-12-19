@@ -27,7 +27,7 @@ So I have written [another][awesome-fp-js] functional js library.
 
 ![xkcd standards][xkcd-standards]
 
-Anyway I'll try to show `fpc`'s' approach to functional javascript with some examples.
+Anyway I'll try to show `fpc`'s approach to functional javascript with some examples.
 
 ```javascript
 import { pipe, forEach } from 'fpc';

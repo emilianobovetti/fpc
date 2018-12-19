@@ -366,7 +366,7 @@ call('1,2,3', 'split', ','); // [ '1', '2', '3' ]
 ### pass
 
 ```javascript
-import { pass, pipe } from 'fpc';
+import { pipe, pass, call } from 'fpc';
 
 // logs 'hello, world', returns 'hello'
 pass('hello', console.log, ', world');
@@ -424,7 +424,7 @@ fn(2);
 Pipe function, read more [here][piping-docs].
 
 ```javascript
-import { pipe, sum } from 'fpc';
+import { pipe, map, sum } from 'fpc';
 
 const items = [
   { price: 0.12 },
