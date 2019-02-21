@@ -5,6 +5,7 @@ export { default as failWith } from './failWith';
 export { default as unbox } from './unbox';
 export { default as typeOf } from './typeOf';
 export { default as prop } from './prop';
+export { default as hasOwnProperty } from './hasOwnProperty';
 export { default as pair } from './pair';
 export { default as first } from './first';
 export { default as second } from './second';

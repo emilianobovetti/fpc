@@ -78,6 +78,22 @@ prop({ propertyName: 'val' }, 'propertyName'); // 'val'
 prop(null, 'propertyName'); // undefined
 ```
 
+### hasOwnProperty
+
+Works like [Object.prototype.hasOwnProperty()][[Glob-Object-hasOwnProperty]].
+This function exists to cover some edge-cases:
+
+1.  ```
+    const obj = { prop: 'value', hasOwnProperty: '' };
+    obj.hasOwnProperty('value'); // throws: TypeError
+    ```
+
+2.  ```
+    Object.create(null).hasOwnProperty('any'); // throws: TypeError
+    ```
+
+See also [no-prototype-builtins][eslint-no-prototype-builtins].
+
 ### pair
 
 Creates a two-elements array.
@@ -495,3 +511,6 @@ pipe('world')
 [Glob-Error]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
 [Glob-TypeError]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError
 [Glob-Array-slice]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+[Glob-Object-hasOwnProperty]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+
+[eslint-no-prototype-builtins]: https://eslint.org/docs/rules/no-prototype-builtins
