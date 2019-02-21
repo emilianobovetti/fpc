@@ -80,17 +80,17 @@ prop(null, 'propertyName'); // undefined
 
 ### hasOwnProperty
 
-Works like [Object.prototype.hasOwnProperty()][[Glob-Object-hasOwnProperty]].
+Works like [Object.prototype.hasOwnProperty()][Glob-Object-hasOwnProperty].
 This function exists to cover some edge-cases:
 
-1.  ```
-    const obj = { prop: 'value', hasOwnProperty: '' };
-    obj.hasOwnProperty('value'); // throws: TypeError
-    ```
+```
+const obj = { prop: 'value', hasOwnProperty: '' };
+obj.hasOwnProperty('value'); // throws: TypeError
+```
 
-2.  ```
-    Object.create(null).hasOwnProperty('any'); // throws: TypeError
-    ```
+```
+Object.create(null).hasOwnProperty('any'); // throws: TypeError
+```
 
 See also [no-prototype-builtins][eslint-no-prototype-builtins].
 
