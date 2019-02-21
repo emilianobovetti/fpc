@@ -2,13 +2,18 @@ import unsafeCurry from './internal/curry';
 import typeOf from './typeOf';
 import unbox from './unbox';
 import prop from './prop';
+import hasOwnProperty from './hasOwnProperty';
 
 const is = unsafeCurry((expected, val) => {
   /* eslint complexity: "off" */
   /* eslint no-mixed-operators: "off" */
 
   if (expected === 'array-like') {
-    return is.str(val) || is.obj(val) && is.int(val.length) && val.length >= 0;
+    const length = hasOwnProperty(val, 'length') ? val.length : undefined;
+
+    return is.int(length) &&
+      length >= 0 &&
+      (length === 0 || hasOwnProperty(val, 0));
   }
 
   if (expected === 'iterable') {

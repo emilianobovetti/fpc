@@ -66,6 +66,14 @@ describe('is', () => {
   });
 
   describe('#array.like', () => {
+    it('should be false null', () =>
+      is.array.like(null).should.be.false()
+    );
+
+    it('should be false undefined', () =>
+      is.array.like(undefined).should.be.false()
+    );
+
     it('should be true on strings', () =>
       is.array.like('').should.be.true()
     );
@@ -74,8 +82,24 @@ describe('is', () => {
       is.array.like([]).should.be.true()
     );
 
+    it('should be true on a objects with `length: 0`', () =>
+      is.array.like({ length: 0 }).should.be.true()
+    );
+
     it('should be true on array-like objects', () =>
       is.array.like({ 0: 'a', length: 1 }).should.be.true()
+    );
+
+    it('should be false on objects with non integer lengths', () =>
+      is.array.like({ length: 0.2 }).should.be.false()
+    );
+
+    it('should be false if hasOwnProperty(val, "length") is false', () =>
+      is.array.like(Object.create({ length: 0 })).should.be.false()
+    );
+
+    it('should be false if `obj.length > 0 && !hasOwnProperty(obj, 0)`', () =>
+      is.array.like({ length: 1 }).should.be.false()
     );
   });
 
