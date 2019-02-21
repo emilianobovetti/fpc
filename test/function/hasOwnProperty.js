@@ -13,4 +13,12 @@ describe('hasOwnProperty', () => {
   it('should return false on "hasOwnProperty" property', () =>
     hasOwnProperty({}, 'hasOwnProperty').should.be.false()
   );
+
+  it('should work on null value', () =>
+    hasOwnProperty(null, 'any').should.be.false()
+  );
+
+  it('should work on undefined value', () =>
+    hasOwnProperty(undefined, 'any').should.be.false()
+  );
 });
