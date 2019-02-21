@@ -59,11 +59,11 @@
     "lodash.isequal": "^4.5.0",
     "mocha": "^6.0.0",
     "nyc": "^13.1.0",
-    "semantic-release": "^15.12.4",
+    "semantic-release": "^15.13.3",
     "should": "^13.2.3",
     "should-sinon": "^0.0.6",
     "sinon": "^7.1.1",
-    "webpack": "^4.27.1",
+    "webpack": "^4.29.5",
     "webpack-cli": "^3.1.2"
   },
   "nyc": {
