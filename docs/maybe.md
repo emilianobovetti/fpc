@@ -256,7 +256,7 @@ Maybe(0).isEmpty; // false
 
 ### nonEmpty
 
-Negation of [isEmpty][isEmpty].
+Negation of [isEmpty][maybe-isEmpty].
 
 
 ### get
@@ -270,7 +270,7 @@ Maybe(null).get(); // throws Error: Trying to get value of Nothing
 
 ### getOrThrow
 
-Works like [get][get], allows to customize the [Error][Glob-Error] to throw.
+Works like [get][maybe-get], allows to customize the [Error][Glob-Error] to throw.
 
 ```javascript
 Maybe(null).getOrThrow(new Error('Oh no!'));
@@ -302,7 +302,7 @@ If it's a [Nothing][Nothing] returns `orElse`.
 
 ### orElse
 
-Acts like [getOrElse][getOrElse], but returns a `Maybe` instance instead of wrapped value.
+Acts like [getOrElse][maybe-getOrElse], but returns a `Maybe` instance instead of wrapped value.
 
 ### toString
 
@@ -312,9 +312,12 @@ Returns an empty string otherwise.
 [Just]: #user-content-just
 [Nothing]: #user-content-nothing
 [Maybe-constructor]: #user-content-maybe-constructor
+[maybe-get]: #user-content-get
 [maybe-map]: #user-content-map
 [maybe-filter]: #user-content-filter
 [maybe-forEach]: #user-content-foreach
+[maybe-isEmpty]: #user-content-isempty
+[maybe-getOrElse]: #user-content-getorelse
 
 [Statement-throw]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
 [Statement-import]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
