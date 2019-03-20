@@ -83,12 +83,12 @@ prop(null, 'propertyName'); // undefined
 Works like [Object.prototype.hasOwnProperty()][Glob-Object-hasOwnProperty].
 This function exists to cover some edge-cases:
 
-```
+```javascript
 const obj = { prop: 'value', hasOwnProperty: '' };
 obj.hasOwnProperty('value'); // throws: TypeError
 ```
 
-```
+```javascript
 Object.create(null).hasOwnProperty('any'); // throws: TypeError
 ```
 
