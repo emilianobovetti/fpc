@@ -57,7 +57,7 @@
     "eslint-loader": "^2.1.1",
     "jsverify": "^0.8.3",
     "lodash.isequal": "^4.5.0",
-    "mocha": "^6.0.2",
+    "mocha": "^6.1.1",
     "nyc": "^13.1.0",
     "semantic-release": "^15.13.3",
     "should": "^13.2.3",
