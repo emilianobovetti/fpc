@@ -22,7 +22,14 @@ module.exports = {
         enforce: 'pre',
         test: /\.m?js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        use: [
+          {
+            loader: 'eslint-loader',
+            options: {
+              formatter: require('eslint/lib/cli-engine/formatters/stylish')
+            }
+          }
+        ]
       }
     ]
   }
