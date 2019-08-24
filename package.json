@@ -54,7 +54,7 @@
     "coveralls": "^3.0.5",
     "cz-conventional-changelog": "^3.0.0",
     "eslint": "^6.0.1",
-    "eslint-loader": "^2.2.1",
+    "eslint-loader": "^3.0.0",
     "jsverify": "^0.8.3",
     "lodash.isequal": "^4.5.0",
     "mocha": "^6.1.4",
