@@ -1,7 +1,18 @@
-const unbox = val => {
-  const unb = (val || {}).valueOf();
+/* global BigInt */
+/* eslint no-underscore-dangle: "off" */
+const BigInt_ = BigInt === undefined ? Number : BigInt;
 
-  return typeof unb !== 'object' && typeof unb !== 'function' ? unb : val;
+const unbox = val => {
+  /* eslint complexity: "off" */
+
+  const isBoxed =
+    val instanceof String ||
+    val instanceof Number ||
+    val instanceof BigInt_ ||
+    val instanceof Boolean ||
+    val instanceof Symbol;
+
+  return isBoxed ? val.valueOf() : val;
 };
 
 export default unbox;

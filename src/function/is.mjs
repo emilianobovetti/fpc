@@ -8,6 +8,10 @@ const is = unsafeCurry((expected, val) => {
   /* eslint complexity: "off" */
   /* eslint no-mixed-operators: "off" */
 
+  if (typeof expected !== 'string') {
+    return val instanceof expected;
+  }
+
   if (expected === 'array-like') {
     const length = hasOwnProperty(val, 'length') ? val.length : undefined;
 
