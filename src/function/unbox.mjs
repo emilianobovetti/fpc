@@ -3,8 +3,6 @@
 const BigInt_ = BigInt === undefined ? Number : BigInt;
 
 const unbox = val => {
-  /* eslint complexity: "off" */
-
   const isBoxed =
     val instanceof String ||
     val instanceof Number ||

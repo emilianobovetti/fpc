@@ -4,10 +4,14 @@ import typeOf from './typeOf';
 import unbox from './unbox';
 import is from './is';
 
+const print = val => (
+  typeof val === 'function' ? val.name : val
+);
+
 const expect = unsafeCurry((expected, val) => (
   is(expected, val)
     ? unbox(val)
-    : failWith(new TypeError(`Expected ${expected}, got ${typeOf(val)}`))
+    : failWith(new TypeError(`Expected ${print(expected)}, got ${typeOf(val)}`))
 ), 2);
 
 expect.num = expect('number');

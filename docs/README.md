@@ -55,15 +55,27 @@ typeof unbox(Object('str')); // 'string'
 
 ### typeOf
 
-Two differences with [typeof][Operators-typeof] operator:
-
-1. `typeOf(null) === 'null'`
-2. `typeOf(Object('str')) === 'string'`
+Differences with [typeof][Operators-typeof] operator:
 
 ```javascript
 import { typeOf } from 'fpc';
 
+/*
+ * `null` is not 'object'
+ */
+typeOf(null); // 'null'
+
+/*
+ * auto "unboxing"
+ */
 typeOf(Object('str')); // 'string'
+
+/*
+ * safe numbers
+ */
+typeOf(0/0); // 'NaN'
+typeOf(1/0); // 'infinity'
+typeOf(-1/0); // 'infinity'
 ```
 
 ### prop

@@ -463,6 +463,18 @@ describe('Maybe', () => {
     });
   });
 
+  describe('#num(Infinity)', () => {
+    it('should be Nothing', () => {
+      Maybe.num(Infinity).should.be.equal(Nothing);
+    });
+  });
+
+  describe('#num(-Infinity)', () => {
+    it('should be Nothing', () => {
+      Maybe.num(-Infinity).should.be.equal(Nothing);
+    });
+  });
+
   describe('#num(Object("0"))', () => {
     it('should be Nothing', () => {
       Maybe.num(Object('0')).should.be.equal(Nothing);
@@ -472,6 +484,18 @@ describe('Maybe', () => {
   describe('#num(Object(NaN))', () => {
     it('should be Nothing', () => {
       Maybe.num(Object(NaN)).should.be.equal(Nothing);
+    });
+  });
+
+  describe('#num(Object(Infinity))', () => {
+    it('should be Nothing', () => {
+      Maybe.num(Object(Infinity)).should.be.equal(Nothing);
+    });
+  });
+
+  describe('#num(Object(-Infinity))', () => {
+    it('should be Nothing', () => {
+      Maybe.num(Object(-Infinity)).should.be.equal(Nothing);
     });
   });
 

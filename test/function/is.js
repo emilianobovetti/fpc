@@ -3,35 +3,71 @@ const should = require('should');
 
 describe('is', () => {
 
-  describe('#num', () =>
+  describe('#num', () => {
     it('should be true on numbers', () =>
       is.num(1).should.be.true()
-    )
-  );
+    );
 
-  describe('#int', () =>
+    it('should be false on NaN', () =>
+      is.num(0/0).should.be.false()
+    );
+
+    it('should be false on Infinity', () =>
+      is.num(1/0).should.be.false()
+    );
+
+    it('should be false on -Infinity', () =>
+      is.num(-1/0).should.be.false()
+    );
+  });
+
+  describe('#int', () => {
     it('should be true on integers', () =>
       is.int(1).should.be.true()
-    )
-  );
+    );
 
-  describe('#str', () =>
+    it('should be false on NaN', () =>
+      is.int(0/0).should.be.false()
+    );
+
+    it('should be false on Infinity', () =>
+      is.int(1/0).should.be.false()
+    );
+
+    it('should be false on -Infinity', () =>
+      is.int(-1/0).should.be.false()
+    );
+  });
+
+  describe('#str', () => {
     it('should be true on strings', () =>
       is.str('').should.be.true()
-    )
-  );
+    );
 
-  describe('#sym', () =>
+    it('should be true on boxed strings', () =>
+      is.str(Object('')).should.be.true()
+    );
+  });
+
+  describe('#sym', () => {
     it('should be true on symbols', () =>
       is.sym(Symbol('desc')).should.be.true()
-    )
-  );
+    );
 
-  describe('#obj', () =>
+    it('should be true on boxed symbols', () =>
+      is.sym(Object(Symbol('desc'))).should.be.true()
+    );
+  });
+
+  describe('#obj', () => {
     it('should be true on objects', () =>
       is.obj({}).should.be.true()
-    )
-  );
+    );
+
+    it('should be false on boxed primitive', () =>
+      is.obj(Object('')).should.be.false()
+    );
+  });
 
   describe('#fun', () =>
     it('should be true on functions', () =>

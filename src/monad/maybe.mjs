@@ -75,17 +75,14 @@ Maybe.isInstance = val => val instanceof Maybe;
 
 Maybe.of = val => Maybe(val);
 
-Maybe.str = val => {
-  const unb = unbox(val);
+Maybe.str = val => (
+  /* eslint eqeqeq: "off" */
+  is.str(val) && val != '' ? Just(unbox(val)) : Nothing
+);
 
-  return is.str(unb) && unb !== '' ? Just(unb) : Nothing;
-};
-
-Maybe.num = val => {
-  const unb = unbox(val);
-
-  return is.num(unb) && !isNaN(unb) && isFinite(unb) ? Just(unb) : Nothing;
-};
+Maybe.num = val => (
+  is.num(val) ? Just(unbox(val)) : Nothing
+);
 
 Maybe.obj = val => (
   is.obj(val) ? Maybe(val) : Nothing

@@ -8,8 +8,12 @@ const is = unsafeCurry((expected, val) => {
   /* eslint complexity: "off" */
   /* eslint no-mixed-operators: "off" */
 
-  if (typeof expected !== 'string') {
+  if (typeof expected === 'function') {
     return val instanceof expected;
+  }
+
+  if (typeof expected !== 'string') {
+    throw new TypeError(`Invalid parameter type: ${typeOf(expected)}`);
   }
 
   if (expected === 'array-like') {
@@ -26,7 +30,6 @@ const is = unsafeCurry((expected, val) => {
 
   if (expected === 'integer') {
     return is.num(val) &&
-      isFinite(val) &&
       Math.floor(val) === unbox(val);
   }
 

@@ -7,6 +7,8 @@ const boxUnbox =
     .and(v => typeof v);
 
 describe('unbox', () => {
+  console.log(typeof unbox(Object('')));
+
   it('should work on boxed strings', () =>
     boxUnbox('').should.be.equal('string')
   );
