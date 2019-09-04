@@ -1,7 +1,7 @@
 {
   "name": "fpc",
   "description": "Functional piping & composition",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "author": "Emiliano Bovetti",
   "license": "GPL-3.0",
   "keywords": [
