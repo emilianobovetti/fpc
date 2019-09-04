@@ -4,11 +4,11 @@ const BigInt_ = BigInt === undefined ? Number : BigInt;
 
 const unbox = val => {
   const isBoxed =
-    val instanceof String ||
     val instanceof Number ||
-    val instanceof BigInt_ ||
+    val instanceof String ||
+    val instanceof Symbol ||
     val instanceof Boolean ||
-    val instanceof Symbol;
+    val instanceof BigInt_;
 
   return isBoxed ? val.valueOf() : val;
 };

@@ -26,6 +26,10 @@ describe('is', () => {
       is.int(1).should.be.true()
     );
 
+    it('should be false on non-integers', () =>
+      is.int(0.1).should.be.false()
+    );
+
     it('should be false on NaN', () =>
       is.int(0/0).should.be.false()
     );

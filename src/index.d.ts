@@ -1,4 +1,4 @@
-// Type definitions for fpc 2.4.x
+// Type definitions for fpc 2.5.x
 // Project: https://github.com/emilianobovetti/fpc
 // Definitions by: Emiliano Bovetti <https://github.com/emilianobovetti>
 
@@ -23,6 +23,8 @@ export function typeOf(val: any): string;
 
 export function prop(str: string, idx: number): string | undefined;
 export function prop(val: any, prop: string | number): any;
+
+export function hasOwnProperty(val: any, prop: string | number):  boolean;
 
 export function pair<A, B>(a: A, b: B): [ A, B ];
 
