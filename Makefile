@@ -4,7 +4,7 @@ node_dir := $(CURDIR)/node_modules
 node_bin := $(node_dir)/.bin
 
 .PHONY: all
-all : build test
+all: build test
 
 $(node_bin):
 	yarn
@@ -16,15 +16,19 @@ $(umd_target): $(node_bin) $(build_dir)
 	npx webpack --mode production
 
 .PHONY: build
-build: clean-build $(umd_target)
+build: rm-build-dir $(umd_target)
 
 .PHONY: test
-test : $(node_bin)
+test: $(node_bin)
 	BABEL_ENV=test npx nyc mocha --recursive
 
+.PHONY: rm-build-dir
+rm-build-dir:
+	rm -rf $(build_dir)
+
 .PHONY: clean
-clean :
-	rm -rf $(build_dir) $(node_dir)
+clean: rm-build-dir
+	rm -rf $(node_dir)
 
 .PHONY: dev
 dev: $(node_bin) $(build_dir)
