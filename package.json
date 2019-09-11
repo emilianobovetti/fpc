@@ -13,8 +13,7 @@
     "pipeline",
     "piping",
     "pipe",
-    "fp",
-    "typescript"
+    "fp"
   ],
   "main": "./src/index",
   "types": "./src/index.d.ts",
@@ -45,36 +44,30 @@
       "@semantic-release/github"
     ]
   },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
-    "@babel/register": "^7.4.4",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0",
     "@semantic-release/git": "^7.0.16",
-    "babel-plugin-istanbul": "^5.1.4",
-    "coveralls": "^3.0.5",
-    "cz-conventional-changelog": "^3.0.0",
-    "eslint": "^6.0.1",
+    "babel-plugin-istanbul": "^5.2.0",
+    "coveralls": "^3.0.6",
+    "eslint": "^6.3.0",
     "eslint-loader": "^3.0.0",
     "jsverify": "^0.8.3",
     "lodash.isequal": "^4.5.0",
-    "mocha": "^6.1.4",
+    "mocha": "^6.2.0",
     "nyc": "^14.1.1",
-    "semantic-release": "^15.13.18",
+    "semantic-release": "^15.13.24",
     "should": "^13.2.3",
     "should-sinon": "^0.0.6",
-    "sinon": "^7.3.2",
-    "webpack": "^4.36.0",
-    "webpack-cli": "^3.3.6"
+    "sinon": "^7.4.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
   },
   "nyc": {
     "require": [
       "@babel/register"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "dependencies": {}
+  }
 }
