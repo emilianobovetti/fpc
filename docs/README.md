@@ -66,12 +66,12 @@ import { typeOf } from 'fpc';
 typeOf(null); // 'null'
 
 /*
- * auto "unboxing"
+ * auto-unboxing
  */
 typeOf(Object('str')); // 'string'
 
 /*
- * safe numbers
+ * safe number type
  */
 typeOf(0/0); // 'NaN'
 typeOf(1/0); // 'infinity'
@@ -105,6 +105,16 @@ Object.create(null).hasOwnProperty('any'); // throws: TypeError
 ```
 
 See also [no-prototype-builtins][eslint-no-prototype-builtins].
+
+E.g.:
+
+```javascript
+hasOwnProperty(null, 'lang'); // false
+hasOwnProperty({}, 'lang'); // false
+hasOwnProperty({ lang: 'it' }, 'lang'); // true
+
+hasOwnProperty({}, 'toString'); // false
+```
 
 ### pair
 
@@ -157,6 +167,8 @@ slice([ 1, 2, 3 ], 1, 3); // [ 2, 3 ]
 slice('str'); // [ 's', 't', 'r' ]
 slice({ 0: 'fst', 1: 'snd', 2: 'trd', length: 3 }); // [ 'fst', 'snd', 'trd' ]
 ```
+
+👉 note the output is *always* an `Array` instance.
 
 ### unshift
 

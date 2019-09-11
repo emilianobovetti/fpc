@@ -1,4 +1,4 @@
-# Functional piping & composition
+# fpc
 
 <div align="center">
   <a href="https://travis-ci.org/emilianobovetti/fpc" target="_blank">
@@ -54,22 +54,24 @@ pipe('a, p')
   .and(applyToAll, Object.assign, { color: 'red' });
 ```
 
-The idea is to build many small modular and reusable functions instead of relying on currying and [pointfree style][point-free] and use them in sequence.
+The idea is to use many small functions instead of relying on currying and [pointfree style][point-free].
 
-What is this [pipe()][pipe] madness?
+What is this [pipe()][pipe] madness anyway?
 
-One beautiful day we will use [pipeline-operator][tc39-proposal-pipeline-operator] and [partial-application][tc39-proposal-partial-application] and our code will look like
+One day [pipeline-operator][tc39-proposal-pipeline-operator] and [partial-application][tc39-proposal-partial-application] may become a thing and we may write something like
 
 ```javascript
+// ⚠️ not actual javascript
+
 'a, p'
 |> querySelectorAll
 |> map(?, node => node.style)
 |> applyToAll(?, Object.assign, { color: 'red' })
 ```
 
-Pretty sweet eh? While we wait for that day we can use [pipe()][pipe].
+If you don't like the [pipe()][pipe] approach there are still many other [functions][functions] and patterns like [Maybe][maybe-docs] and [Result][result-docs] that `fpc` brings to you.
 
-`fpc` comes with many [functions][functions] and monads like [Maybe][maybe-docs] and [Result][result-docs] which may help in everyday tasks:
+E.g.:
 
 ```javascript
 import { Maybe, lazy } from 'fpc';
@@ -104,8 +106,6 @@ const toggleMenuOpen = () => {
   }
 };
 ```
-
-This isn't the place to talk about the advantages of both approaches, but should be clear which version encourages composability and function reuse.
 
 ## Usage
 
