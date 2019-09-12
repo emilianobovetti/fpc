@@ -1,5 +1,5 @@
-import collectionCall from './internal/collectionCall';
+import collectionMethodApply from './internal/collectionMethodApply';
 
-const filter = (val, fn) => collectionCall(val, 'filter', fn);
+const filter = (val, fn) => collectionMethodApply(val, 'filter', [ fn ]);
 
 export default filter;

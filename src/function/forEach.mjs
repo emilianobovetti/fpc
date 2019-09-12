@@ -1,7 +1,7 @@
-import collectionCall from './internal/collectionCall';
+import collectionMethodApply from './internal/collectionMethodApply';
 import pass from './pass';
 
 const forEach = (val, fn) =>
-  pass(val, _ => collectionCall(_, 'forEach', fn));
+  pass(val, _ => collectionMethodApply(_, 'forEach', [ fn ]));
 
 export default forEach;

@@ -1,5 +1,5 @@
-import collectionCall from './internal/collectionCall';
+import collectionMethodApply from './internal/collectionMethodApply';
 
-const map = (val, fn) => collectionCall(val, 'map', fn);
+const map = (val, fn) => collectionMethodApply(val, 'map', [ fn ]);
 
 export default map;
