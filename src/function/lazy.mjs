@@ -8,7 +8,7 @@ const lazy = (fn, ...args) => {
   );
 
   cached.update = () =>
-    /* eslint no-return-assign: "off" */
+    /* eslint no-return-assign: off */
     result = fn(...args);
 
   return cached;

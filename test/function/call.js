@@ -1,5 +1,6 @@
+/* eslint-env node, mocha */
+
 const { call } = require('../../src/index.mjs');
-const should = require('should');
 
 describe('call', () =>
   it('should call an object method', () =>

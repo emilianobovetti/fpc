@@ -1,5 +1,6 @@
+/* eslint no-underscore-dangle: off */
 /* global BigInt */
-/* eslint no-underscore-dangle: "off" */
+
 const BigInt_ = BigInt === undefined ? Number : BigInt;
 
 const unbox = val => {

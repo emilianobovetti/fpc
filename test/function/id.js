@@ -1,3 +1,5 @@
+/* eslint-env node, mocha */
+
 const { id } = require('../../src/index.mjs');
 const { compare, forAll, values } = require('../utils');
 

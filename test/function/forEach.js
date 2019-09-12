@@ -1,3 +1,6 @@
+/* eslint-env node, mocha */
+/* eslint-disable max-len */
+
 const { forEach } = require('../../src/index.mjs');
 const { compare } = require('../utils');
 const jsc = require('jsverify');

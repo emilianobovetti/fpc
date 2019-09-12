@@ -1,5 +1,6 @@
+/* eslint-env node, mocha */
+
 const { prop } = require('../../src/index.mjs');
-const should = require('should');
 const assert = require('assert');
 
 describe('prop', () => {

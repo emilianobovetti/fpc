@@ -1,10 +1,13 @@
+/* eslint-env node, mocha */
+
 const { lazy } = require('../../src/index.mjs');
 const { compare } = require('../utils');
-const should = require('should');
 const sinon = require('sinon');
 
 describe('lazy', () => {
   it('should not invoke immediately its function', () => {
+    /* eslint-disable no-unused-vars */
+
     const callback = sinon.spy();
     const cached = lazy(callback);
 
@@ -34,6 +37,8 @@ describe('lazy', () => {
   });
 
   it('should invoke its function when `update` method is called', () => {
+    /* eslint-disable no-plusplus */
+
     let count = 0;
     const counter = () => count++;
     const cached = lazy(counter);

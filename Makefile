@@ -4,7 +4,7 @@ node_dir := $(CURDIR)/node_modules
 node_bin := $(node_dir)/.bin
 
 .PHONY: all
-all: build test
+all: lint build test
 
 $(node_bin):
 	yarn
@@ -14,6 +14,10 @@ $(build_dir):
 
 $(umd_target): $(node_bin) $(build_dir)
 	npx webpack --mode production
+
+.PHONY: lint
+lint: $(node_bin)
+	npx eslint .
 
 .PHONY: build
 build: rm-build-dir $(umd_target)

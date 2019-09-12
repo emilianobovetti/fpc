@@ -1,7 +1,10 @@
+/* eslint-env node */
+
 const webpack = require('webpack');
 const pkg = require('./package.json');
 const path = require('path');
 const target = path.resolve(pkg['umd:main']);
+const formatter = require('eslint/lib/cli-engine/formatters/stylish');
 
 module.exports = {
   entry: pkg.main,
@@ -25,9 +28,7 @@ module.exports = {
         use: [
           {
             loader: 'eslint-loader',
-            options: {
-              formatter: require('eslint/lib/cli-engine/formatters/stylish')
-            }
+            options: { formatter }
           }
         ]
       }

@@ -1,3 +1,6 @@
+/* eslint-env node, mocha */
+/* eslint-disable max-len, no-magic-numbers */
+
 const { map } = require('../../src/index.mjs');
 const { compare } = require('../utils');
 const jsc = require('jsverify');
@@ -12,7 +15,7 @@ describe('map', () => {
   );
 
   it('should work on strings too', () =>
-    compare(map('123', x => parseInt(x)), [ 1, 2, 3 ])
+    compare(map('123', x => parseInt(x, 10)), [ 1, 2, 3 ])
   );
 
   jsc.property('should work as Array.prototype.map()', jsc.array(any), jsc.fn(jsc.nat), (array, fn) =>

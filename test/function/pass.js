@@ -1,5 +1,6 @@
+/* eslint-env node, mocha */
+
 const { pass, id } = require('../../src/index.mjs');
-const should = require('should');
 const sinon = require('sinon');
 
 describe('pass', () => {

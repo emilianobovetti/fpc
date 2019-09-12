@@ -1,5 +1,6 @@
+/* eslint-env node, mocha */
+
 const { pipe, typeOf } = require('../../src/index.mjs');
-const should = require('should');
 
 describe('typeOf', () => {
   it('should unbox objects before return their type', () =>

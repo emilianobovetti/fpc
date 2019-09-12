@@ -1,3 +1,5 @@
+/* eslint-env node, mocha */
+
 const { Result, Err, Ok, failWith, id } = require('../../src/index.mjs');
 const sinon = require('sinon');
 

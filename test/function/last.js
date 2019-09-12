@@ -1,6 +1,8 @@
+/* eslint-env node, mocha */
+/* eslint-disable no-magic-numbers */
+
 const { last } = require('../../src/index.mjs');
 const { compare } = require('../utils');
-const should = require('should');
 
 describe('last', () => {
   it('should get the last item of an array', () =>

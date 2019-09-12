@@ -1,4 +1,5 @@
-/* global require, exports, module, define */
+/* eslint-env node */
+/* global define */
 
 'use strict';
 

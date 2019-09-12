@@ -1,5 +1,7 @@
+/* eslint-env node, mocha */
+/* eslint-disable max-len, no-magic-numbers */
+
 const { curry, cat } = require('../../src/index.mjs');
-const should = require('should');
 
 const cat3 = curry((a, b, c) => a + b + c);
 

@@ -1,3 +1,5 @@
+/* eslint-env node, mocha */
+
 const { pair } = require('../../src/index.mjs');
 const { compare } = require('../utils');
 

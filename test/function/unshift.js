@@ -1,3 +1,5 @@
+/* eslint-env node, mocha */
+
 const { unshift } = require('../../src/index.mjs');
 const { compare } = require('../utils');
 

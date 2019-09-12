@@ -1,3 +1,6 @@
+/* eslint-env node, mocha */
+/* eslint-disable max-len, no-magic-numbers */
+
 const { filter, reduce, is } = require('../../src/index.mjs');
 const { compare } = require('../utils');
 const jsc = require('jsverify');
@@ -8,8 +11,8 @@ const isNumeric = val => (
   is.str(val)
     ? val >= 0 && val <= 9
     : is.obj(val)
-    ? reduce(val, (acc, x) => acc && isNumeric(x), true)
-    : is.num(val)
+      ? reduce(val, (acc, x) => acc && isNumeric(x), true)
+      : is.num(val)
 );
 
 describe('filter', () => {

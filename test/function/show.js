@@ -1,5 +1,6 @@
+/* eslint-env node, mocha */
+
 const { show } = require('../../src/index.mjs');
-const should = require('should');
 
 describe('show', () =>
   it('should act as identity function', () =>

@@ -76,7 +76,7 @@ Maybe.isInstance = val => val instanceof Maybe;
 Maybe.of = val => Maybe(val);
 
 Maybe.str = val => (
-  /* eslint eqeqeq: "off" */
+  /* eslint eqeqeq: off */
   is.str(val) && val != '' ? Just(unbox(val)) : Nothing
 );
 

@@ -1,3 +1,5 @@
+/* eslint-env node, mocha */
+
 const { sum } = require('../../src/index.mjs');
 const { compare } = require('../utils');
 

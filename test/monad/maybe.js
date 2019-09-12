@@ -1,17 +1,18 @@
+/* eslint-env node, mocha */
+/* eslint-disable max-len */
+
 const { Maybe, Nothing, Just } = require('../../src/index.mjs');
 const { compare } = require('../utils');
 const assert = require('assert');
-const should = require('should');
 const sinon = require('sinon');
 const jsc = require('jsverify');
-const _ = require('lodash');
 require('should-sinon');
 
-Maybe.compare = (m1, m2) => {
-  return m1.empty || m2.empty
+Maybe.compare = (m1, m2) => (
+  m1.empty || m2.empty
     ? m1.empty && m2.empty
-    : m1 === m2 || compare(m1.get(), m2.get());
-};
+    : m1 === m2 || compare(m1.get(), m2.get())
+);
 
 const just0 = Just(0);
 
@@ -685,11 +686,11 @@ const p1 = v_ => {
 /*
  * (return x) >>= f == f x
  */
-const p2 = (x, f_) => {
-  const f = x => Maybe(f_(x));
+const p2 = (x, f) => {
+  const f_ = x_ => Maybe(f(x_));
 
   return Maybe.compare(
-    Just(x).map(f), f(x)
+    Just(x).map(f_), f_(x)
   );
 };
 

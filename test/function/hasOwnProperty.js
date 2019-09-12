@@ -1,5 +1,7 @@
+/* eslint-env node, mocha */
+/* eslint-disable max-len */
+
 const { hasOwnProperty } = require('../../src/index.mjs');
-const should = require('should');
 
 describe('hasOwnProperty', () => {
   it('should check whether an object has a specified property as its own property', () =>

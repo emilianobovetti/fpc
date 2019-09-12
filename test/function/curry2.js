@@ -1,5 +1,6 @@
+/* eslint-env node, mocha */
+
 const { curry2, cat } = require('../../src/index.mjs');
-const should = require('should');
 
 const cat2 = curry2(cat);
 

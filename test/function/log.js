@@ -1,5 +1,6 @@
+/* eslint-env node, mocha */
+
 const { log } = require('../../src/index.mjs');
-const should = require('should');
 
 describe('log', () =>
   it('should act as identity function', () =>

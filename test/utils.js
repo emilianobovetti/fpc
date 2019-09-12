@@ -1,24 +1,7 @@
-const { is, pipe, first, map, reduce, failWith } = require('../src/index.mjs');
+/* eslint-env node */
+
+const { pipe, first, reduce, failWith } = require('../src/index.mjs');
 const isEqual = require('lodash.isequal');
-
-const stringifyArray = arr =>
-  arr.length === 0 ? '[]' : `[ ${arr.map(stringify).join(', ')} ]`;
-
-const stringifyObject = obj =>
-  pipe(obj)
-    .into(Object.entries)
-    .and(map, ([ key, val ]) => `${key}: ${stringify(val)}`)
-    .and(arr => arr.length === 0 ? '{}' : `{ ${arr.join(', ')} }`)
-    .result;
-
-const stringify = val =>
-  is.array(val)
-  ? stringifyArray(val)
-  : is.obj(val)
-  ? stringifyObject(val)
-  : is.str(val)
-  ? `"${val}"`
-  : String(val);
 
 const eqReducer = ([ areEquals, last ], current) =>
   [ areEquals && isEqual(current, last), current ];
@@ -32,9 +15,11 @@ const compare = (...args) => {
   const areEquals = pipe(args)
     .into(reduce, eqReducer, [ true, first(args) ])
     .and(first)
-    .result
+    .result;
 
-  return areEquals || failWith(new Error(`compare(${args.map(stringify)}) failed`));
+  return areEquals || failWith(
+    new Error(`compare ${JSON.stringify(args)} failed`)
+  );
 };
 
 const forAll = (vals, fn) =>
@@ -43,6 +28,8 @@ const forAll = (vals, fn) =>
 const values = [
   undefined,
   null,
+  -Infinity,
+  Infinity,
   NaN,
   [],
   {},

@@ -1,6 +1,8 @@
+/* eslint-env node, mocha */
+/* eslint-disable max-len, no-magic-numbers */
+
 const { reduce } = require('../../src/index.mjs');
 const { compare } = require('../utils');
-const should = require('should');
 const jsc = require('jsverify');
 
 const any = jsc.oneof([ jsc.json, jsc.falsy ]);
@@ -13,7 +15,7 @@ describe('reduce', () => {
   );
 
   it('should work on strings too', () =>
-    reduce('123', (acc, x) => acc + parseInt(x), 0).should.be.equal(6)
+    reduce('123', (acc, x) => acc + parseInt(x, 10), 0).should.be.equal(6)
   );
 
   jsc.property('should work as Array.prototype.reduce()', jsc.array(any), jsc.fn(jsc.nat), (array, fn) =>

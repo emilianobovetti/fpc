@@ -1,3 +1,6 @@
+/* eslint-env node, mocha */
+/* eslint-disable max-len */
+
 const { reverse, compose } = require('../../src/index.mjs');
 const { compare } = require('../utils');
 const jsc = require('jsverify');

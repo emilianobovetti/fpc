@@ -1,5 +1,6 @@
+/* eslint-env node, mocha */
+
 const { flip, cat } = require('../../src/index.mjs');
-const should = require('should');
 
 describe('flip', () =>
   it('should reverse the arguments order', () =>

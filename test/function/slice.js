@@ -1,3 +1,6 @@
+/* eslint-env node, mocha */
+/* eslint-disable max-len */
+
 const { slice, compose } = require('../../src/index.mjs');
 const { compare } = require('../utils');
 const jsc = require('jsverify');
@@ -14,7 +17,7 @@ describe('slice', () => {
     )
   );
 
-  jsc.property('should be idempotent', jsc.array(any), jsc.integer(), jsc.integer(),  (array, n1, n2) =>
+  jsc.property('should be idempotent', jsc.array(any), jsc.integer(), jsc.integer(), (array, n1, n2) =>
     compare(
       sliceSlice(array),
       slice(array)

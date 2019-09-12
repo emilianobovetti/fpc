@@ -1,6 +1,7 @@
+/* eslint-env node, mocha */
+
 const { pipe, pair } = require('../../src/index.mjs');
 const { compare } = require('../utils');
-const should = require('should');
 
 describe('pipe', () => {
   it('should throw an error if called without arguments', () =>

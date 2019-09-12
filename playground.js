@@ -1,3 +1,6 @@
+/* eslint-env node */
+/* eslint-disable no-return-assign */
+
 const repl = require('repl').start({ useGlobal: true });
 const fpc = require('./src');
 

@@ -1,5 +1,7 @@
+/* eslint-env node, mocha */
+/* global BigInt */
+
 const { compose, unbox } = require('../../src/index.mjs');
-const should = require('should');
 
 const boxUnbox =
   compose(Object)

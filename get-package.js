@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 const pkg = require('./package.json');
 
 process.argv.slice(2).forEach(field => {

@@ -1,5 +1,7 @@
+/* eslint-env node, mocha */
+/* eslint-disable no-magic-numbers */
+
 const { is } = require('../../src/index.mjs');
-const should = require('should');
 
 describe('is', () => {
 
@@ -9,15 +11,15 @@ describe('is', () => {
     );
 
     it('should be false on NaN', () =>
-      is.num(0/0).should.be.false()
+      is.num(NaN).should.be.false()
     );
 
     it('should be false on Infinity', () =>
-      is.num(1/0).should.be.false()
+      is.num(Infinity).should.be.false()
     );
 
     it('should be false on -Infinity', () =>
-      is.num(-1/0).should.be.false()
+      is.num(-Infinity).should.be.false()
     );
   });
 
@@ -31,15 +33,15 @@ describe('is', () => {
     );
 
     it('should be false on NaN', () =>
-      is.int(0/0).should.be.false()
+      is.int(NaN).should.be.false()
     );
 
     it('should be false on Infinity', () =>
-      is.int(1/0).should.be.false()
+      is.int(Infinity).should.be.false()
     );
 
     it('should be false on -Infinity', () =>
-      is.int(-1/0).should.be.false()
+      is.int(-Infinity).should.be.false()
     );
   });
 

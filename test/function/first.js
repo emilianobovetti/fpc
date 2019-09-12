@@ -1,6 +1,7 @@
+/* eslint-env node, mocha */
+
 const { first } = require('../../src/index.mjs');
 const { compare } = require('../utils');
-const should = require('should');
 
 describe('first', () => {
   it('should get the first item of an array', () =>

@@ -1,5 +1,7 @@
+/* eslint-env node, mocha */
+/* eslint-disable no-magic-numbers */
+
 const { expect } = require('../../src/index.mjs');
-const should = require('should');
 
 const string = 'abc';
 const symbol = Symbol('desc');
