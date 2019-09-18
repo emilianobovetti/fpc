@@ -1,3 +1,3 @@
-const empty = Object.create(null);
+const empty = {};
 
 export default empty;

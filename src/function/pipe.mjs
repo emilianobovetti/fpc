@@ -7,12 +7,12 @@ const pipe = (...args) => {
 
   self.result = args.length > 0
     ? first(args)
-    : failWith(new Error('pipe() cannot be called without an argument'));
+    : failWith(new Error('Expected argument'));
 
   self.into = (fn, ...innerArgs) => {
     expect.fun(fn);
 
-    return pipe(fn(...args.concat(innerArgs)));
+    return pipe(fn(...args, ...innerArgs));
   };
 
   self.and = self.into;
