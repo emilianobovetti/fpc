@@ -61,7 +61,7 @@
     "semantic-release": "^15.13.24",
     "should": "^13.2.3",
     "should-sinon": "^0.0.6",
-    "sinon": "^7.4.2",
+    "sinon": "^8.0.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.8"
   },
