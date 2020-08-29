@@ -1,29 +1,30 @@
 {
   "name": "fpc",
-  "description": "Functional piping & composition",
-  "version": "2.5.3",
-  "author": "Emiliano Bovetti",
+  "description": "Functional patterns collection",
+  "version": "3.0.0-alpha.3",
+  "author": "Emiliano Bovetti <emiliano.bovetti@gmail.com>",
   "license": "GPL-3.0",
   "keywords": [
     "functional",
-    "composition",
-    "compose",
-    "combine",
-    "fluent",
-    "pipeline",
-    "piping",
-    "pipe",
+    "collection",
+    "result",
+    "fpc",
     "fp"
   ],
   "main": "./src/index",
-  "types": "./src/index.d.ts",
+  "es:main": "./dist/fpc.es6.js",
   "umd:main": "./dist/fpc.umd.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/emilianobovetti/fpc.git"
+    "url": "git+https://github.com/emilianobovetti/fpc.git"
   },
   "bugs": {
     "url": "https://github.com/emilianobovetti/fpc/issues"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "build": "rollup -c",
+    "playground": "yarn build && node playground.js"
   },
   "release": {
     "branch": "master",
@@ -34,7 +35,7 @@
         "assets": [
           "package.json",
           "dist/*.js",
-          "docs/*.md"
+          "src"
         ],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
@@ -44,30 +45,18 @@
       "@semantic-release/github"
     ]
   },
-  "dependencies": {},
-  "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/register": "^7.7.7",
-    "@semantic-release/git": "^9.0.0",
-    "babel-plugin-istanbul": "^6.0.0",
-    "coveralls": "^3.0.9",
-    "eslint": "^6.8.0",
-    "eslint-loader": "^3.0.3",
-    "jsverify": "^0.8.3",
-    "lodash.isequal": "^4.5.0",
-    "mocha": "^7.0.1",
-    "nyc": "^15.0.0",
-    "semantic-release": "^17.0.0",
-    "should": "^13.2.3",
-    "should-sinon": "^0.0.6",
-    "sinon": "^8.0.1",
-    "webpack": "^4.41.4",
-    "webpack-cli": "^3.3.10"
+  "dependencies": {
+    "@fpc/maybe": "^1.1.1",
+    "@fpc/result": "^1.1.1",
+    "@fpc/stream": "^1.3.1",
+    "@fpc/types": "^1.0.1",
+    "@fpc/utils": "^1.4.1"
   },
-  "nyc": {
-    "require": [
-      "@babel/register"
-    ]
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "eslint": "^7.1.0",
+    "eslint-loader": "^4.0.2",
+    "rollup": "^2.26.8",
+    "rollup-plugin-terser": "^7.0.1"
   }
 }

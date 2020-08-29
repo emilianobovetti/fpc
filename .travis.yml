@@ -1,15 +1,13 @@
-sudo: false
-
 language: node_js
 
 node_js:
-  - "10"
+  - 14
 
 cache:
   yarn: true
 
 before_install:
-  - yarn global add greenkeeper-lockfile@1
+  - yarn global add semantic-release @semantic-release/git greenkeeper-lockfile
 
 before_script:
   - greenkeeper-lockfile-update
@@ -17,17 +15,13 @@ before_script:
 after_script:
   - greenkeeper-lockfile-upload
 
-after_success:
-  - npx nyc report --reporter=text-lcov | npx coveralls
-
 script:
-  - make
+  - yarn lint
+  - yarn build
 
 deploy:
   provider: script
-  skip_cleanup: true
-  script:
-    - npx semantic-release
+  script: npx semantic-release
   on:
     branch: master
 
