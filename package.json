@@ -55,7 +55,6 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^9.0.0",
     "eslint": "^7.1.0",
-    "eslint-loader": "^4.0.2",
     "rollup": "^2.26.8",
     "rollup-plugin-terser": "^7.0.1"
   }
