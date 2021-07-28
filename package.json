@@ -49,7 +49,7 @@
     "@fpc/maybe": "^1.1.1",
     "@fpc/result": "^1.1.1",
     "@fpc/stream": "^1.4.0",
-    "@fpc/types": "^1.0.1",
+    "@fpc/types": "^1.0.2",
     "@fpc/utils": "^1.4.1"
   },
   "devDependencies": {

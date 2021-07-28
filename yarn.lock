@@ -71,6 +71,11 @@
   resolved "https://registry.yarnpkg.com/@fpc/types/-/types-1.0.1.tgz#ca597082b538f59e6ffc8467e5e769f6036691c9"
   integrity sha512-Z8O9lQFYIVyj8wTgXy4zt8tfrvu2aEn1slF6AnyAblxaGn1Bg+v4D889x7qoxINWCPMcgHLkoyNSGzZ+I0yAUw==
 
+"@fpc/types@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@fpc/types/-/types-1.0.2.tgz#7b495e86ed7b88c197f5a56cb419d432793824d8"
+  integrity sha512-3WFD6zia1nmToB4nx3k1TyTkGvqSNhd4XKB5hTJKq7kIC5G2F+nfgIqgkTULqzNvlglgzheV6noy72v49r99bw==
+
 "@fpc/utils@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@fpc/utils/-/utils-1.4.1.tgz#05140ab289d96f75f6514ed83d5e209c3943ad11"
