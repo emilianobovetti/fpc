@@ -11,7 +11,7 @@
     "fpc",
     "fp"
   ],
-  "main": "./src/index",
+  "main": "./src/index.js",
   "es:main": "./dist/fpc.es6.js",
   "umd:main": "./dist/fpc.umd.js",
   "repository": {
