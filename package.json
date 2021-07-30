@@ -1,7 +1,7 @@
 {
   "name": "fpc",
   "description": "Functional patterns collection",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "author": "Emiliano Bovetti <emiliano.bovetti@gmail.com>",
   "license": "GPL-3.0",
   "keywords": [
