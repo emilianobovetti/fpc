@@ -48,7 +48,7 @@
   "dependencies": {
     "@fpc/maybe": "^1.1.2",
     "@fpc/result": "^1.1.2",
-    "@fpc/stream": "^1.4.1",
+    "@fpc/stream": "^1.4.2",
     "@fpc/types": "^1.0.2",
     "@fpc/utils": "^1.4.2"
   },

@@ -59,10 +59,10 @@
   dependencies:
     "@fpc/types" "^1.0.2"
 
-"@fpc/stream@^1.4.1":
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/@fpc/stream/-/stream-1.4.1.tgz#6dfddef394e160998accad2ead6a271bca115d2b"
-  integrity sha512-Y/A08oLkJeLrsA3VVRcNDe+6AavZzYOCcE9IuKHzB3LUSmIsgAzVjGm/WoSH+EY9l5R4hYc8w0HFyJV34/fnRg==
+"@fpc/stream@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@fpc/stream/-/stream-1.4.2.tgz#ddf8b88c1d55040b7df9bd3c55eedc4ddecf5881"
+  integrity sha512-a+jrIKA0MvxkD11VaMLAFZhEircfNfWZ7Eh0yaDWbaEHr7oOS899RzxHon+nwyzubavbGr2mQA7aD7fnoOCLbQ==
   dependencies:
     "@fpc/types" "^1.0.2"
 
