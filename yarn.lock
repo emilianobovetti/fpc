@@ -45,10 +45,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fpc/maybe@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@fpc/maybe/-/maybe-1.1.2.tgz#dcd3ca7160fa06da0d175c8edb2cf893b230fe90"
-  integrity sha512-jl6F6DcC0VV48uQ80R5xKyRaW52HPsXrmBLMxDqSlNd7lMevijIBOU2sErPV+NtCLybJFuGKkRxUlBJVTLmwwQ==
+"@fpc/maybe@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@fpc/maybe/-/maybe-1.1.4.tgz#142409f4e684401e6db9d7f8018ab2ad6bbd9d84"
+  integrity sha512-EjRjqPXVnhx6G3tqPMZXHmlXEczCxvgXLOi0HmoVewnG7nL8mys3ZRtAp7BSD4Tuz0KRJ85rkKIIMW8sMvlObQ==
   dependencies:
     "@fpc/types" "^1.0.2"
 
