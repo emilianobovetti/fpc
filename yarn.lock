@@ -52,10 +52,10 @@
   dependencies:
     "@fpc/types" "^1.0.2"
 
-"@fpc/result@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@fpc/result/-/result-1.1.2.tgz#6782ff79b3456ef3f996b653109e36992d843bcf"
-  integrity sha512-i6pntIcdL7WRkUH6pqTOmieswbPnVquBaYIQ3/+INYmEJOuU0bhcbt71OGWVe5nbZwcEVH0SD6Ihqt2s90+5Tw==
+"@fpc/result@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@fpc/result/-/result-1.1.3.tgz#4bc58c416fc578f73d119f822e691129a342cbeb"
+  integrity sha512-CdAJ+P+OAUQRQDuSRHIec3gi4/PM/tneY6YzoeM6YUzURcalM6fgh3NPoGFbUHiwbkw4HkLeXxcXdEgmtuzSog==
   dependencies:
     "@fpc/types" "^1.0.2"
 
