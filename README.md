@@ -1,11 +1,8 @@
 # fpc
 
 <div align="center">
-  <a href="https://travis-ci.org/emilianobovetti/fpc" target="_blank">
-    <img src="https://travis-ci.org/emilianobovetti/fpc.svg?branch=master" alt="Build Status">
-  </a>
-  <a href="https://github.com/emilianobovetti/fpc/blob/master/dist/fpc.umd.js" target="_blank">
-    <img src="https://badge-size.herokuapp.com/emilianobovetti/fpc/master/dist/fpc.umd.js" alt="dist/fpc.umd.js file size">
+  <a href="https://drone.tno.sh/emilianobovetti/fpc" target="_blank">
+    <img src="https://drone.tno.sh/api/badges/emilianobovetti/fpc/status.svg?branch=master" alt="Build Status">
   </a>
   <a href="https://snyk.io/test/github/emilianobovetti/fpc?targetFile=package.json">
     <img src="https://snyk.io/test/github/emilianobovetti/fpc/badge.svg?targetFile=package.json" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/emilianobovetti/fpc?targetFile=package.json" style="max-width:100%;">
