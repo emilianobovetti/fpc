@@ -1,0 +1,76 @@
+kind: pipeline
+type: docker
+name: default
+
+volumes:
+  - name: cache
+    host:
+      path: /tmp/cache
+
+steps:
+  - name: restore-cache
+    image: meltwater/drone-cache
+    pull: true
+    settings:
+      backend: 'filesystem'
+      restore: true
+      cache_key: 'volume'
+      archive_format: 'gzip'
+      mount:
+        - 'node_modules'
+    volumes:
+      - name: cache
+        path: /tmp/cache
+
+  - name: dependencies
+    image: emilianobovetti/fpc-js-builder
+    commands:
+      - yarn
+    depends_on:
+      - restore-cache
+
+  - name: lint
+    image: emilianobovetti/fpc-js-builder
+    commands:
+      - yarn lint
+    depends_on:
+      - dependencies
+
+  - name: build
+    image: emilianobovetti/fpc-js-builder
+    commands:
+      - yarn build
+    depends_on:
+      - dependencies
+
+  - name: publish
+    image: emilianobovetti/fpc-js-builder
+    environment:
+      NPM_TOKEN:
+        from_secret: semantic-release-npm-token
+      GITHUB_TOKEN:
+        from_secret: semantic-release-github-token
+    commands:
+      - semantic-release
+    depends_on:
+      - lint
+      - build
+    when:
+      branch: master
+
+  - name: rebuild-cache
+    image: meltwater/drone-cache
+    pull: true
+    settings:
+      backend: 'filesystem'
+      rebuild: true
+      cache_key: 'volume'
+      archive_format: 'gzip'
+      mount:
+        - 'node_modules'
+    volumes:
+      - name: cache
+        path: /tmp/cache
+    depends_on:
+      - lint
+      - publish
